@@ -1,0 +1,67 @@
+@charset "utf-8";
+/*公共样式开始*/
+html, body { background:url(/images/left/leftbottom.png) repeat;margin: 0px; padding: 0px; text-align: center; font-family: Verdana, Arial; font-size: 12px; color: #FFF; width: 100%;background-color:#d4d4d4; overflow-x: hidden;}
+a, a:link, a:visited, a:active {hide-focus: expression(this.hideFocus=true); outline: none; cursor:pointer; }
+img { border: 0px;vertical-align: middle;}
+li {hide-focus: expression(this.hideFocus=true); outline: none; list-style-type: none; text-align: left; line-height: 23px; }
+form { margin: 0px; }
+.clear,.c { margin: 0px; padding: 0px; clear: both; height: 0px; width: 0px; font-size: 0px; line-height: 0px; }
+h1, h2, h3, h4, h5, p, ul, li { margin: 0px; padding: 0px; }
+h1 { font-size: 24px; }
+h2 { font-size: 18px; }
+h3 { font-size: 16px; }
+h4 { font-size: 14px; }
+h5 { font-size: 12px; }
+input{vertical-align: middle;}
+.unit { position:relative; padding-top:32px; z-index:1;_zoom:1; }
+.unit_title { position: absolute; background:url(/images/game_bg.gif) repeat-x left -326px; height:32px;height:32px; line-height:32px; font-weight:bold; font-size:14px; width:781px; top:0; overflow:visible; }
+.ut_l, .ut_r { background:url(/images/game_bg.gif) repeat-x left -294px; float:left; height:32px; width:3px;}
+.ut_r { float:right; background-position:right -294px;}
+/*左边菜单样式开始*/
+#leftcon { float: left; background-color: #41200F; text-align: left; overflow-x: hidden;overflow-y: auto; *width: 193px; _width: 193px; }
+#leftcon .user { width: 193px; float: left;}
+#leftcon .my_menu { width: 193px; float: left; }
+.user_inf { background: url(/images/left/bg-user-tools.png) no-repeat left top;}
+
+.menu_head { background: url(/images/left/bg.gif) no-repeat left top; height: 29px; display: block; }
+.my_menu .menu_head { background-position: left -51px; }
+.ui_con { width:177px; padding:8px 8px 5px 8px; border-bottom:1px solid #343b3d;font-size: 13px;font-weight: bold;}
+.ui_bot { border-top:1px solid #888; height:3px; _font-size:0; _line-height:0;}
+.user_img a { display: block; background-image: url(/images/left/bg.gif); background-repeat: no-repeat; background-position: left -100px; height: 60px; width: 60px; }
+.user_name a {  color: #FFF; text-decoration: none; }
+.cmessage { background:url(/images/left/bg.gif) no-repeat left -167px;width:134px;height:25px;}
+.cmessage a {  color: #fff; text-decoration: none; }
+.jg { color:#FF0;}
+.ye { padding:5px 0;cursor: pointer;margin: 3px 0 0 0;}
+.ye_title { float:left; background:url(/images/left/bg.gif) no-repeat left -200px; width:40px; height:15px;}
+.nub { display:none; float:left; width:10px; height:15px; background:url(/images/left/bg.gif) no-repeat right -200px;}
+.nubf { display:block; background-position: -45px -199px;}
+.nubplus { display:block; background-position: -11px -220px;}
+.nubreduce { display:block; background-position: left -220px;}
+.nub1 { display:block; background-position: -65px -200px; width:6px;}
+.nub2 { display:block; background-position: -78px -200px;}
+.nub3 { display:block; background-position: -96px -200px;}
+.nub4 { display:block; background-position: -115px -200px;}
+.nub5 { display:block; background-position: -134px -200px;}
+.nub6 { display:block; background-position: -153px -200px;}
+.nub7 { display:block; background-position: -171px -200px;}
+.nub8 { display:block; background-position: -190px -200px;}
+.nub9 { display:block; background-position: -209px -200px;}
+.nub0 { display:block; background-position: right -200px;}
+.nubd { display:block; background-position: -227px -200px; width:6px;}
+.cztx .cz, .cztx .tx,.cztx .hd { float: left;  width:75px; padding-left:5px;margin-top: 5px;}
+.cztx .cz a, .cztx .tx a, .cztx .hd a{ display: block;background:url(/images/left/bg.gif) no-repeat -125px -101px; width:75px; height:23px; cursor:pointer; border:none;border:0; margin:0; padding:0;}
+.cztx .tx a { background-position: -125px -131px;}
+.cztx .hd a { background-position: right -127px;}
+.menu_con a, .menu_con a:visited { background:url(/images/left/bg.gif) no-repeat left -250px; padding-left:38px; height: 30px; line-height: 30px;display: block; color:#7f0b0f; text-decoration:none; }
+.my_menu a:hover { background-position: left -350px; color:#eee; }
+.my_menu .menu_con a.active { background-position: left -300px; color:#eee; font-weight:bold;}
+.left_bot { background:url(/images/left/bg.gif) no-repeat left -400px; height:40px; }
+#refreshimg{position: relative;}
+#nickname{font-weight: bold; color: #fff; text-decoration: none;}
+#addmoney{position: absolute;top:-100px;left: 40px;_left:0px;}
+.vip0 { display:block; float:right; background:url(/images/left/vip0.png) no-repeat right top; width:45px; height:22px; margin: 4px 18px 0 0px;}
+.vip1 { display:block; float:right; background:url(/images/left/vip1.png) no-repeat right top; width:45px; height:22px; margin: 4px 18px 0 0px;}
+.new{background:url(/images/left/new.gif) no-repeat left top; width: 28px;height: 11px;display: inline;}
+.hot{background:url(/images/left/hot3.gif) no-repeat left top; width: 28px;height: 11px;display: inline;}
+/*左边菜单样式结束*/

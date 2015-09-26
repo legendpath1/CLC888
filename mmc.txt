@@ -1,0 +1,2572 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<HTML xmlns="http://www.w3.org/1999/xhtml">
+<HEAD><TITLE>高频游戏平台  - 参与游戏  </TITLE>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<META http-equiv="Pragma" content="no-cache" />
+<link href="http://www.ph278.com:1180/highgame/css/new_higame/defaultright.15.css" rel="stylesheet" type="text/css" />
+<link href="http://www.ph278.com:1180/highgame/css/new_higame/dialogUI.css" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+<!--
+
+-->
+
+
+
+
+
+
+
+
+<style type="text/css">
+#task_div{
+	width:250px!important;width:295px;
+	height:100px;
+	line-weight:20px;
+	color:#FFF;
+	padding-left:5px;
+	background-image: url(http://www.ph278.com:1180/highgame/images/new_higame/alertback.png);
+	background-color:#131E31;	
+	position:absolute;
+	text-align:left;
+	overflow:hidden;
+	border:1px #131E31 double;
+	padding:0px;
+}
+#task_div a{
+    color:#FFF;
+}
+#task_div a:visited{
+    color:#FFF;
+}
+.code1{
+	width:250px!important;width:295px;
+	height:80px;
+	line-weight:20px;
+	color:#000;
+	background:#FFF;	
+	text-align:left;
+	overflow-y:auto;
+	border:1px #131E31 double;
+	border-left:0px;
+}	
+
+.J-records-outcont {position:relative;}
+.J-records-outcont .J-records-number-detail {position:absolute;padding:10px;padding-top:26px;background:#FFFFE1;border:1px solid #999;left:-60px;top:20px;
+ -moz-border-radius: 3px;
+ -webkit-border-radius: 3px;
+ border-radius:3px;
+}
+.J-records-outcont .J-records-number-detail textarea {width:200px;height:120px;background:#FFFFE1;border:0;line-height:200%;}
+.J-records-outcont .J-records-number-detail i {position:absolute;right:10px;top:10px;cursor:pointer;}
+
+</style>
+
+$(function () {
+	$('#marquee_container').width($(window).width() - $('#nav').width() - 30);
+	/**
+	$.ajax({
+		type : 'GET',
+		url  : './?controller=default&action=marquee',
+		async: false,
+		timeout: 20000,
+		dataType: 'json',
+		cache: true,
+		success: function(data)
+		{
+			if(data.link)
+			{
+				html = '<a href="./?controller=help&action=notice&nid='+data.id+'" target="mainframe">'+data.subject+'</a>';
+			}
+			else
+			{
+				html = data.subject;
+			}
+			$("marquee").html(html);
+			$('marquee').marquee('pointer').mouseover(function () {
+				$(this).trigger('stop');
+			}).mouseout(function () {
+				$(this).trigger('start');
+			}).mousemove(function (event) {
+				if ($(this).data('drag') == true) {
+					this.scrollLeft = $(this).data('scrollX') + ($(this).data('x') - event.clientX);
+				}
+			}).mousedown(function (event) {
+				$(this).data('drag', true).data('x', event.clientX).data('scrollX', this.scrollLeft);
+			}).mouseup(function () {
+				$(this).data('drag', false);
+			});
+		},
+		error: function()
+		{
+			$("marquee").html("");
+		}
+	});
+	**/
+	
+	$(window).scroll(function() {
+		$('#right_01').css('top', $(this).scrollTop() + "px");
+	});
+});
+</script>
+
+function show_on()
+{
+	$("#lt_help_div").show("slow");
+}
+function close_on()
+{
+	$("#lt_help_div").hide("slow");
+}
+(function($){
+$(document).ready(function(){
+	$.gameInit({
+		data_label: [
+										{isdefault:"0",title:"五星", label:[{gtitle:'五星直选', label:[{methoddesc:'从个、十、百、千、万位各选一个号码组成一注。',
+methodhelp:'从万位、千位、百位、十位、个位中选择一个5位数号码组成一注，所选号码与开奖号码全部相同，且顺序一致，即为中奖。',
+methodexample:'投注方案：23456； 开奖号码：23456，即中五星直选一等奖',
+selectarea:{
+       type   : 'digital',
+       layout : [
+		   {title:'万位', no:'0|1|2|3|4|5|6|7|8|9', place:0, cols:1},
+		   {title:'千位', no:'0|1|2|3|4|5|6|7|8|9', place:1, cols:1},
+		   {title:'百位', no:'0|1|2|3|4|5|6|7|8|9', place:2, cols:1},
+		   {title:'十位', no:'0|1|2|3|4|5|6|7|8|9', place:3, cols:1},
+		   {title:'个位', no:'0|1|2|3|4|5|6|7|8|9', place:4, cols:1}
+		  ],
+       noBigIndex : 5,
+       isButton   : true
+},
+show_str : 'X,X,X,X,X',
+code_sp : '',
+                                                  methodid : 1006,
+                                                  name:'复式',
+                                                  prize:{1:'180000.00'},
+                                                  modes:[{modeid:1,name:'元',rate:1},{modeid:2,name:'角',rate:0.1}],
+                                                  desc:'复式',maxcodecount:0
+                                                },{methoddesc:'手动输入号码，至少输入1个五位数号码组成一注。',
+methodhelp:'手动输入一个5位数号码组成一注，所选号码的万位、千位、百位、十位、个位与开奖号码相同，且顺序一致，即为中奖。',
+methodexample:'投注方案：23456； 开奖号码：23456，即中五星直选一等奖',
+selectarea:{type:'input',singletypetips:'三星123,234 五星12345'},
+show_str : 'X',
+code_sp : ' ',
+                                                  methodid : 1006,
+                                                  name:'单式',
+                                                  prize:{1:'180000.00'},
+                                                  modes:[{modeid:1,name:'元',rate:1},{modeid:2,name:'角',rate:0.1}],
+                                                  desc:'单式',maxcodecount:0
+                                                },{methoddesc:'从个、十、百、千、万位各选一个号码组成五注。',
+methodhelp:'从万位、千位、百位、十位、个位中至少各选一个号码组成1-5星的组合，共五注，所选号码的个位与开奖号码相同，则中1个5等奖；所选号码的个位、十位与开奖号码相同，则中1个5等奖以及1个4等奖，依此类推，最高可中5个奖。',
+methodexample:'五星组合示例，如购买：4+5+6+7+8，该票共10元，由以下5注：45678(五星)、5678(四星)、678(三星)、78(二星)、8(一星)构成。开奖号码：45678，即可中五星、四星、三星、二星、一星的一等奖各1注。',
+selectarea:{
+       type   : 'digital',
+       layout : [
+		   {title:'万位', no:'0|1|2|3|4|5|6|7|8|9', place:0, cols:1},
+		   {title:'千位', no:'0|1|2|3|4|5|6|7|8|9', place:1, cols:1},
+		   {title:'百位', no:'0|1|2|3|4|5|6|7|8|9', place:2, cols:1},
+		   {title:'十位', no:'0|1|2|3|4|5|6|7|8|9', place:3, cols:1},
+		   {title:'个位', no:'0|1|2|3|4|5|6|7|8|9', place:4, cols:1}
+		  ],
+       noBigIndex : 5,
+       isButton   : true
+      },
+show_str : 'X,X,X,X,X',
+code_sp : '',
+                                                  methodid : 1008,
+                                                  name:'组合',
+                                                  prize:{1:'180000.00',2:'18000.00',3:'1800.00',4:'180.00',5:'18.00'},
+                                                  modes:[{modeid:1,name:'元',rate:1},{modeid:2,name:'角',rate:0.1}],
+                                                  desc:'组合',maxcodecount:0
+                                                }]},{gtitle:'五星组选', label:[{methoddesc:'从0-9中选择5个号码组成一注。',
+methodhelp:'从0-9中任意选择5个号码组成一注，所选号码与开奖号码的万位、千位、百位、十位、个位相同，顺序不限，即为中奖。',
+methodexample:'投注方案：02568，开奖号码的五个数字只要包含0、2、5、6、8，即可中五星组选120一等奖。',
+selectarea:{
+    type   : 'digital',
+    layout : [
+               {title:'', no:'0|1|2|3|4|5|6|7|8|9', place:0, cols:1, minchosen:5}
+             ],
+             noBigIndex : 5,
+             isButton   : true
+},
+show_str : 'X',
+code_sp : ',',
+                                                  methodid : 1012,
+                                                  name:'五星组选120',
+                                                  prize:{1:'1500.00'},
+                                                  modes:[{modeid:1,name:'元',rate:1},{modeid:2,name:'角',rate:0.1}],
+                                                  desc:'组选120',maxcodecount:0
+                                                },{methoddesc:'从“二重号”选择一个号码，“单号”中选择三个号码组成一注。',
+methodhelp:'选择1个二重号码和3个单号号码组成一注，所选的单号号码与开奖号码相同，且所选二重号码在开奖号码中出现了2次，即为中奖。',
+methodexample:'投注方案：二重号：8，单号：0、2、5，只要开奖的5个数字包括 0、2、5、8、8，即可中五星组选60一等奖。',
+selectarea:{
+       type   : 'digital',
+       layout : [
+		   {title:'二重号', no:'0|1|2|3|4|5|6|7|8|9', place:0, cols:1, minchosen: 1},
+		   {title:'单　号', no:'0|1|2|3|4|5|6|7|8|9', place:1, cols:1, minchosen: 3}
+		  ],
+       noBigIndex : 5,
+       isButton   : true
+      },
+show_str : 'X,X',
+code_sp : '',
+                                                  methodid : 1013,
+                                                  name:'五星组选60',
+                                                  prize:{2:'3000.00'},
+                                                  modes:[{modeid:1,name:'元',rate:1},{modeid:2,name:'角',rate:0.1}],
+                                                  desc:'组选60',maxcodecount:0
+                                                },{methoddesc:'从“二重号”选择两个号码，“单号”中选择一个号码组成一注。',
+methodhelp:'选择2个二重号和1个单号号码组成一注，所选的单号号码与开奖号码相同，且所选的2个二重号码分别在开奖号码中出现了2次，即为中奖。',
+methodexample:'投注方案：二重号：2、8，单号：0，只要开奖的5个数字包括 0、2、2、8、8，即可中五星组选30一等奖。',
+selectarea:{
+       type   : 'digital',
+       layout : [
+		   {title:'二重号', no:'0|1|2|3|4|5|6|7|8|9', place:0, cols:1, minchosen: 2},
+		   {title:'单　号', no:'0|1|2|3|4|5|6|7|8|9', place:1, cols:1, minchosen: 1}
+		  ],
+       noBigIndex : 5,
+       isButton   : true
+      },
+show_str : 'X,X',
+code_sp : '',
+                                                  methodid : 1014,
+                                                  name:'五星组选30',
+                                                  prize:{3:'6000.00'},
+                                                  modes:[{modeid:1,name:'元',rate:1},{modeid:2,name:'角',rate:0.1}],
+                                                  desc:'组选30',maxcodecount:0
+                                                },{methoddesc:'从“三重号”选择一个号码，“单号”中选择两个号码组成一注。',
+methodhelp:'选择1个三重号码和2个单号号码组成一注，所选的单号号码与开奖号码相同，且所选三重号码在开奖号码中出现了3次，即为中奖。',
+methodexample:'投注方案：三重号：8，单号：0、2，只要开奖的5个数字包括 0、2、8、8、8，即可中五星组选20一等奖。',
+selectarea:{
+       type   : 'digital',
+       layout : [
+		   {title:'三重号', no:'0|1|2|3|4|5|6|7|8|9', place:0, cols:1, minchosen: 1},
+		   {title:'单　号', no:'0|1|2|3|4|5|6|7|8|9', place:1, cols:1, minchosen: 2}
+		  ],
+       noBigIndex : 5,
+       isButton   : true
+      },
+show_str : 'X,X',
+code_sp : '',
+                                                  methodid : 1015,
+                                                  name:'五星组选20',
+                                                  prize:{4:'9000.00'},
+                                                  modes:[{modeid:1,name:'元',rate:1},{modeid:2,name:'角',rate:0.1}],
+                                                  desc:'组选20',maxcodecount:0
+                                                },{methoddesc:'从“三重号”选择一个号码，“二重号”中选择一个号码组成一注。',
+methodhelp:'选择1个三重号码和1个二重号码，所选三重号码在开奖号码中出现3次，并且所选二重号码在开奖号码中出现了2次，即为中奖。',
+methodexample:'投注方案：三重号：8，二重号：2，只要开奖的5个数字包括 2、2、8、8、8，即可中五星组选10一等奖。',
+selectarea:{
+       type   : 'digital',
+       layout : [
+		   {title:'三重号', no:'0|1|2|3|4|5|6|7|8|9', place:0, cols:1, minchosen: 1},
+		   {title:'二重号', no:'0|1|2|3|4|5|6|7|8|9', place:1, cols:1, minchosen: 1}
+		  ],
+       noBigIndex : 5,
+       isButton   : true
+      },
+show_str : 'X,X',
+code_sp : '',
+                                                  methodid : 1016,
+                                                  name:'五星组选10',
+                                                  prize:{5:'18000.00'},
+                                                  modes:[{modeid:1,name:'元',rate:1},{modeid:2,name:'角',rate:0.1}],
+                                                  desc:'组选10',maxcodecount:0
+                                                },{methoddesc:'从“四重号”选择一个号码，“单号”中选择一个号码组成一注。',
+methodhelp:'选择1个四重号码和1个单号号码组成一注，所选的单号号码与开奖号码相同，且所选四重号码在开奖号码中出现了4次，即为中奖。',
+methodexample:'投注方案：四重号：8，单号：2，只要开奖的5个数字包括 2、8、8、8、8，即可中五星组选5一等奖。',
+selectarea:{
+       type   : 'digital',
+       layout : [
+		   {title:'四重号', no:'0|1|2|3|4|5|6|7|8|9', place:0, cols:1, minchosen: 1},
+		   {title:'单　号', no:'0|1|2|3|4|5|6|7|8|9', place:1, cols:1, minchosen: 1}
+		  ],
+       noBigIndex : 5,
+       isButton   : true
+      },
+show_str : 'X,X',
+code_sp : '',
+                                                  methodid : 1017,
+                                                  name:'五星组选5',
+                                                  prize:{6:'36000.00'},
+                                                  modes:[{modeid:1,name:'元',rate:1},{modeid:2,name:'角',rate:0.1}],
+                                                  desc:'组选5',maxcodecount:0
+                                                }]}]},										{isdefault:"0",title:"四星", label:[{gtitle:'四星直选', label:[{methoddesc:'从个、十、百、千位各选一个号码组成一注。',
+methodhelp:'从千位、百位、十位、个位中选择一个4位数号码组成一注，所选号码与开奖号码相同，且顺序一致，即为中奖。',
+methodexample:'投注方案：3456； 开奖号码：3456，即中四星直选一等奖',
+selectarea:{
+       type   : 'digital',
+       layout : [
+		   {title:'千位', no:'0|1|2|3|4|5|6|7|8|9', place:0, cols:1},
+		   {title:'百位', no:'0|1|2|3|4|5|6|7|8|9', place:1, cols:1},
+		   {title:'十位', no:'0|1|2|3|4|5|6|7|8|9', place:2, cols:1},
+		   {title:'个位', no:'0|1|2|3|4|5|6|7|8|9', place:3, cols:1}
+		  ],
+       noBigIndex : 5,
+       isButton   : true
+      },
+show_str : '-,X,X,X,X',
+code_sp : '',
+                                                  methodid : 1019,
+                                                  name:'复式',
+                                                  prize:{1:'18000.00'},
+                                                  modes:[{modeid:1,name:'元',rate:1},{modeid:2,name:'角',rate:0.1}],
+                                                  desc:'复式',maxcodecount:0
+                                                },{methoddesc:'手动输入号码，至少输入1个四位数号码组成一注。',
+methodhelp:'手动输入一个4位数号码组成一注，所选号码的千位、百位、十位、个位与开奖号码相同，且顺序一致，即为中奖。',
+methodexample:'投注方案：3456； 开奖号码：3456，即中四星直选一等奖',
+selectarea:{type:'input',singletypetips:'三星123,234 五星12345'},
+show_str : 'X',
+code_sp : ' ',
+                                                  methodid : 1019,
+                                                  name:'单式',
+                                                  prize:{1:'18000.00'},
+                                                  modes:[{modeid:1,name:'元',rate:1},{modeid:2,name:'角',rate:0.1}],
+                                                  desc:'单式',maxcodecount:0
+                                                },{methoddesc:'从个、十、百、千位各选一个号码组成四注。',
+methodhelp:'从千位、百位、十位、个位中至少各选一个号码组成1-4星的组合，共四注，所选号码的个位与开奖号码相同，则中1个4等奖；所选号码的个位、十位与开奖号码相同，则中1个4等奖以及1个3等奖，依此类推，最高可中4个奖。',
+methodexample:'四星组合示例，如购买：5+6+7+8，该票共8元，由以下4注：5678(四星)、678(三星)、78(二星)、8(一星)构成。开奖号码：5678，即可中四星、三星、二星、一星的一等奖各1注。',
+selectarea:{
+       type   : 'digital',
+       layout : [
+		   {title:'千位', no:'0|1|2|3|4|5|6|7|8|9', place:0, cols:1},
+		   {title:'百位', no:'0|1|2|3|4|5|6|7|8|9', place:1, cols:1},
+		   {title:'十位', no:'0|1|2|3|4|5|6|7|8|9', place:2, cols:1},
+		   {title:'个位', no:'0|1|2|3|4|5|6|7|8|9', place:3, cols:1}
+		  ],
+       noBigIndex : 5,
+       isButton   : true
+      },
+show_str : '-,X,X,X,X',
+code_sp : '',
+                                                  methodid : 1021,
+                                                  name:'组合',
+                                                  prize:{1:'18000.00',2:'1800.00',3:'180.00',4:'18.00'},
+                                                  modes:[{modeid:1,name:'元',rate:1},{modeid:2,name:'角',rate:0.1}],
+                                                  desc:'组合',maxcodecount:0
+                                                }]},{gtitle:'四星组选', label:[{methoddesc:'从0-9中选择4个号码组成一注。',
+methodhelp:'从0-9中任意选择4个号码组成一注，所选号码与开奖号码的千位、百位、十位、个位相同，且顺序不限，即为中奖。',
+methodexample:'投注方案：0568，开奖号码的四个数字只要包含0、5、6、8，即可中四星组选24一等奖。',
+selectarea:{
+       type   : 'digital',
+       layout : [
+		   {title:'', no:'0|1|2|3|4|5|6|7|8|9', place:0, cols:1, minchosen:4}
+		  ],
+       noBigIndex : 5,
+       isButton   : true
+      },
+show_str : 'X',
+code_sp : ',',
+                                                  methodid : 1025,
+                                                  name:'四星组选24',
+                                                  prize:{1:'750.00'},
+                                                  modes:[{modeid:1,name:'元',rate:1},{modeid:2,name:'角',rate:0.1}],
+                                                  desc:'组选24',maxcodecount:0
+                                                },{methoddesc:'从“二重号”选择一个号码，“单号”中选择两个号码组成一注。',
+methodhelp:'选择1个二重号码和2个单号号码组成一注，所选单号号码与开奖号码相同，且所选二重号码在开奖号码中出现了2次，即为中奖。',
+methodexample:'投注方案：二重号：8，单号：0、6，只要开奖的四个数字包括 0、6、8、8，即可中四星组选12一等奖。',
+selectarea:{
+       type   : 'digital',
+       layout : [
+		   {title:'二重号', no:'0|1|2|3|4|5|6|7|8|9', place:0, cols:1, minchosen:1},
+		   {title:'单　号', no:'0|1|2|3|4|5|6|7|8|9', place:1, cols:1, minchosen:2}
+		  ],
+       noBigIndex : 5,
+       isButton   : true
+      },
+show_str : 'X,X',
+code_sp : '',
+                                                  methodid : 1026,
+                                                  name:'四星组选12',
+                                                  prize:{2:'1500.00'},
+                                                  modes:[{modeid:1,name:'元',rate:1},{modeid:2,name:'角',rate:0.1}],
+                                                  desc:'组选12',maxcodecount:0
+                                                },{methoddesc:'从“二重号”选择两个号码组成一注。',
+methodhelp:'选择2个二重号码组成一注，所选的2个二重号码在开奖号码中分别出现了2次，即为中奖。',
+methodexample:'投注方案：二重号：2、8，开奖号码的4个数字必须包含对子号2和8（例如2、8、8、2），顺序不限，即可中四星组选6。',
+selectarea:{
+       type   : 'digital',
+       layout : [
+		   {title:'二重号', no:'0|1|2|3|4|5|6|7|8|9', place:0, cols:1, minchosen:2}
+		  ],
+       noBigIndex : 5,
+       isButton   : true
+      },
+show_str : 'X',
+code_sp : ',',
+                                                  methodid : 1027,
+                                                  name:'四星组选6',
+                                                  prize:{3:'3000.00'},
+                                                  modes:[{modeid:1,name:'元',rate:1},{modeid:2,name:'角',rate:0.1}],
+                                                  desc:'组选6',maxcodecount:0
+                                                },{methoddesc:'从“三重号”选择一个号码，“单号”中选择两个号码组成一注。',
+methodhelp:'选择1个三重号码和1个单号号码组成一注，所选单号号码与开奖号码相同，且所选三重号码在开奖号码中出现了3次，即为中奖。',
+methodexample:'投注方案：三三重号：8，单号：2，开奖号码的4个数字必须包含三重号8，以及单号2（比如8、8、2、8）顺序不限，即可中四星组选4。',
+selectarea:{
+       type   : 'digital',
+       layout : [
+		   {title:'三重号', no:'0|1|2|3|4|5|6|7|8|9', place:0, cols:1, minchosen:1},{title:'单　号', no:'0|1|2|3|4|5|6|7|8|9', place:1, cols:1, minchosen:1}
+		  ],
+       noBigIndex : 5,
+       isButton   : true
+      },
+show_str : 'X,X',
+code_sp : '',
+                                                  methodid : 1028,
+                                                  name:'四星组选4',
+                                                  prize:{4:'4500.00'},
+                                                  modes:[{modeid:1,name:'元',rate:1},{modeid:2,name:'角',rate:0.1}],
+                                                  desc:'组选4',maxcodecount:0
+                                                }]}]},										{isdefault:"0",title:"前三", label:[{gtitle:'前三直选', label:[{methoddesc:'从万、千、百位各选一个号码组成一注。',
+methodhelp:'从万位、千位、百位中选择一个3位数号码组成一注，所选号码与开奖号码的前3位相同，且顺序一致，即为中奖。',
+methodexample:'投注方案：345； 开奖号码：345，即中前三直选一等奖',
+selectarea:{type:'digital',layout:[{title:'万位', no:'0|1|2|3|4|5|6|7|8|9', place:0, cols:1},{title:'千位', no:'0|1|2|3|4|5|6|7|8|9', place:1, cols:1},{title:'百位', no:'0|1|2|3|4|5|6|7|8|9', place:2, cols:1}],noBigIndex:5,isButton:true},
+show_str : 'X,X,X,-,-',
+code_sp  : '',
+                                                  methodid : 957,
+                                                  name:'复式',
+                                                  prize:{1:'1800.00'},
+                                                  modes:[{modeid:1,name:'元',rate:1},{modeid:2,name:'角',rate:0.1}],
+                                                  desc:'复式',maxcodecount:0
+                                                },{methoddesc:'手动输入号码，至少输入1个三位数号码组成一注。',
+methodhelp:'手动输入一个3位数号码组成一注，所选号码的万位、千位、百位与开奖号码相同，且顺序一致，即为中奖。',
+methodexample:'投注方案：345； 开奖号码：345，即中前三直选一等奖',
+selectarea:{type:'input',singletypetips:'三星123,234 五星12345'},
+show_str : 'X',
+code_sp : ' ',
+                                                  methodid : 957,
+                                                  name:'单式',
+                                                  prize:{1:'1800.00'},
+                                                  modes:[{modeid:1,name:'元',rate:1},{modeid:2,name:'角',rate:0.1}],
+                                                  desc:'单式',maxcodecount:0
+                                                },{methoddesc:'从0-27中任意选择1个或1个以上号码。',
+methodhelp:'所选数值等于开奖号码的万位、千位、百位三个数字相加之和，即为中奖。',
+methodexample:'投注方案：和值1；开奖号码前三位：001,010,100,即中前三直选一等奖',
+selectarea:{
+       type   : 'digital',
+       layout : [
+		   {title:'直选和值', no:'0|1|2|3|4|5|6|7|8|9|10|11|12|13', place:0, cols:1},
+		   {title:'', no:'14|15|16|17|18|19|20|21|22|23|24|25|26|27', place:0, cols:1}
+		 ],
+       isButton   : false
+      },
+show_str : 'X',
+code_sp : ',',
+                                                  methodid : 958,
+                                                  name:'直选和值',
+                                                  prize:{1:'1800.00'},
+                                                  modes:[{modeid:1,name:'元',rate:1},{modeid:2,name:'角',rate:0.1}],
+                                                  desc:'直选和值',maxcodecount:0
+                                                },{methoddesc:'从0-9中选择1个号码。',
+methodhelp:'所选数值等于开奖号码的前3位最大与最小数字相减之差，即为中奖。',
+methodexample:'投注方案：跨度8；开奖号码前三位：(1)开出的三个数字包括0,8,x，其中x≠9，即可中前三直选一等奖;(2)开出的三个数字包括1,9,x，其中x≠0，即可中前三直选一等奖',
+selectarea:{
+       type   : 'digital',
+       layout : [
+		   {title:'', no:'0|1|2|3|4|5|6|7|8|9', place:0, cols:1}
+		  ],
+       noBigIndex : 5,
+       isButton   : true
+      },
+show_str : 'X',
+code_sp : ',',
+                                                  methodid : 959,
+                                                  name:'跨度',
+                                                  prize:{1:'1800.00'},
+                                                  modes:[{modeid:1,name:'元',rate:1},{modeid:2,name:'角',rate:0.1}],
+                                                  desc:'跨度',maxcodecount:0
+                                                },{methoddesc:'从万、千、百位各选一个号码组成三注。',
+methodhelp:'从万位、千位、百位中至少各选择一个号码组成1-3星的组合共三注，当百位号码与开奖号码相同，则中1个3等奖；如果百位与千位号码与开奖号码相同，则中1个3等奖以及1个2等奖，依此累推，最高可中3个奖。',
+methodexample:'投注方案：购买万千百位分别为6、7、8，包括678(三星)一注、78(二星)一注、8(一星)一注；开奖号码的前三位：678，即中三星、二星、一星的一等奖各一注。',
+selectarea:{
+       type   : 'digital',
+       layout : [
+		   {title:'万位', no:'0|1|2|3|4|5|6|7|8|9', place:0, cols:1},
+		   {title:'千位', no:'0|1|2|3|4|5|6|7|8|9', place:1, cols:1},
+		   {title:'百位', no:'0|1|2|3|4|5|6|7|8|9', place:2, cols:1}
+		  ],
+       noBigIndex : 5,
+       isButton   : true
+      },
+show_str : 'X,X,X,-,-',
+code_sp : '',
+                                                  methodid : 1030,
+                                                  name:'组合',
+                                                  prize:{1:'1800.00',2:'180.00',3:'18.00'},
+                                                  modes:[{modeid:1,name:'元',rate:1},{modeid:2,name:'角',rate:0.1}],
+                                                  desc:'组合',maxcodecount:0
+                                                }]},{gtitle:'前三组选', label:[{methoddesc:'从0-9中任意选择2个或2个以上号码。',
+methodhelp:'从0-9中选择2个数字组成两注，所选号码与开奖号码的万位、千位、百位相同，且顺序不限，即为中奖。',
+methodexample:'投注方案：5,8,8；开奖号码前三位：1个5，2个8 (顺序不限)，即中前三组选三一等奖。',
+selectarea:{
+       type   : 'digital',
+       layout : [
+		   {title:'组三', no:'0|1|2|3|4|5|6|7|8|9', place:0, cols:1}
+		  ],
+       noBigIndex : 5,
+       isButton   : true
+      },
+show_str : 'X',
+code_sp : ',',
+                                                  methodid : 965,
+                                                  name:'组三',
+                                                  prize:{1:'600.00'},
+                                                  modes:[{modeid:1,name:'元',rate:1},{modeid:2,name:'角',rate:0.1}],
+                                                  desc:'组三',maxcodecount:0
+                                                },{methoddesc:'从0-9中任意选择3个或3个以上号码。',
+methodhelp:'从0-9中任意选择3个号码组成一注，所选号码与开奖号码的万位、千位、百位相同，顺序不限，即为中奖。',
+methodexample:'投注方案：2,5,8；开奖号码前三位：1个2、1个5、1个8 (顺序不限)，即中前三组选六一等奖。',
+selectarea:{
+       type   : 'digital',
+       layout : [
+		   {title:'组六', no:'0|1|2|3|4|5|6|7|8|9', place:0, cols:1}
+		  ],
+       noBigIndex : 5,
+       isButton   : true
+      },
+show_str : 'X',
+code_sp : ',',
+                                                  methodid : 966,
+                                                  name:'组六',
+                                                  prize:{2:'300.00'},
+                                                  modes:[{modeid:1,name:'元',rate:1},{modeid:2,name:'角',rate:0.1}],
+                                                  desc:'组六',maxcodecount:0
+                                                },{methoddesc:'手动输入号码，至少输入1个三位数号码。',
+methodhelp:'手动输入组三或组六号码，3个数字为一注，所选号码与开奖号码的万位、千位、百位相同，顺序不限，即为中奖。',
+methodexample:'投注方案：分別投注(0,0,1),以及(1,2,3)，开奖号码前三位包括：(1)0,0,1，顺序不限，即中得组三一等奖；或者(2)1,2,3，顺序不限，即中得组六一等奖。',
+selectarea:{type:'input',singletypetips:'三星123,234 五星12345'},
+show_str : 'X',
+code_sp : ' ',
+                                                  methodid : 967,
+                                                  name:'混合',
+                                                  prize:{1:'600.00',2:'300.00'},
+                                                  modes:[{modeid:1,name:'元',rate:1},{modeid:2,name:'角',rate:0.1}],
+                                                  desc:'混合组选',maxcodecount:0
+                                                },{methoddesc:'从1-26中选择1个号码。',
+methodhelp:'手动输入号码，3个数字为一注，所选号码与开奖号码的万位、千位、百位相同，顺序不限，即为中奖。',
+methodexample:'投注方案：和值3；开奖号码前三位：(1)开出003号码，顺序不限，即中前三组选三一等奖；(2)开出012号码，顺序不限，即中前三组选六一等奖',
+selectarea:{
+       type   : 'digital',
+       layout : [
+		   {title:'组选和值', no:'1|2|3|4|5|6|7|8|9|10|11|12|13', place:0, cols:1},
+		   {title:'', no:'14|15|16|17|18|19|20|21|22|23|24|25|26', place:0, cols:1}
+		 ],
+       isButton   : false
+      },
+show_str : 'X',
+code_sp : ',',
+                                                  methodid : 968,
+                                                  name:'组选和值',
+                                                  prize:{1:'600.00',2:'300.00'},
+                                                  modes:[{modeid:1,name:'元',rate:1},{modeid:2,name:'角',rate:0.1}],
+                                                  desc:'组选和值',maxcodecount:0
+                                                },{methoddesc:'手动输入号码，至少输入 1 个三位数号码。(三个数字当中有二个数字相同)',
+methodhelp:'手动输入组三号码，3个数字为一注，所选号码与开奖号码的万位、千位、百位相同，顺序不限，即为中奖。',
+methodexample:'投注方案：001；开奖号码前三位：1 个 1，2 个 0 (顺序不限)，即中前三组选三。',
+selectarea:{type:'input',singletypetips:'三星112,363'},
+show_str : 'X',
+code_sp : ' ',
+                                                  methodid : 965,
+                                                  name:'组三单式',
+                                                  prize:{1:'600.00'},
+                                                  modes:[{modeid:1,name:'元',rate:1},{modeid:2,name:'角',rate:0.1}],
+                                                  desc:'组三单式',maxcodecount:0
+                                                },{methoddesc:'手动输入号码，至少输入 1 个三位数号码。(三个数字全不相同)',
+methodhelp:'手动输入组六号码，3个数字为一注，所选号码与开奖号码的万位、千位、百位相同，顺序不限，即为中奖。',
+methodexample:'投注方案：123；开奖号码前三位：1 个 1，1 个 2，1 个 3 (顺序不限)，即中前三组选六。',
+selectarea:{type:'input',singletypetips:'三星123,234'},
+show_str : 'X',
+code_sp : ' ',
+                                                  methodid : 966,
+                                                  name:'组六单式',
+                                                  prize:{2:'300.00'},
+                                                  modes:[{modeid:1,name:'元',rate:1},{modeid:2,name:'角',rate:0.1}],
+                                                  desc:'组六单式',maxcodecount:0
+                                                },{methoddesc:'从0-9中选择1个号码。',
+methodhelp:'从0-9中任意选择1个包胆号码，开奖号码的万位、千位、百位中任意1位只要和所选包胆号码相同，即为中奖。',
+methodexample:'投注方案：包胆3；开奖号码后三位：(1)出现3xx或者33x,即中前三组选三一等奖；(2)出现3xy，即中前三组选六一等奖。',
+selectarea:{
+       type   : 'digital',
+       layout : [
+		   {title:'', no:'0|1|2|3|4|5|6|7|8|9', place:0, cols:1}
+		  ],
+       noBigIndex : 5,
+       isButton   : false
+      },
+show_str : 'X',
+code_sp : '',
+                                                  methodid : 969,
+                                                  name:'包胆',
+                                                  prize:{1:'600.00',2:'300.00'},
+                                                  modes:[{modeid:1,name:'元',rate:1},{modeid:2,name:'角',rate:0.1}],
+                                                  desc:'包胆',maxcodecount:1
+                                                }]},{gtitle:'前三其它', label:[{methoddesc:'从0-9中选择1个号码。',
+methodhelp:'所选数值等于开奖号码的万位、千位、百位三个数字相加之和的尾数，即为中奖。',
+methodexample:'投注方案：和值尾数8，开奖号码：前三位和值尾数为8，即中得和值尾数一等奖。',
+selectarea:{
+       type   : 'digital',
+       layout : [
+		   {title:'', no:'0|1|2|3|4|5|6|7|8|9', place:0, cols:1}
+		  ],
+       noBigIndex : 5,
+       isButton   : true
+      },
+show_str : 'X',
+code_sp : '',
+                                                  methodid : 1034,
+                                                  name:'和值尾数',
+                                                  prize:{1:'18.00'},
+                                                  modes:[{modeid:1,name:'元',rate:1},{modeid:2,name:'角',rate:0.1}],
+                                                  desc:'和值尾数',maxcodecount:0
+                                                },{methoddesc:'选择一个号码形态。',
+methodhelp:'所选的号码特殊属性和开奖号码前3位的属性一致，即为中奖。其中：1.顺子号的万、千、百位不分顺序；2.对子号指的是开奖号码的万位与千位相同，或者千位和百位相同。',
+methodexample:'投注方案：豹子；开奖号码前三位：三个数字全部相同，即中得豹子一等奖。<br>投注方案：顺子；开奖号码前三位：为连续数字，例如678，即中得顺子一等奖。<br>投注方案：对子；开奖号码前三位：为组三号码，即中得对子一等奖。',
+selectarea:{
+       type   : 'dxds',
+       layout : [
+		   {title:'', no:'豹子|顺子|对子', place:0, cols:1}
+		  ],
+       noBigIndex : 5,
+       isButton   : false
+      },
+show_str : 'X',
+code_sp : '|',
+                                                  methodid : 1036,
+                                                  name:'特殊号码',
+                                                  prize:{1:'180.00',2:'30.00',3:'6.60'},
+                                                  modes:[{modeid:1,name:'元',rate:1},{modeid:2,name:'角',rate:0.1}],
+                                                  desc:'特殊号码',maxcodecount:0
+                                                }]}]},										{isdefault:"1",title:"后三", label:[{gtitle:'后三直选', label:[{methoddesc:'从个、十、百位各选一个号码组成一注。',
+methodhelp:'从百位、十位、个位中选择一个3位数号码组成一注，所选号码与开奖号码后3位相同，且顺序一致，即为中奖。',
+methodexample:'投注方案：345； 开奖号码：345，即中后三直选一等奖',
+selectarea:{
+       type   : 'digital',
+       layout : [
+		   {title:'百位', no:'0|1|2|3|4|5|6|7|8|9', place:0, cols:1},
+		   {title:'十位', no:'0|1|2|3|4|5|6|7|8|9', place:1, cols:1},
+		   {title:'个位', no:'0|1|2|3|4|5|6|7|8|9', place:2, cols:1}
+		  ],
+       noBigIndex : 5,
+       isButton   : true
+      },
+show_str : '-,-,X,X,X',
+code_sp : '',
+                                                  methodid : 961,
+                                                  name:'复式',
+                                                  prize:{1:'1800.00'},
+                                                  modes:[{modeid:1,name:'元',rate:1},{modeid:2,name:'角',rate:0.1}],
+                                                  desc:'复式',maxcodecount:0
+                                                },{methoddesc:'手动输入号码，至少输入1个三位数号码组成一注。',
+methodhelp:'手动输入一个3位数号码组成一注，所选号码的百位、十位、个位与开奖号码相同，且顺序一致，即为中奖。',
+methodexample:'投注方案：345； 开奖号码：345，即中后三直选一等奖',
+selectarea:{type:'input',singletypetips:'三星123,234 五星12345'},
+show_str : 'X',
+code_sp : ' ',
+                                                  methodid : 961,
+                                                  name:'单式',
+                                                  prize:{1:'1800.00'},
+                                                  modes:[{modeid:1,name:'元',rate:1},{modeid:2,name:'角',rate:0.1}],
+                                                  desc:'单式',maxcodecount:0
+                                                },{methoddesc:'从0-27中任意选择1个或1个以上号码。',
+methodhelp:'所选数值等于开奖号码的百位、十位、个位三个数字相加之和，即为中奖。',
+methodexample:'投注方案：和值1；开奖号码后三位：001,010,100,即中后三直选一等奖',
+selectarea:{
+       type   : 'digital',
+       layout : [
+		   {title:'直选和值', no:'0|1|2|3|4|5|6|7|8|9|10|11|12|13', place:0, cols:1},
+		   {title:'', no:'14|15|16|17|18|19|20|21|22|23|24|25|26|27', place:0, cols:1}
+		 ],
+       isButton   : false
+      },
+show_str : 'X',
+code_sp : ',',
+                                                  methodid : 962,
+                                                  name:'直选和值',
+                                                  prize:{1:'1800.00'},
+                                                  modes:[{modeid:1,name:'元',rate:1},{modeid:2,name:'角',rate:0.1}],
+                                                  desc:'直选和值',maxcodecount:0
+                                                },{methoddesc:'从0-9中选择1个号码。',
+methodhelp:'所选数值等于开奖号码的后3位最大与最小数字相减之差，即为中奖。',
+methodexample:'投注方案：跨度8；开奖号码后三位：(1)开出的三个数字包括0,8,x，其中x≠9，即可中后三直选一等奖;(2)开出的三个数字包括1,9,x，其中x≠0，即可中后三直选一等奖',
+selectarea:{
+       type   : 'digital',
+       layout : [
+		   {title:'', no:'0|1|2|3|4|5|6|7|8|9', place:0, cols:1}
+		  ],
+       noBigIndex : 5,
+       isButton   : true
+      },
+show_str : 'X',
+code_sp : '',
+                                                  methodid : 963,
+                                                  name:'直选跨度',
+                                                  prize:{1:'1800.00'},
+                                                  modes:[{modeid:1,name:'元',rate:1},{modeid:2,name:'角',rate:0.1}],
+                                                  desc:'跨度',maxcodecount:0
+                                                },{methoddesc:'从个、十、百位各选一个号码组成三注。',
+methodhelp:'从百位、十位、个位中至少各选择一个号码组成1-3星的组合共三注，当个位号码与开奖号码相同，则中1个3等奖；如果个位与十位号码与开奖号码相同，则中1个3等奖以及1个2等奖，依此累推，最高可中3个奖。',
+methodexample:'投注方案：购买百十个位分别为6、7、8，包括678(三星)一注、78(二星)一注、8(一星)一注；开奖号码的后三位：678，即中三星、二星、一星的一等奖各一注。',
+selectarea:{
+       type   : 'digital',
+       layout : [
+		   {title:'百位', no:'0|1|2|3|4|5|6|7|8|9', place:0, cols:1},
+		   {title:'十位', no:'0|1|2|3|4|5|6|7|8|9', place:1, cols:1},
+		   {title:'个位', no:'0|1|2|3|4|5|6|7|8|9', place:2, cols:1}
+		  ],
+       noBigIndex : 5,
+       isButton   : true
+      },
+show_str : '-,-,X,X,X',
+code_sp : '',
+                                                  methodid : 1038,
+                                                  name:'组合',
+                                                  prize:{1:'1800.00',2:'180.00',3:'18.00'},
+                                                  modes:[{modeid:1,name:'元',rate:1},{modeid:2,name:'角',rate:0.1}],
+                                                  desc:'组合',maxcodecount:0
+                                                }]},{gtitle:'后三组选', label:[{methoddesc:'从0-9中任意选择2个或2个以上号码。',
+methodhelp:'从0-9中选择2个数字组成两注，所选号码与开奖号码的百位、十位、个位相同，且顺序不限，即为中奖。',
+methodexample:'投注方案：5,8,8；开奖号码后三位：1个5，2个8 (顺序不限)，即中后三组选三一等奖。',
+selectarea:{
+       type   : 'digital',
+       layout : [
+		   {title:'组三', no:'0|1|2|3|4|5|6|7|8|9', place:0, cols:1}
+		  ],
+       noBigIndex : 5,
+       isButton   : true
+      },
+show_str : 'X',
+code_sp : ',',
+                                                  methodid : 971,
+                                                  name:'组三',
+                                                  prize:{1:'600.00'},
+                                                  modes:[{modeid:1,name:'元',rate:1},{modeid:2,name:'角',rate:0.1}],
+                                                  desc:'组三',maxcodecount:0
+                                                },{methoddesc:'从0-9中任意选择3个或3个以上号码。',
+methodhelp:'从0-9中任意选择3个号码组成一注，所选号码与开奖号码的百位、十位、个位相同，顺序不限，即为中奖。',
+methodexample:'投注方案：2,5,8；开奖号码后三位：1个2、1个5、1个8 (顺序不限)，即中后三组选六一等奖。',
+selectarea:{
+       type   : 'digital',
+       layout : [
+		   {title:'组六', no:'0|1|2|3|4|5|6|7|8|9', place:0, cols:1}
+		  ],
+       noBigIndex : 5,
+       isButton   : true
+      },
+show_str : 'X',
+code_sp : ',',
+                                                  methodid : 972,
+                                                  name:'组六',
+                                                  prize:{2:'300.00'},
+                                                  modes:[{modeid:1,name:'元',rate:1},{modeid:2,name:'角',rate:0.1}],
+                                                  desc:'组六',maxcodecount:0
+                                                },{methoddesc:'手动输入号码，至少输入1个三位数号码。',
+methodhelp:'手动输入组三或组六号码，3个数字为一注，所选号码与开奖号码的百位、十位、个位相同，顺序不限，即为中奖。',
+methodexample:'投注方案：分別投注(0,0,1),以及(1,2,3)，开奖号码后三位包括：(1)0,0,1，顺序不限，即中得组三一等奖；或者(2)1,2,3，顺序不限，即中得组六一等奖。',
+selectarea:{type:'input',singletypetips:'三星123,234 五星12345'},
+show_str : 'X',
+code_sp : ' ',
+                                                  methodid : 973,
+                                                  name:'混合',
+                                                  prize:{1:'600.00',2:'300.00'},
+                                                  modes:[{modeid:1,name:'元',rate:1},{modeid:2,name:'角',rate:0.1}],
+                                                  desc:'混合组选',maxcodecount:0
+                                                },{methoddesc:'从1-26中选择1个号码。',
+methodhelp:'所选数值等于开奖号码百位、十位、个位三个数字相加之和(不含豹子号)，即为中奖。',
+methodexample:'投注方案：和值3；开奖号码后三位：(1)开出003号码，顺序不限，即中后三组选三；(2)开出012号码，顺序不限，即中后三组选六',
+selectarea:{
+       type   : 'digital',
+       layout : [
+		   {title:'组选和值', no:'1|2|3|4|5|6|7|8|9|10|11|12|13', place:0, cols:1},
+		   {title:'', no:'14|15|16|17|18|19|20|21|22|23|24|25|26', place:0, cols:1}
+		 ],
+       isButton   : false
+      },
+show_str : 'X',
+code_sp : ',',
+                                                  methodid : 974,
+                                                  name:'组选和值',
+                                                  prize:{1:'600.00',2:'300.00'},
+                                                  modes:[{modeid:1,name:'元',rate:1},{modeid:2,name:'角',rate:0.1}],
+                                                  desc:'组选和值',maxcodecount:0
+                                                },{methoddesc:' 手动输入号码，至少输入 1 个三位数号码。(三个数字当中有二个数字相同)',
+methodhelp:' 手动输入组三号码，3个数字为一注，所选号码与开奖号码的百位、十位、个位相同，顺序不限，即为中奖。',
+methodexample:'投注方案：001；开奖号码后三位：1 个 1，2 个 0 (顺序不限)，即中后三组选三。',
+selectarea:{type:'input',singletypetips:'三星112,363'},
+show_str : 'X',
+code_sp : ' ',
+                                                  methodid : 971,
+                                                  name:'组三单式',
+                                                  prize:{1:'600.00'},
+                                                  modes:[{modeid:1,name:'元',rate:1},{modeid:2,name:'角',rate:0.1}],
+                                                  desc:'组三单式',maxcodecount:0
+                                                },{methoddesc:'手动输入号码，至少输入 1 个三位数号码。(三个数字全不相同)',
+methodhelp:'手动输入组六号码，3个数字为一注，所选号码与开奖号码的百位、十位、个位相同，顺序不限，即为中奖。',
+methodexample:'投注方案：123；开奖号码后三位：1 个 1，1 个 2，1 个 3 (顺序不限)，即中后三组选六。',
+selectarea:{type:'input',singletypetips:'三星123,234'},
+show_str : 'X',
+code_sp : ' ',
+                                                  methodid : 972,
+                                                  name:'组六单式',
+                                                  prize:{2:'300.00'},
+                                                  modes:[{modeid:1,name:'元',rate:1},{modeid:2,name:'角',rate:0.1}],
+                                                  desc:'组六单式',maxcodecount:0
+                                                },{methoddesc:'从0-9中选择1个号码。',
+methodhelp:'从0-9中任意选择1个包胆号码，开奖号码的百位、十位、个位中任意1位与所选包胆号码相同，即为中奖。',
+methodexample:'投注方案：包胆3；开奖号码后三位：(1)出现3xx或者33x,即中后三组选三一等奖；(2)出现3xy，即中后三组选六一等奖。',
+selectarea:{
+       type   : 'digital',
+       layout : [
+		   {title:'', no:'0|1|2|3|4|5|6|7|8|9', place:0, cols:1}
+		  ],
+       noBigIndex : 5,
+       isButton   : false
+      },
+show_str : 'X',
+code_sp : '',
+                                                  methodid : 975,
+                                                  name:'包胆',
+                                                  prize:{1:'600.00',2:'300.00'},
+                                                  modes:[{modeid:1,name:'元',rate:1},{modeid:2,name:'角',rate:0.1}],
+                                                  desc:'包胆',maxcodecount:1
+                                                }]},{gtitle:'后三其它', label:[{methoddesc:'从0-9中选择1个号码。',
+methodhelp:'所选数值等于开奖号码的百位、十位、个位三个数字相加之和的尾数，即为中奖。',
+methodexample:'投注方案：和值尾数8，开奖号码：后三位和值尾数为8，即中得和值尾数一等奖。',
+selectarea:{
+       type   : 'digital',
+       layout : [
+		   {title:'', no:'0|1|2|3|4|5|6|7|8|9', place:0, cols:1}
+		  ],
+       noBigIndex : 5,
+       isButton   : true
+      },
+show_str : 'X',
+code_sp : '',
+                                                  methodid : 1042,
+                                                  name:'和值尾数',
+                                                  prize:{1:'18.00'},
+                                                  modes:[{modeid:1,name:'元',rate:1},{modeid:2,name:'角',rate:0.1}],
+                                                  desc:'和值尾数',maxcodecount:0
+                                                },{methoddesc:'选择一个号码形态。',
+methodhelp:'所选的号码特殊属性和开奖号码后3位的属性一致，即为中奖。其中：1.顺子号的个、十、百位不分顺序；2.对子号指的是开奖号码的百位与十位相同，或者十位和个位相同。',
+methodexample:'投注方案：豹子；开奖号码后三位：三个数字全部相同，即中得豹子一等奖。<br>投注方案：顺子；开奖号码后三位：为连续数字，例如678，即中得顺子一等奖。<br>投注方案：对子；开奖号码后三位：为组三号码，即中得对子一等奖。',
+selectarea:{
+       type   : 'dxds',
+       layout : [
+		   {title:'', no:'豹子|顺子|对子', place:0, cols:1}
+		  ],
+       noBigIndex : 5,
+       isButton   : false
+      },
+show_str : 'X',
+code_sp : '|',
+                                                  methodid : 1044,
+                                                  name:'特殊号码',
+                                                  prize:{1:'180.00',2:'30.00',3:'6.60'},
+                                                  modes:[{modeid:1,name:'元',rate:1},{modeid:2,name:'角',rate:0.1}],
+                                                  desc:'特殊号码',maxcodecount:0
+                                                }]}]},										{isdefault:"0",title:"二星", label:[{gtitle:'二星直选', label:[{methoddesc:'从十、个位各选一个号码组成一注。',
+methodhelp:'从十位、个位中选择一个2位数号码组成一注，所选号码与开奖号码的十位、个位相同，且顺序一致，即为中奖。',
+methodexample:'投注方案：58；开奖号码后二位：58，即中后二直选一等奖。',
+selectarea:{
+       type   : 'digital',
+       layout : [
+		   {title:'十位', no:'0|1|2|3|4|5|6|7|8|9', place:0, cols:1},
+		   {title:'个位', no:'0|1|2|3|4|5|6|7|8|9', place:1, cols:1}
+		  ],
+       noBigIndex : 5,
+       isButton   : true
+      },
+show_str : '-,-,-,X,X',
+code_sp : '',
+                                                  methodid : 984,
+                                                  name:'后二直选(复式)',
+                                                  prize:{1:'180.00'},
+                                                  modes:[{modeid:1,name:'元',rate:1},{modeid:2,name:'角',rate:0.1}],
+                                                  desc:'后二(复式)',maxcodecount:0
+                                                },{methoddesc:'手动输入号码，至少输入1个两位数号码。',
+methodhelp:'手动输入一个2位数号码组成一注，所选号码的十位、个位与开奖号码相同，且顺序一致，即为中奖。',
+methodexample:'投注方案：58；开奖号码后二位：58，即中后二直选一等奖。',
+selectarea:{type:'input',singletypetips:'三星123,234 五星12345'},
+show_str : 'X',
+code_sp : ' ',
+                                                  methodid : 984,
+                                                  name:'后二直选(单式)',
+                                                  prize:{1:'180.00'},
+                                                  modes:[{modeid:1,name:'元',rate:1},{modeid:2,name:'角',rate:0.1}],
+                                                  desc:'后二(单式)',maxcodecount:0
+                                                },{methoddesc:'从0-18中任意选择1个或1个以上号码',
+methodhelp:'所选数值等于开奖号码的十位、个位二个数字相加之和，即为中奖。',
+methodexample:'投注方案：和值1；开奖号码后二位：01,10，即中后二直选一等奖。',
+selectarea:{
+       type   : 'digital',
+       layout : [
+		   {title:'', no:'0|1|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|17|18', place:0, cols:1}
+		  ],
+       noBigIndex : 5,
+       isButton   : false
+      },
+show_str : 'X',
+code_sp : ',',
+                                                  methodid : 987,
+                                                  name:'后二直选和值',
+                                                  prize:{1:'180.00'},
+                                                  modes:[{modeid:1,name:'元',rate:1},{modeid:2,name:'角',rate:0.1}],
+                                                  desc:'后二和值',maxcodecount:0
+                                                },{methoddesc:'从0-9中任意选择1个号码',
+methodhelp:'所选数值等于开奖号码的后2位最大与最小数字相减之差，即为中奖。',
+methodexample:'投注方案：跨度8；开奖号码的后二位：(1)开出的二个数字为0,8，即可中后二直选一等奖；或者(2)开出的二个数字为1,9，即可中后二直选一等奖。',
+selectarea:{
+       type   : 'digital',
+       layout : [
+		   {title:'', no:'0|1|2|3|4|5|6|7|8|9', place:0, cols:1}
+		  ],
+       noBigIndex : 5,
+       isButton   : true
+      },
+show_str : 'X',
+code_sp : ',',
+                                                  methodid : 988,
+                                                  name:'后二直选跨度',
+                                                  prize:{1:'180.00'},
+                                                  modes:[{modeid:1,name:'元',rate:1},{modeid:2,name:'角',rate:0.1}],
+                                                  desc:'后二跨度',maxcodecount:0
+                                                },{methoddesc:'从万、千位各选一个号码组成一注。',
+methodhelp:'从万位、千位中选择一个2位数号码组成一注，所选号码与开奖号码的前2位相同，且顺序一致，即为中奖。',
+methodexample:'投注方案：58；开奖号码前二位：58，即中前二直选一等奖。',
+selectarea:{
+       type   : 'digital',
+       layout : [
+		   {title:'万位', no:'0|1|2|3|4|5|6|7|8|9', place:0, cols:1},
+		   {title:'千位', no:'0|1|2|3|4|5|6|7|8|9', place:1, cols:1}
+		  ],
+       noBigIndex : 5,
+       isButton   : true
+      },
+show_str : 'X,X,-,-,-',
+code_sp : '',
+                                                  methodid : 983,
+                                                  name:'前二直选(复式)',
+                                                  prize:{1:'180.00'},
+                                                  modes:[{modeid:1,name:'元',rate:1},{modeid:2,name:'角',rate:0.1}],
+                                                  desc:'前二(复式)',maxcodecount:0
+                                                },{methoddesc:'手动输入号码，至少输入1个两位数号码。',
+methodhelp:'手动输入一个2位数号码组成一注，所选号码的万位、千位与开奖号码相同，且顺序一致，即为中奖。',
+methodexample:'投注方案：58；开奖号码前二位：58，即中前二直选一等奖。',
+selectarea:{type:'input',singletypetips:'三星123,234 五星12345'},
+show_str : 'X',
+code_sp : ' ',
+                                                  methodid : 983,
+                                                  name:'前二直选(单式)',
+                                                  prize:{1:'180.00'},
+                                                  modes:[{modeid:1,name:'元',rate:1},{modeid:2,name:'角',rate:0.1}],
+                                                  desc:'前二(单式)',maxcodecount:0
+                                                },{methoddesc:'从0-18中任意选择1个或1个以上号码',
+methodhelp:'所选数值等于开奖号码的万位、千位二个数字相加之和，即为中奖。',
+methodexample:'投注方案：和值1；开奖号码前二位：01,10，即中前二直选一等奖。',
+selectarea:{
+       type   : 'digital',
+       layout : [
+		   {title:'', no:'0|1|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|17|18', place:0, cols:1}
+		  ],
+       noBigIndex : 5,
+       isButton   : false
+      },
+show_str : 'X',
+code_sp : ',',
+                                                  methodid : 985,
+                                                  name:'前二直选和值',
+                                                  prize:{1:'180.00'},
+                                                  modes:[{modeid:1,name:'元',rate:1},{modeid:2,name:'角',rate:0.1}],
+                                                  desc:'前二和值',maxcodecount:0
+                                                },{methoddesc:'从0-9中任意选择1个号码。',
+methodhelp:'所选数值等于开奖号码的前2位最大与最小数字相减之差，即为中奖。',
+methodexample:'投注方案：跨度8；开奖号码的前二位：(1)开出的二个数字为0,8，即可中前二直选一等奖；或者(2)开出的二个数字为1,9，即可中前二直选一等奖。',
+selectarea:{
+       type   : 'digital',
+       layout : [
+		   {title:'', no:'0|1|2|3|4|5|6|7|8|9', place:0, cols:1}
+		  ],
+       noBigIndex : 5,
+       isButton   : true
+      },
+show_str : 'X',
+code_sp : ',',
+                                                  methodid : 986,
+                                                  name:'前二直选跨度',
+                                                  prize:{1:'180.00'},
+                                                  modes:[{modeid:1,name:'元',rate:1},{modeid:2,name:'角',rate:0.1}],
+                                                  desc:'前二跨度',maxcodecount:0
+                                                }]},{gtitle:'二星组选', label:[{methoddesc:'从0-9中任意选择2个或2个以上号码。',
+methodhelp:'从0-9中任选2个号码组成一注，所选号码与开奖号码的十位、个位相同，顺序不限，即中奖。',
+methodexample:'投注方案：5,8；开奖号码后二位：1个5，1个8 (顺序不限)，即中后二组选一等奖。',
+selectarea:{
+       type   : 'digital',
+       layout : [
+		   {title:'组选', no:'0|1|2|3|4|5|6|7|8|9', place:0, cols:1}
+		  ],
+       noBigIndex : 5,
+       isButton   : true
+      },
+show_str : 'X',
+code_sp : ',',
+                                                  methodid : 991,
+                                                  name:'后二组选(复式)',
+                                                  prize:{1:'90.00'},
+                                                  modes:[{modeid:1,name:'元',rate:1},{modeid:2,name:'角',rate:0.1}],
+                                                  desc:'后二(复式)',maxcodecount:0
+                                                },{methoddesc:'手动输入号码，至少输入1个两位数号码。',
+methodhelp:'手动输入一个2位数号码组成一注，所选号码的十位、个位与开奖号码相同，顺序不限，即为中奖。',
+methodexample:'投注方案：5,8；开奖号码后二位：1个5，1个8 (顺序不限)，即中后二组选一等奖。',
+selectarea:{type:'input',singletypetips:'三星123,234 五星12345'},
+show_str : 'X',
+code_sp : ' ',
+                                                  methodid : 991,
+                                                  name:'后二组选(单式)',
+                                                  prize:{1:'90.00'},
+                                                  modes:[{modeid:1,name:'元',rate:1},{modeid:2,name:'角',rate:0.1}],
+                                                  desc:'后二(单式)',maxcodecount:0
+                                                },{methoddesc:'从1-17中任意选择1个或1个以上号码',
+methodhelp:'所选数值等于开奖号码的十位、个位二个数字相加之和，即为中奖。',
+methodexample:'投注方案：和值1；开奖号码后二位：10或01，即中后二组选一等奖。',
+selectarea:{
+       type   : 'digital',
+       layout : [
+		   {title:'', no:'1|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|17', place:0, cols:1}
+		  ],
+       noBigIndex : 5,
+       isButton   : false
+      },
+show_str : 'X',
+code_sp : ',',
+                                                  methodid : 994,
+                                                  name:'后二组选和值',
+                                                  prize:{1:'90.00'},
+                                                  modes:[{modeid:1,name:'元',rate:1},{modeid:2,name:'角',rate:0.1}],
+                                                  desc:'后二和值',maxcodecount:0
+                                                },{methoddesc:'从0-9中任意选择1个包胆号码',
+methodhelp:'从0-9中任意选择1个包胆号码，开奖号码的十位、个位中任意1位包含所选的包胆号码相同，即为中奖。',
+methodexample:'投注方案：包胆号码8；开奖号码后二位：出现1个8（不包括2个8），即中后二组选一等奖。',
+selectarea:{
+       type   : 'digital',
+       layout : [
+		   {title:'', no:'0|1|2|3|4|5|6|7|8|9', place:0, cols:1}
+		  ],
+       noBigIndex : 5,
+       isButton   : false
+      },
+show_str : 'X',
+code_sp : '',
+                                                  methodid : 995,
+                                                  name:'后二组选包胆',
+                                                  prize:{1:'90.00'},
+                                                  modes:[{modeid:1,name:'元',rate:1},{modeid:2,name:'角',rate:0.1}],
+                                                  desc:'后二包胆',maxcodecount:1
+                                                },{methoddesc:'从0-9中任意选择2个或2个以上号码。',
+methodhelp:'从0-9中任选2个号码组成一注，所选号码与开奖号码的万位、千位相同，顺序不限，即中奖。',
+methodexample:'投注方案：5,8；开奖号码前二位：1个5，1个8 (顺序不限)，即中前二组选一等奖。',
+selectarea:{
+       type   : 'digital',
+       layout : [
+		   {title:'组选', no:'0|1|2|3|4|5|6|7|8|9', place:0, cols:1}
+		  ],
+       noBigIndex : 5,
+       isButton   : true
+      },
+show_str : 'X',
+code_sp : ',',
+                                                  methodid : 990,
+                                                  name:'前二组选(复式)',
+                                                  prize:{1:'90.00'},
+                                                  modes:[{modeid:1,name:'元',rate:1},{modeid:2,name:'角',rate:0.1}],
+                                                  desc:'前二(复式)',maxcodecount:0
+                                                },{methoddesc:'手动输入号码，至少输入1个两位数号码。',
+methodhelp:'手动输入一个2位数号码组成一注，所选号码的万位、千位与开奖号码相同，顺序不限，即为中奖。',
+methodexample:'投注方案：5,8；开奖号码前二位：1个5，1个8 (顺序不限)，即中前二组选一等奖。',
+selectarea:{type:'input',singletypetips:'三星123,234 五星12345'},
+show_str : 'X',
+code_sp : ' ',
+                                                  methodid : 990,
+                                                  name:'前二组选(单式)',
+                                                  prize:{1:'90.00'},
+                                                  modes:[{modeid:1,name:'元',rate:1},{modeid:2,name:'角',rate:0.1}],
+                                                  desc:'前二(单式)',maxcodecount:0
+                                                },{methoddesc:'从1-17中任意选择1个或1个以上号码',
+methodhelp:'所选数值等于开奖号码的万位、千位二个数字相加之和，即为中奖。',
+methodexample:'投注方案：和值1；开奖号码前二位：10或01，即中前二组选一等奖。',
+selectarea:{
+       type   : 'digital',
+       layout : [
+		   {title:'', no:'1|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|17', place:0, cols:1}
+		  ],
+       noBigIndex : 5,
+       isButton   : false
+      },
+show_str : 'X',
+code_sp : ',',
+                                                  methodid : 992,
+                                                  name:'前二组选和值',
+                                                  prize:{1:'90.00'},
+                                                  modes:[{modeid:1,name:'元',rate:1},{modeid:2,name:'角',rate:0.1}],
+                                                  desc:'前二和值',maxcodecount:0
+                                                },{methoddesc:'从0-9中任意选择1个包胆号码',
+methodhelp:'从0-9中任意选择1个包胆号码，开奖号码的百位、十位、个位中任意1位包含所选的包胆号码相同，即为中奖。',
+methodexample:'投注方案：包胆号码8；开奖号码前二位：出现1个8（不包括2个8），即中前二组选一等奖。',
+selectarea:{
+       type   : 'digital',
+       layout : [
+		   {title:'', no:'0|1|2|3|4|5|6|7|8|9', place:0, cols:1}
+		  ],
+       noBigIndex : 5,
+       isButton   : false
+      },
+show_str : 'X',
+code_sp : '',
+                                                  methodid : 993,
+                                                  name:'前二组选包胆',
+                                                  prize:{1:'90.00'},
+                                                  modes:[{modeid:1,name:'元',rate:1},{modeid:2,name:'角',rate:0.1}],
+                                                  desc:'前二包胆',maxcodecount:1
+                                                }]}]},										{isdefault:"0",title:"一星", label:[{gtitle:'定位胆', label:[{methoddesc:'在万位，千位，百位，十位，个位任意位置上任意选择1个或1个以上号码。',
+methodhelp:'从万位、千位、百位、十位、个位任意位置上至少选择1个以上号码，所选号码与相同位置上的开奖号码一致，即为中奖。',
+methodexample:'投注方案：1；开奖号码万位：1，即中定位胆万位一等奖。',
+selectarea:{
+       type   : 'digital',
+       layout : [
+		   {title:'万位', no:'0|1|2|3|4|5|6|7|8|9', place:0, cols:1},
+		   {title:'千位', no:'0|1|2|3|4|5|6|7|8|9', place:1, cols:1},
+		   {title:'百位', no:'0|1|2|3|4|5|6|7|8|9', place:2, cols:1},
+		   {title:'十位', no:'0|1|2|3|4|5|6|7|8|9', place:3, cols:1},
+		   {title:'个位', no:'0|1|2|3|4|5|6|7|8|9', place:4, cols:1}
+		  ],
+       noBigIndex : 5,
+       isButton   : true
+      },
+show_str : 'X,X,X,X,X',
+code_sp : '',
+                                                  methodid : 997,
+                                                  name:'定位胆',
+                                                  prize:{1:'18.00'},
+                                                  modes:[{modeid:1,name:'元',rate:1},{modeid:2,name:'角',rate:0.1}],
+                                                  desc:'定位胆',maxcodecount:0
+                                                }]}]},										{isdefault:"0",title:"不定位", label:[{gtitle:'三星不定位', label:[{methoddesc:'从0-9中任意选择1个以上号码。',
+methodhelp:'从0-9中选择1个号码，每注由1个号码组成，只要开奖号码的百位、十位、个位中包含所选号码，即为中奖。',
+methodexample:'投注方案：1；开奖号码后三位：至少出现1个1，即中后三一码不定位一等奖。',
+selectarea:{
+       type   : 'digital',
+       layout : [
+		   {title:'不定位', no:'0|1|2|3|4|5|6|7|8|9', place:0, cols:1}
+		  ],
+       noBigIndex : 5,
+       isButton   : true
+      },
+show_str : 'X',
+code_sp : ',',
+                                                  methodid : 977,
+                                                  name:'后三一码不定位',
+                                                  prize:{1:'6.60'},
+                                                  modes:[{modeid:1,name:'元',rate:1},{modeid:2,name:'角',rate:0.1}],
+                                                  desc:'后三一码不定位',maxcodecount:0
+                                                },{methoddesc:'从0-9中任意选择2个以上号码。',
+methodhelp:'从0-9中选择2个号码，每注由2个不同的号码组成，开奖号码的百位、十位、个位中同时包含所选的2个号码，即为中奖。',
+methodexample:'投注方案：1,2；开奖号码后三位：至少出现1和2各1个，即中后三二码不定位一等奖。',
+selectarea:{
+       type   : 'digital',
+       layout : [
+		   {title:'不定位', no:'0|1|2|3|4|5|6|7|8|9', place:0, cols:1}
+		  ],
+       noBigIndex : 5,
+       isButton   : true
+      },
+show_str : 'X',
+code_sp : ',',
+                                                  methodid : 980,
+                                                  name:'后三二码不定位',
+                                                  prize:{1:'33.00'},
+                                                  modes:[{modeid:1,name:'元',rate:1},{modeid:2,name:'角',rate:0.1}],
+                                                  desc:'后三二码不定位',maxcodecount:0
+                                                },{methoddesc:'从0-9中任意选择1个以上号码。',
+methodhelp:'从0-9中选择1个号码，每注由1个号码组成，只要开奖号码的万位、千位、百位中包含所选号码，即为中奖。',
+methodexample:'投注方案：1；开奖号码前三位：至少出现1个1，即中前三一码不定位一等奖。',
+selectarea:{
+       type   : 'digital',
+       layout : [
+		   {title:'不定位', no:'0|1|2|3|4|5|6|7|8|9', place:0, cols:1}
+		  ],
+       noBigIndex : 5,
+       isButton   : true
+      },
+show_str : 'X',
+code_sp : ',',
+                                                  methodid : 978,
+                                                  name:'前三一码不定位',
+                                                  prize:{1:'6.60'},
+                                                  modes:[{modeid:1,name:'元',rate:1},{modeid:2,name:'角',rate:0.1}],
+                                                  desc:'前三一码不定位',maxcodecount:0
+                                                },{methoddesc:'从0-9中任意选择2个以上号码。',
+methodhelp:'从0-9中选择2个号码，每注由2个不同的号码组成，开奖号码的万位、千位、百位中同时包含所选的2个号码，即为中奖。',
+methodexample:'投注方案：1,2；开奖号码前三位：至少出现1和2各1个，即中前三二码不定位一等奖。',
+selectarea:{
+       type   : 'digital',
+       layout : [
+		   {title:'不定位', no:'0|1|2|3|4|5|6|7|8|9', place:0, cols:1}
+		  ],
+       noBigIndex : 5,
+       isButton   : true
+      },
+show_str : 'X',
+code_sp : ',',
+                                                  methodid : 981,
+                                                  name:'前三二码不定位',
+                                                  prize:{1:'33.00'},
+                                                  modes:[{modeid:1,name:'元',rate:1},{modeid:2,name:'角',rate:0.1}],
+                                                  desc:'前三二码不定位',maxcodecount:0
+                                                }]},{gtitle:'四星不定位', label:[{methoddesc:'从0-9中任意选择1个以上号码。',
+methodhelp:'从0-9中选择1个号码，每注由1个号码组成，只要开奖号码的千位、百位、十位、个位中包含所选号码，即为中奖。',
+methodexample:'投注方案：1；开奖号码后四位：至少出现1个1，即中四星一码不定位一等奖。',
+selectarea:{
+       type   : 'digital',
+       layout : [
+		   {title:'不定位', no:'0|1|2|3|4|5|6|7|8|9', place:0, cols:1}
+		  ],
+       noBigIndex : 5,
+       isButton   : true
+      },
+show_str : 'X',
+code_sp : ',',
+                                                  methodid : 1046,
+                                                  name:'四星一码不定位',
+                                                  prize:{1:'5.20'},
+                                                  modes:[{modeid:1,name:'元',rate:1},{modeid:2,name:'角',rate:0.1}],
+                                                  desc:'四星一码不定位',maxcodecount:0
+                                                },{methoddesc:'从0-9中任意选择2个以上号码。',
+methodhelp:'从0-9中选择2个号码，每注由2个不同的号码组成，开奖号码的千位、百位、十位、个位中同时包含所选的2个号码，即为中奖。',
+methodexample:'投注方案：1,2；开奖号码后四位：至少出现1和2各1个，即中四星二码不定位一等奖。',
+selectarea:{
+       type   : 'digital',
+       layout : [
+		   {title:'不定位', no:'0|1|2|3|4|5|6|7|8|9', place:0, cols:1}
+		  ],
+       noBigIndex : 5,
+       isButton   : true
+      },
+show_str : 'X',
+code_sp : ',',
+                                                  methodid : 1048,
+                                                  name:'四星二码不定位',
+                                                  prize:{1:'18.50'},
+                                                  modes:[{modeid:1,name:'元',rate:1},{modeid:2,name:'角',rate:0.1}],
+                                                  desc:'四星二码不定位',maxcodecount:0
+                                                }]},{gtitle:'五星不定位', label:[{methoddesc:'从0-9中任意选择2个以上号码。',
+methodhelp:'从0-9中选择2个号码，每注由2个不同的号码组成，开奖号码的万位、千位、百位、十位、个位中同时包含所选的2个号码，即为中奖。',
+methodexample:'投注方案：1,2；开奖号码：至少出现1和2各1个，即中五星二码不定位一等奖。',
+selectarea:{
+       type   : 'digital',
+       layout : [
+		   {title:'不定位', no:'0|1|2|3|4|5|6|7|8|9', place:0, cols:1}
+		  ],
+       noBigIndex : 5,
+       isButton   : true
+      },
+show_str : 'X',
+code_sp : ',',
+                                                  methodid : 1050,
+                                                  name:'五星二码不定位',
+                                                  prize:{1:'12.00'},
+                                                  modes:[{modeid:1,name:'元',rate:1},{modeid:2,name:'角',rate:0.1}],
+                                                  desc:'五星二码不定位',maxcodecount:0
+                                                },{methoddesc:'从0-9中任意选择3个以上号码。',
+methodhelp:'从0-9中选择3个号码，每注由3个不同的号码组成，开奖号码的万位、千位、百位、十位、个位中同时包含所选的3个号码，即为中奖。',
+methodexample:'投注方案：1,2,3；开奖号码：至少出现1、2、3各1个，即中五星三码不定位一等奖。',
+selectarea:{
+       type   : 'digital',
+       layout : [
+		   {title:'不定位', no:'0|1|2|3|4|5|6|7|8|9', place:0, cols:1}
+		  ],
+       noBigIndex : 5,
+       isButton   : true
+      },
+show_str : 'X',
+code_sp : ',',
+                                                  methodid : 1052,
+                                                  name:'五星三码不定位',
+                                                  prize:{1:'41.00'},
+                                                  modes:[{modeid:1,name:'元',rate:1},{modeid:2,name:'角',rate:0.1}],
+                                                  desc:'五星三码不定位',maxcodecount:0
+                                                }]}]},										{isdefault:"0",title:"大小单双", label:[{gtitle:'大小单双', label:[{methoddesc:'从十位、个位中的“大、小、单、双”中至少各选一个组成一注。',
+methodhelp:'对十位和个位的“大（56789）小（01234）、单（13579）双（02468）”形态进行购买，所选号码的位置、形态与开奖号码的位置、形态相同，即为中奖。',
+methodexample:'投注方案：大单；开奖号码十位与个位：大单，即中后二大小单双一等奖。',
+selectarea:{
+	type:'dxds',
+	layout: [{title:'十位', no:'大|小|单|双', place:0, cols:1},
+		 {title:'个位', no:'大|小|单|双', place:1, cols:1}]
+      },
+show_str : 'X,X',
+code_sp : '',
+                                                  methodid : 1004,
+                                                  name:'后二',
+                                                  prize:{1:'7.20'},
+                                                  modes:[{modeid:1,name:'元',rate:1},{modeid:2,name:'角',rate:0.1}],
+                                                  desc:'后二大小单双',maxcodecount:0
+                                                },{methoddesc:'从百位、十位、个位中的“大、小、单、双”中至少各选一个组成一注。',
+methodhelp:'对百位、十位和个位的“大（56789）小（01234）、单（13579）双（02468）”形态进行购买，所选号码的位置、形态与开奖号码的位置、形态相同，即为中奖。',
+methodexample:'投注方案：大单大；开奖号码百、十、个位：大单大，即中后三大小单双一等奖。',
+selectarea:{
+	type:'dxds',
+	layout: [{title:'百位', no:'大|小|单|双', place:0, cols:1},
+		 {title:'十位', no:'大|小|单|双', place:1, cols:1},
+		 {title:'个位', no:'大|小|单|双', place:2, cols:1}]
+      },
+show_str : 'X,X,X',
+code_sp : '',
+                                                  methodid : 1055,
+                                                  name:'后三',
+                                                  prize:{1:'14.50'},
+                                                  modes:[{modeid:1,name:'元',rate:1},{modeid:2,name:'角',rate:0.1}],
+                                                  desc:'后三大小单双',maxcodecount:0
+                                                },{methoddesc:'从万位、千位中的“大、小、单、双”中至少各选一个组成一注。',
+methodhelp:'对万位和千位的“大（56789）小（01234）、单（13579）双（02468）”形态进行购买，所选号码的位置、形态与开奖号码的位置、形态相同，即为中奖。',
+methodexample:'投注方案：小双；开奖号码万位与千位：小双，即中前二大小单双一等奖。',
+selectarea:{
+	type:'dxds',
+	layout: [{title:'万位', no:'大|小|单|双', place:0, cols:1},
+		 {title:'千位', no:'大|小|单|双', place:1, cols:1}]
+      },
+show_str : 'X,X',
+code_sp : '',
+                                                  methodid : 1003,
+                                                  name:'前二',
+                                                  prize:{1:'7.20'},
+                                                  modes:[{modeid:1,name:'元',rate:1},{modeid:2,name:'角',rate:0.1}],
+                                                  desc:'前二大小单双',maxcodecount:0
+                                                },{methoddesc:'从万位、千位、百位中的“大、小、单、双”中至少各选一个组成一注。',
+methodhelp:'对万位、千位和百位的“大（56789）小（01234）、单（13579）双（02468）”形态进行购买，所选号码的位置、形态与开奖号码的位置、形态相同，即为中奖。',
+methodexample:'投注方案：小双小；开奖号码万、千、百位：小双小，即中前三大小单双一等奖。',
+selectarea:{
+	type:'dxds',
+	layout: [{title:'万位', no:'大|小|单|双', place:0, cols:1},
+		 {title:'千位', no:'大|小|单|双', place:1, cols:1},
+		 {title:'百位', no:'大|小|单|双', place:2, cols:1}]
+      },
+show_str : 'X,X,X',
+code_sp : '',
+                                                  methodid : 1054,
+                                                  name:'前三',
+                                                  prize:{1:'14.50'},
+                                                  modes:[{modeid:1,name:'元',rate:1},{modeid:2,name:'角',rate:0.1}],
+                                                  desc:'前三大小单双',maxcodecount:0
+                                                }]}]},										{isdefault:"0",title:"趣味", label:[{gtitle:'趣味', label:[{methoddesc:'分别从万位与千位中各选择一个大小号属性，并从百位、十位、个位中至少各选1个号码组成一注。',
+methodhelp:'分别从万位与千位的“大小号”中各选择一个大小属性，并从百位、十位、个位上至少各选1个号码进行投注。其中，0-4为“小号”；5-9为“大号”。投注内容只要和开奖号码的后三位相同，顺序一致，即可中奖。',
+methodexample:'投注方案：大,大,123；开奖号码：58123，即中五码趣味三星一等奖。',
+selectarea:{
+       type   : 'digital',
+       layout : [
+		   {title:'万位', no:'小<span class="quweicode">(0-4)</span >|大<span class="quweicode">(5-9)</span >', place:0, cols:1, isBigsmall:true},
+		   {title:'千位', no:'小<span class="quweicode">(0-4)</span >|大<span class="quweicode">(5-9)</span >', place:1, cols:1, isBigsmall:true},
+		   {title:'百位', no:'0|1|2|3|4|5|6|7|8|9', place:2, cols:1},
+		   {title:'十位', no:'0|1|2|3|4|5|6|7|8|9', place:3, cols:1},
+		   {title:'个位', no:'0|1|2|3|4|5|6|7|8|9', place:4, cols:1},
+		  ],
+       noBigIndex : 5,
+       isButton   : true
+      },
+show_str : 'X,X,X,X,X',
+code_sp : '',
+                                                  methodid : 1057,
+                                                  name:'五码趣味三星',
+                                                  prize:{1:'5200.00',2:'660.00'},
+                                                  modes:[{modeid:1,name:'元',rate:1},{modeid:2,name:'角',rate:0.1}],
+                                                  desc:'五码趣味三星',maxcodecount:0
+                                                },{methoddesc:'选择一个千位的大小号属性，并从百位、十位、个位中至少各选1个号码。',
+methodhelp:'从千位的“大小号”中选择一个大小属性，并从百位、十位、个位上至少各选1个号码进行投注。其中，0-4为“小号”；5-9为“大号”。投注内容只要和开奖号码的后三位相同，顺序一致，即可中奖。',
+methodexample:'投注方案：大,123；开奖号码：8123，即中四码趣味三星一等奖。',
+selectarea:{
+       type   : 'digital',
+       layout : [
+		   {title:'千位', no:'小<span class="quweicode">(0-4)</span >|大<span class="quweicode">(5-9)</span >', place:0, cols:1, isBigsmall:true},
+		   {title:'百位', no:'0|1|2|3|4|5|6|7|8|9', place:1, cols:1},
+		   {title:'十位', no:'0|1|2|3|4|5|6|7|8|9', place:2, cols:1},
+		   {title:'个位', no:'0|1|2|3|4|5|6|7|8|9', place:3, cols:1},
+		  ],
+       noBigIndex : 5,
+       isButton   : true
+      },
+show_str : 'X,X,X,X',
+code_sp : '',
+                                                  methodid : 1059,
+                                                  name:'四码趣味三星',
+                                                  prize:{1:'2600.00',2:'1000.00'},
+                                                  modes:[{modeid:1,name:'元',rate:1},{modeid:2,name:'角',rate:0.1}],
+                                                  desc:'四码趣味三星',maxcodecount:0
+                                                },{methoddesc:'选择一个百位的大小号属性，并从十位、个位中至少各选1个号码。',
+methodhelp:'从百位的“大小号”中选择一个大小属性，并从十位、个位上至少各选1个号码进行投注。其中，0-4为“小号”；5-9为“大号”。投注内容只要和开奖号码的后二位相同，顺序一致，即可中奖。',
+methodexample:'投注方案：小,23；开奖号码：123，即中后三趣味二星一等奖。',
+selectarea:{
+       type   : 'digital',
+       layout : [
+		   {title:'百位', no:'小<span class="quweicode">(0-4)</span >|大<span class="quweicode">(5-9)</span >', place:0, cols:1, isBigsmall:true},
+		   {title:'十位', no:'0|1|2|3|4|5|6|7|8|9', place:1, cols:1},
+		   {title:'个位', no:'0|1|2|3|4|5|6|7|8|9', place:2, cols:1},
+		  ],
+       noBigIndex : 5,
+       isButton   : true
+      },
+show_str : 'X,X,X',
+code_sp : '',
+                                                  methodid : 1061,
+                                                  name:'后三趣味二星',
+                                                  prize:{1:'260.00',2:'100.00'},
+                                                  modes:[{modeid:1,name:'元',rate:1},{modeid:2,name:'角',rate:0.1}],
+                                                  desc:'后三趣味二星',maxcodecount:0
+                                                },{methoddesc:'选择一个万位的大小号属性，并从千位、百位中至少各选1个号码。',
+methodhelp:'从万位的“大小号”中选择一个大小属性，并从千位、百位上至少各选1个号码进行投注。其中，0-4为“小号”；5-9为“大号”。投注内容只要和开奖号码的千位及百位相同，顺序一致，即可中奖。',
+methodexample:'投注方案：小,23；开奖号码：123，即中前三趣味二星一等奖。',
+selectarea:{
+       type   : 'digital',
+       layout : [
+		   {title:'万位', no:'小<span class="quweicode">(0-4)</span >|大<span class="quweicode">(5-9)</span >', place:0, cols:1, isBigsmall:true},
+		   {title:'千位', no:'0|1|2|3|4|5|6|7|8|9', place:1, cols:1},
+		   {title:'百位', no:'0|1|2|3|4|5|6|7|8|9', place:2, cols:1},
+		  ],
+       noBigIndex : 5,
+       isButton   : true
+      },
+show_str : 'X,X,X',
+code_sp : '',
+                                                  methodid : 1063,
+                                                  name:'前三趣味二星',
+                                                  prize:{1:'260.00',2:'100.00'},
+                                                  modes:[{modeid:1,name:'元',rate:1},{modeid:2,name:'角',rate:0.1}],
+                                                  desc:'前三趣味二星',maxcodecount:0
+                                                }]},{gtitle:'区间', label:[{methoddesc:'分别从万位与千位中各选择一个区间，并从百位、十位、个位中至少各选1个号码组成一注。',
+methodhelp:'分别从万位与千位的号码区间中各选择一个区间属性，并从百位、十位、个位上至少各选1个号码进行投注。投注内容只要和开奖号码的后三位相同，顺序一致，即可中奖。',
+methodexample:'投注方案：三区,五区,123；开奖号码：58123，即中五码区间三星一等奖。',
+selectarea:{
+       type   : 'digital',
+       layout : [
+		   {title:'万位', no:'<div class="qujiancode">一区</div><span class="qujiandesc">(0,1)</span >|<div class="qujiancode">二区</div><span class="qujiandesc">(2,3)</span >|<div class="qujiancode">三区</div><span class="qujiandesc">(4,5)</span >|<div class="qujiancode">四区</div><span class="qujiandesc">(6,7)</span >|<div class="qujiancode">五区</div><span class="qujiandesc">(8,9)</span >', place:0, cols:1, isRange:true},
+		   {title:'千位', no:'<div class="qujiancode">一区</div><span class="qujiandesc">(0,1)</span >|<div class="qujiancode">二区</div><span class="qujiandesc">(2,3)</span >|<div class="qujiancode">三区</div><span class="qujiandesc">(4,5)</span >|<div class="qujiancode">四区</div><span class="qujiandesc">(6,7)</span >|<div class="qujiancode">五区</div><span class="qujiandesc">(8,9)</span >', place:1, cols:1, isRange:true},
+		   {title:'百位', no:'0|1|2|3|4|5|6|7|8|9', place:2, cols:1},
+		   {title:'十位', no:'0|1|2|3|4|5|6|7|8|9', place:3, cols:1},
+		   {title:'个位', no:'0|1|2|3|4|5|6|7|8|9', place:4, cols:1}
+		  ],
+       noBigIndex : 5,
+       isButton   : true
+      },
+show_str : 'X,X,X,X,X',
+code_sp : '',
+                                                  methodid : 1065,
+                                                  name:'五码区间三星',
+                                                  prize:{1:'33000.00',2:'500.00'},
+                                                  modes:[{modeid:1,name:'元',rate:1},{modeid:2,name:'角',rate:0.1}],
+                                                  desc:'五码区间三星',maxcodecount:0
+                                                },{methoddesc:'选择一个千位号码区间，并从百位、十位、个位中至少各选择1个号码组成一注。',
+methodhelp:'从千位的号码区间中选择一个区间属性，并从百位、十位、个位上至少各选1个号码进行投注。投注内容只要和开奖号码的后三位相同，顺序一致，即可中奖。',
+methodexample:'投注方案：五区,123；开奖号码：8123，即中四码区间三星一等奖。',
+selectarea:{
+       type   : 'digital',
+       layout : [
+		   {title:'千位', no:'<div class="qujiancode">一区</div><span class="qujiandesc">(0,1)</span >|<div class="qujiancode">二区</div><span class="qujiandesc">(2,3)</span >|<div class="qujiancode">三区</div><span class="qujiandesc">(4,5)</span >|<div class="qujiancode">四区</div><span class="qujiandesc">(6,7)</span >|<div class="qujiancode">五区</div><span class="qujiandesc">(8,9)</span >', place:0, cols:1, isRange:true},
+		   {title:'百位', no:'0|1|2|3|4|5|6|7|8|9', place:1, cols:1},
+		   {title:'十位', no:'0|1|2|3|4|5|6|7|8|9', place:2, cols:1},
+		   {title:'个位', no:'0|1|2|3|4|5|6|7|8|9', place:3, cols:1}
+		  ],
+       noBigIndex : 5,
+       isButton   : true
+      },
+show_str : '-,X,X,X,X',
+code_sp : '',
+                                                  methodid : 1067,
+                                                  name:'四码区间三星',
+                                                  prize:{1:'6600.00',2:'600.00'},
+                                                  modes:[{modeid:1,name:'元',rate:1},{modeid:2,name:'角',rate:0.1}],
+                                                  desc:'四码区间三星',maxcodecount:0
+                                                },{methoddesc:'选择一个百位号码区间，并从十位、个位中至少各选择1个号码组成一注。',
+methodhelp:'从百位的号码区间中选择一个区间属性，并十位、个位上至少各选1个号码进行投注。投注内容只要和开奖号码的后二位相同，顺序一致，即可中奖。',
+methodexample:'投注方案：一区,23；开奖号码：023或123，即中后三区间二星一等奖。',
+selectarea:{
+       type   : 'digital',
+       layout : [
+		   {title:'百位', no:'<div class="qujiancode">一区</div><span class="qujiandesc">(0,1)</span >|<div class="qujiancode">二区</div><span class="qujiandesc">(2,3)</span >|<div class="qujiancode">三区</div><span class="qujiandesc">(4,5)</span >|<div class="qujiancode">四区</div><span class="qujiandesc">(6,7)</span >|<div class="qujiancode">五区</div><span class="qujiandesc">(8,9)</span >', place:0, cols:1, isRange:true},
+		   {title:'十位', no:'0|1|2|3|4|5|6|7|8|9', place:1, cols:1},
+		   {title:'个位', no:'0|1|2|3|4|5|6|7|8|9', place:2, cols:1}
+		  ],
+       noBigIndex : 5,
+       isButton   : true
+      },
+show_str : 'X,X,X',
+code_sp : '',
+                                                  methodid : 1069,
+                                                  name:'后三区间二星',
+                                                  prize:{1:'660.00',2:'60.00'},
+                                                  modes:[{modeid:1,name:'元',rate:1},{modeid:2,name:'角',rate:0.1}],
+                                                  desc:'后三区间二星',maxcodecount:0
+                                                },{methoddesc:'选择一个万位号码区间，并从千位、百位中至少各选择1个号码组成一注。',
+methodhelp:'从万位的号码区间中选择一个区间属性，并从千位、百位上至少各选1个号码进行投注。投注内容只要和开奖号码的千位及百位相同，顺序一致，即可中奖。',
+methodexample:'投注方案：一区,23；开奖号码：023或123，即中前三区间二星一等奖。',
+selectarea:{
+       type   : 'digital',
+       layout : [
+		   {title:'万位', no:'<div class="qujiancode">一区</div><span class="qujiandesc">(0,1)</span >|<div class="qujiancode">二区</div><span class="qujiandesc">(2,3)</span >|<div class="qujiancode">三区</div><span class="qujiandesc">(4,5)</span >|<div class="qujiancode">四区</div><span class="qujiandesc">(6,7)</span >|<div class="qujiancode">五区</div><span class="qujiandesc">(8,9)</span >', place:0, cols:1, isRange:true},
+		   {title:'千位', no:'0|1|2|3|4|5|6|7|8|9', place:1, cols:1},
+		   {title:'百位', no:'0|1|2|3|4|5|6|7|8|9', place:2, cols:1}
+		  ],
+       noBigIndex : 5,
+       isButton   : true
+      },
+show_str : 'X,X,X',
+code_sp : '',
+                                                  methodid : 1071,
+                                                  name:'前三区间二星',
+                                                  prize:{1:'660.00',2:'60.00'},
+                                                  modes:[{modeid:1,name:'元',rate:1},{modeid:2,name:'角',rate:0.1}],
+                                                  desc:'前三区间二星',maxcodecount:0
+                                                }]},{gtitle:'特殊', label:[{methoddesc:'从0-9中任意选择1个以上号码。',
+methodhelp:'从0-9中任意选择1个号码组成一注，只要开奖号码的万位、千位、百位、十位、个位中包含所选号码，即为中奖。',
+methodexample:'投注方案：8；开奖号码：至少出现1个8，即中一帆风顺一等奖。',
+selectarea:{
+       type   : 'digital',
+       layout : [
+		   {title:'', no:'0|1|2|3|4|5|6|7|8|9', place:0, cols:1}
+		  ],
+       noBigIndex : 5,
+       isButton   : true
+      },
+show_str : 'X',
+code_sp : ',',
+                                                  methodid : 1073,
+                                                  name:'一帆风顺',
+                                                  prize:{1:'4.30'},
+                                                  modes:[{modeid:1,name:'元',rate:1},{modeid:2,name:'角',rate:0.1}],
+                                                  desc:'一帆风顺',maxcodecount:0
+                                                },{methoddesc:'从0-9中任意选择1个以上的二重号码。',
+methodhelp:'从0-9中任意选择1个号码组成一注，只要所选号码在开奖号码的万位、千位、百位、十位、个位中出现2次，即为中奖。',
+methodexample:'投注方案：8；开奖号码：至少出现2个8，即中好事成双一等奖。',
+selectarea:{
+       type   : 'digital',
+       layout : [
+		   {title:'', no:'0|1|2|3|4|5|6|7|8|9', place:0, cols:1}
+		  ],
+       noBigIndex : 5,
+       isButton   : true
+      },
+show_str : 'X',
+code_sp : ',',
+                                                  methodid : 1074,
+                                                  name:'好事成双',
+                                                  prize:{2:'22.00'},
+                                                  modes:[{modeid:1,name:'元',rate:1},{modeid:2,name:'角',rate:0.1}],
+                                                  desc:'好事成双',maxcodecount:0
+                                                },{methoddesc:'从0-9中任意选择1个以上的三重号码。',
+methodhelp:'从0-9中任意选择1个号码组成一注，只要所选号码在开奖号码的万位、千位、百位、十位、个位中出现3次，即为中奖。',
+methodexample:'投注方案：8；开奖号码：至少出现3个8，即中三星报喜一等奖。',
+selectarea:{
+       type   : 'digital',
+       layout : [
+		   {title:'', no:'0|1|2|3|4|5|6|7|8|9', place:0, cols:1}
+		  ],
+       noBigIndex : 5,
+       isButton   : true
+      },
+show_str : 'X',
+code_sp : ',',
+                                                  methodid : 1075,
+                                                  name:'三星报喜',
+                                                  prize:{3:'210.00'},
+                                                  modes:[{modeid:1,name:'元',rate:1},{modeid:2,name:'角',rate:0.1}],
+                                                  desc:'三星报喜',maxcodecount:0
+                                                },{methoddesc:'从0-9中任意选择1个以上的四重号码。',
+methodhelp:'从0-9中任意选择1个号码组成一注，只要所选号码在开奖号码的万位、千位、百位、十位、个位中出现4次，即为中奖。',
+methodexample:'投注方案：8；开奖号码：至少出现4个8，即中四季发财一等奖。',
+selectarea:{
+       type   : 'digital',
+       layout : [
+		   {title:'', no:'0|1|2|3|4|5|6|7|8|9', place:0, cols:1}
+		  ],
+       noBigIndex : 5,
+       isButton   : true
+      },
+show_str : 'X',
+code_sp : ',',
+                                                  methodid : 1076,
+                                                  name:'四季发财',
+                                                  prize:{4:'3900.00'},
+                                                  modes:[{modeid:1,name:'元',rate:1},{modeid:2,name:'角',rate:0.1}],
+                                                  desc:'四季发财',maxcodecount:0
+                                                }]}]}										],
+		cur_issue : {issue:'',endtime:''},
+		issues    : {//所有的可追号期数集合
+                         all:[]
+                     },
+        max_trace : '0',
+		servertime: '2014-12-05 00:26:20',
+		lotteryid : parseInt(15,10),
+		ajaxurl   : './?controller=game&action=play',
+		ontimeout : function(){
+							$.ajax({
+									type: 'POST',
+									url : './?controller=game&action=play&curmid=910',
+									data: "lotteryid=15&flag=gethistorycached",
+									success: function(data){
+										var partn = /.*<\/script>/;
+										if( data == 'empty' && partn.test(data) ){
+											return;
+										}
+										eval("data="+data);
+										processCode(data[0].issue,data[0].code);
+										/*$(".history_tr","#history_table").remove();
+										var html = '';
+										$.each(data,function(i,n){
+											html += '<tr class="history_tr">';
+											n.statuscode = parseInt(n.statuscode,10);
+											n.code = n.statuscode==2 ? n.code : '未开奖';
+											if( i%2 == 0 ){
+												html += '<td class="odd">'+n.issue+'</td><td class="odd">'+n.code+'</td>';
+											}else{
+												html += '<td>'+n.issue+'</td><td>'+n.code+'</td>';
+											}
+											html += '</tr>';
+											if(i == 0)
+											{
+												processCode(n.issue,n.code)
+											}
+										});
+										$(html).insertAfter("#history_title");*/
+									}
+								});
+			},
+			onfinishbuy : function(){
+								$.ajax({
+										type: 'POST',
+										url : './?controller=game&action=play&curmid=910',
+										data: "lotteryid=15&flag=getprojects",
+										success: function(data){
+											var partn = /.*<\/script>/;
+											if( data == 'empty' && partn.test(data) ){
+												return;
+											}
+											eval("data="+data);
+											$(".history_pro","#history_project").remove();
+											var html = '';
+											var selectedcss = '';
+											$.each(data,function(i,n){
+												html += '<tr class="history_pro">';
+												if( i%2 == 0 ){
+													selectedcss = ' class="odd" bgcolor="#CCCCCC" align="center"';
+												}else{
+													selectedcss = ' bgcolor="#CCCCCC" align="center"';
+												}
+												html += '<td'+selectedcss+' height="30"><a class="blue" href="./index.php?controller=gameinfo&action=gamedetail&id='+n.projectid+'" target="_blank" title="查看注单详情">'+n.projectid+'</a></td>';
+												html += '<td'+selectedcss+'>'+n.writetime+'</td>';
+												html += '<td'+selectedcss+'>'+n.methodname+'</td>';
+												html += '<td'+selectedcss+'>'+n.issue+'</td>';
+												html += '<td'+selectedcss+'>'+n.modes+'</td>';
+												if( n.code.length>20 ){
+													html += '<td'+selectedcss+'><span class="project_more">号码详情</span><div style="display:none;">'+n.code+'</div></td>';
+												}else{
+													html += '<td'+selectedcss+'>'+n.code+'</td>';
+												}
+												html += '<td'+selectedcss+'>'+n.multiple+'</td>';
+												html += '<td'+selectedcss+'>'+moneyFormat(n.totalprice)+'</td>';
+												html += '<td'+selectedcss+'>'+(parseInt(n.taskid,10)>0 ? "是" : "否")+'</td>';
+												html += '</tr>';
+											});
+											$(html).insertAfter("#project_title");
+										}
+									});
+		}
+	});
+        
+	if('' != ''){
+	    processCode('','');
+	}
+        
+	$('span[class="project_more"]',"#history_project").live("click",function(){
+                var mme = this;
+                var $h = $('<span style="display: block;" id="task_div">号码详情[<span class="close">关闭</span>]<br><textarea readonly="readonly" class="code1">'+$(mme).next().html()+'</textarea></span>');
+                $(this).openFloat($h,"projects_more");
+                $("span",$(this).parent()).filter(".close").click(function(){
+                    $(mme).closeFloat();
+                });
+    });
+
+    
+	//
+	/**/
+//alert(parseInt(15,10));
+var iLid = parseInt(15,10);
+var position = -(iLid-1)*75;
+$("#right_top_01_02").css("background-position","0px "+position+"px");
+});
+})(jQuery);
+
+function processCode(issue,code)
+{
+	$('#last_issue').html(issue);
+	if( issue.length>=12 ){
+	    $('#last_issue').css("left","-6px");
+	    $('#last_issue').css("right","0px");
+	}
+	if( issue.length == 11 ){
+	    $('#last_issue').css("left","-4px");
+	    $('#last_issue').css("right","0px");
+	}
+	if( issue.length ==7 ){
+	    $('#last_issue').css("left","15px");
+	}
+	if( issue.length ==8 ){
+	    $('#last_issue').css("left","12px");
+	}
+	var cStr = '';
+	var aTmp = new Array;
+	//处理中奖号码
+	if(code.indexOf(' ') == -1)
+	{
+		//无空格
+		aTmp = code.split('');
+	}
+	else
+	{
+		//有空格
+		aTmp = code.split(' ');
+	}
+	for(var ci=0;ci<aTmp.length;ci++)
+	{
+		cStr += '<div class="right_top_02_05"><div class="';
+		switch(ci)
+		{
+			case 0:cStr += 'ball_blue';break;
+			case 1:cStr += 'ball_yellow';break;
+			case 2:cStr += 'ball_pink';break;
+			case 4:cStr += 'ball_gray';break;
+			default:cStr += 'ball_green';break;
+		}
+		cStr += '" ';
+		if(aTmp[ci].length > 1)
+		{
+			cStr += 'font-size:14px;';
+		}
+		cStr += ' >';
+		cStr += aTmp[ci];
+		cStr += '</div>';
+		if(aTmp[ci].length == 1)
+		{
+			cStr += '<div class="right_top_02_06">';
+			if(aTmp[ci]>=5)
+			{
+				cStr += '大';
+			}
+			else
+			{
+				cStr += '小';
+			}
+			cStr += '</div>';
+		}
+		if(aTmp[ci].length == 1){
+		    cStr += '<div class="right_top_02_06">';
+		}else if(aTmp[ci].length == 2){
+		    cStr += '<div class="right_top_02_062">';
+		}
+		if(parseInt(aTmp[ci],10)%2 == 0)
+		{
+			cStr += '双';
+		}
+		else
+		{
+			cStr += '单';
+		}
+		cStr += '</div></div>';
+		cStr += '<div class="line_01"></div>';
+	}
+	cStr = cStr.substring(0,cStr.length-28);
+	var width = (300-(32+24)*aTmp.length)/2+'px';
+	$('#last_code').html(cStr);
+	$('#last_code').css('margin-left',width);
+	
+	//alert(width);
+}
+function addRefHisCode()
+{
+//   var fCrutime = new Date(Date.parse(cr.replace(/-/g, "/")));
+//   var fLimittime = new Date(Date.parse(st.replace(/-/g, "/")));
+         $.ajax({
+            type: 'POST',
+            url : './?controller=game&action=play&curmid=910',
+            data: "lotteryid=15&flag=gethistorycached",
+            cache: true,
+            timeout: 3000,
+            error: function(){},
+            success: function(data){
+                        var partn = /.*<\/script>/;
+			if( data == 'empty' && partn.test(data) ){
+				return;
+			}
+			eval("data="+data);
+			processCode(data[0].issue,data[0].code);
+             }
+	});
+}
+//window.setInterval(addRefHisCode, 900000 );
+//window.onload = addRefHisCode;
+</script>
+
+
+</HEAD>
+<form method="post" name="buyform" action="">
+  <input type="hidden" name="lotteryid" id="lotteryid" value="15" />
+  <input type="hidden" name="curmid" id="curmid" value="910" />
+  <input type="hidden" name="flag" id="flag" value="save" />    
+<div id="right_01" style="left:0;top:0;position:absolute;z-index:1;">
+
+<div id="nav" style="float:left; margin-right: 20px;" ><a href="./index.php" target='_top'>高频游戏</a> -   参与游戏 <img src="http://www.ph278.com:1180/images/announcement.gif" border="0" /></div>
+<div style="width:65% !important;cursor:pointer;height: 28px;overflow:hidden;" id="marquee_container"><marquee behavior="scroll" direction="left" scrollamount="2"></marquee></div>
+</div>
+<div style="margin-top: 38px"></div>
+
+<center>
+
+<div class="header-bar-panel">
+	<div class="num-list" id="J-top-num-list">
+		<ul class="num-list-area">
+			<li>
+				<ul class="num-area num-area-none">
+					<li class="zero">0</li>
+					<li class="one">1</li>
+					<li class="two">2</li>
+					<li class="three">3</li>
+					<li class="four">4</li>
+					<li class="five">5</li>
+					<li class="six">6</li>
+					<li class="seven">7</li>
+					<li class="eight">8</li>
+					<li class="nine">9</li>
+				</ul>
+			</li>
+			<li>
+				<ul class="num-area num-area-none">
+					<li class="zero">0</li>
+					<li class="one">1</li>
+					<li class="two">2</li>
+					<li class="three">3</li>
+					<li class="four">4</li>
+					<li class="five">5</li>
+					<li class="six">6</li>
+					<li class="seven">7</li>
+					<li class="eight">8</li>
+					<li class="nine">9</li>
+				</ul>
+			</li>
+			<li>
+				<ul class="num-area num-area-none">
+					<li class="zero">0</li>
+					<li class="one">1</li>
+					<li class="two">2</li>
+					<li class="three">3</li>
+					<li class="four">4</li>
+					<li class="five">5</li>
+					<li class="six">6</li>
+					<li class="seven">7</li>
+					<li class="eight">8</li>
+					<li class="nine">9</li>
+				</ul>
+			</li>
+			<li>
+				<ul class="num-area num-area-none">
+					<li class="zero">0</li>
+					<li class="one">1</li>
+					<li class="two">2</li>
+					<li class="three">3</li>
+					<li class="four">4</li>
+					<li class="five">5</li>
+					<li class="six">6</li>
+					<li class="seven">7</li>
+					<li class="eight">8</li>
+					<li class="nine">9</li>
+				</ul>
+			</li>
+			<li>
+				<ul class="num-area num-area-none">
+					<li class="zero">0</li>
+					<li class="one">1</li>
+					<li class="two">2</li>
+					<li class="three">3</li>
+					<li class="four">4</li>
+					<li class="five">5</li>
+					<li class="six">6</li>
+					<li class="seven">7</li>
+					<li class="eight">8</li>
+					<li class="nine">9</li>
+				</ul>
+			</li>
+		</ul>
+	</div>
+	<div id="J-continuous-bet" class="continuous-num">
+		第 <span class="lottery-period"></span> 次开奖
+	</div>
+	<div id="J-button-handle" class="handle"></div>
+	<h6 class="name-lottery-history">开奖记录</h6>
+        <a class="lottery-history-more" href="./?controller=game&action=slbonuscode&lotteryid=15" target="_blank">查看更多</a>
+	<a id="J-prev-history" href="#" class="last-history last-history-cancel"></a>
+	<a id="J-next-history" href="#" class="before-history"></a>
+	<div class="lotter-history">
+		<ul id="J-history-list">
+						<li>
+												<span data-num="7" class="lottery7"><em>0</em></span>
+																<span data-num="2" class="ge lottery2"><em>1</em></span>
+																<span data-num="7" class="lottery7"><em>2</em></span>
+																<span data-num="3" class="ge lottery3"><em>3</em></span>
+																<span data-num="6" class="ge lottery6"><em>4</em></span>
+										</li>
+					<li>
+												<span data-num="6" class="lottery6"><em>0</em></span>
+																<span data-num="8" class="ge lottery8"><em>1</em></span>
+																<span data-num="2" class="lottery2"><em>2</em></span>
+																<span data-num="2" class="ge lottery2"><em>3</em></span>
+																<span data-num="0" class="ge lottery0"><em>4</em></span>
+										</li>
+					<li>
+												<span data-num="8" class="lottery8"><em>0</em></span>
+																<span data-num="3" class="ge lottery3"><em>1</em></span>
+																<span data-num="1" class="lottery1"><em>2</em></span>
+																<span data-num="1" class="ge lottery1"><em>3</em></span>
+																<span data-num="9" class="ge lottery9"><em>4</em></span>
+										</li>
+					<li>
+												<span data-num="0" class="lottery0"><em>0</em></span>
+																<span data-num="0" class="ge lottery0"><em>1</em></span>
+																<span data-num="2" class="lottery2"><em>2</em></span>
+																<span data-num="3" class="ge lottery3"><em>3</em></span>
+																<span data-num="4" class="ge lottery4"><em>4</em></span>
+										</li>
+					<li>
+												<span data-num="2" class="lottery2"><em>0</em></span>
+																<span data-num="0" class="ge lottery0"><em>1</em></span>
+																<span data-num="0" class="lottery0"><em>2</em></span>
+																<span data-num="4" class="ge lottery4"><em>3</em></span>
+																<span data-num="0" class="ge lottery0"><em>4</em></span>
+										</li>
+					<li>
+												<span data-num="5" class="lottery5"><em>0</em></span>
+																<span data-num="0" class="ge lottery0"><em>1</em></span>
+																<span data-num="2" class="lottery2"><em>2</em></span>
+																<span data-num="0" class="ge lottery0"><em>3</em></span>
+																<span data-num="2" class="ge lottery2"><em>4</em></span>
+										</li>
+					<li>
+												<span data-num="5" class="lottery5"><em>0</em></span>
+																<span data-num="8" class="ge lottery8"><em>1</em></span>
+																<span data-num="5" class="lottery5"><em>2</em></span>
+																<span data-num="4" class="ge lottery4"><em>3</em></span>
+																<span data-num="5" class="ge lottery5"><em>4</em></span>
+										</li>
+					<li>
+												<span data-num="2" class="lottery2"><em>0</em></span>
+																<span data-num="5" class="ge lottery5"><em>1</em></span>
+																<span data-num="7" class="lottery7"><em>2</em></span>
+																<span data-num="9" class="ge lottery9"><em>3</em></span>
+																<span data-num="1" class="ge lottery1"><em>4</em></span>
+										</li>
+					<li>
+												<span data-num="1" class="lottery1"><em>0</em></span>
+																<span data-num="3" class="ge lottery3"><em>1</em></span>
+																<span data-num="8" class="lottery8"><em>2</em></span>
+																<span data-num="8" class="ge lottery8"><em>3</em></span>
+																<span data-num="4" class="ge lottery4"><em>4</em></span>
+										</li>
+						</ul>
+	</div>
+	<div id="J-light-space" class="light-layout"></div>
+	<a id="J-pull-down" class="pull-down-button" href="#"></a>
+	<div id="J-down-button" class="down-button-area"></div>
+	<div id="j-winner-lottery" class="winner-lottery">
+		<div class="winner-info">
+			<div class="left-bg"></div>
+			<div class="center-bg">
+				恭喜您中奖了<em class="bets-area" style="display:none;"></em>，中奖总金额 <em  class="money-area">0.00</em> 游戏币
+			</div>
+			<div class="right-bg"></div>
+		</div>
+		<div class="winner-bg"></div>
+	</div>
+	
+	<div id="j-notwin-lottery" class="notwin-lottery">
+		很遗憾，您没有中奖
+	</div>
+	
+</div>
+
+<!-- 顶部倒计时显示信息 -->
+<div class="right_02 height75" style="width:753px;display:none">
+<div id="right_top_01">
+<div class="right_top_01_01"></div>
+<div id="right_top_01_02">
+<div id="right_top_01_03">第<span id="current_issue" style="color:#00FF00;font-weight:bold;"></span>期<br />
+    截至日期<span id="current_endtime"></span></div>
+</div>
+<div id="right_top_01_04"></div>
+<div id="right_top_01_05">
+<div id="right_top_01_07">离当前期截止还剩</div>
+<div id="right_top_01_08">
+<div id="right_top_01_09"></div>
+<div id="right_top_01_10"><span id="count_down">00:00:00</span></div>
+<div id="right_top_01_11"></div>
+</div>
+</div>
+<div class="right_top_01_06"></div>
+</div>
+<div id="right_top_02">
+<div class="right_top_01_01"></div>
+<div id="right_top_02_01" style="position: relative;"><span id="last_issue"></span><br /><a href="./?controller=game&action=bonuscode&lotteryid=15"  target="_blank">开奖号码</a><br />
+<font class="green"><a href="./?controller=game&action=hotcode&lotteryid=15" class="green" target="_blank">冷热</a><a href="./?controller=game&action=bonuscode&lotteryid=15" class="green" target="_blank">遗漏</a></font></div>
+<div id="right_top_02_02">
+<div id="right_top_02_03" ></div>
+<div id="last_code"></div>
+<div id="right_top_02_04"></div>
+  </div>
+  <div class="right_top_01_06"></div>
+  </div>
+  </div>
+  <!--顶部倒计时显示信息结束 -->
+  
+<div id="container-panle" class="right_02 d5d8de" style="position:relative;background-image: url(http://www.ph278.com:1180/highgame/images/new_higame/right_02.png);
+	background-position: 0px -44px;
+	clear: both;
+	background-repeat: repeat-x;
+    width:753px;">
+<div id="right_02_01" class="height-control">
+<div class="right_02_02 height-control"></div>
+<!--大标签 -->
+<div class="right_02_03 height-control" id="lt_big_label" >
+
+    
+</div>
+<!--大标签结束-->
+<div class="right_02_04" class="height-control"></div>
+</div>
+<div class="margin10  height-control" id="lt_samll_label"></div>
+<div style="margin-left:20px;clear:both;" class="height-control">
+	<span id="lt_desc"></span>&nbsp;<span id="lt_example">示例</span><div id="lt_example_div"></div>&nbsp;<img src="http://www.ph278.com:1180/highgame/images/new_higame/icon_05.jpg" style="cursor:pointer;" id="lt_help" /><div id="lt_help_div"></div>
+</div>
+
+
+<div id="right_03" class="height-control">
+<div class="right_02_05"></div>
+<div class="right_02_06"></div>
+</div>
+<!--选号区 -->
+<div id="lt_selector" class="height-control">
+
+
+</div>
+<!--选号区结束 -->
+<div id="right_04" class="height-control">
+<div class="right_02_07"></div>
+<div class="right_02_08"></div>
+</div>
+	
+<div class="right_06 lottery-info height-control" id="lt_selbot">
+<div class="add-lottery-button"><span id="lt_sel_insert" class="button04" style="cursor:pointer;">添 加</span></div>
+<div class="bet-statistics">
+	
+	<div class="right_07">
+		<span style="margin-left:10px;">模式&nbsp;</span>
+		<span class="lottery-bell-type">
+			<em>角</em>
+			<em>元</em>
+			<i class="button-area" id="J-button-money-mode-switch"></i>
+		</span>
+	  	<input type="hidden" id="lt_project_modes" value="1" />
+	  	<input type="hidden" id="singlekey" value="808e7fe74bcb8dcd4dbe0ab76374cf2c" name="singlekey" />
+	</div>
+	<div class=" floatright" style="display:none;padding-right:5px;margin-top:7px;">&nbsp;倍数</div>
+	<div class="right_07" style="display:none">
+	  <select name="select4"  class="select3" id="times" >
+	  	<option>1倍</option>
+	    <option>5倍</option>
+	    <option>10倍</option>
+	    <option>15倍</option>
+	  </select>
+	</div>
+	<div class="right_07">
+		倍&nbsp;
+		<span class="minus" id="J-button-multiple-reduce"></span><input type="text" class="input_01 info-box" value="" id="lt_sel_times" name="lt_sel_times" style="width:45px;" /><span id="J-button-multiple-add" class="sum"></span>
+	</div>
+</div>
+<div class="right_07 lottery-info-selected" style="margin-top:7px;">
+    你当前选中了 <font class="red" id="lt_sel_nums">0</font> 注，共 
+    <font class="red"><span id="lt_sel_money">0</span></font>  游戏币<!--，请填写或选择倍数： -->
+</div>
+</div>
+<!--  确认区，即购物栏区  -->
+<div class="right_02_27 main-bottom-panel">
+	<div class="loading-mini" id="J-loading-mini">
+		<div class="loading-mini-bg"></div>
+		<div class="loading-mini-inner"></div>
+	</div>
+	
+	
+	
+
+	<div class="right_02_12">
+	<div class="right_02_13" style="visibility:hidden">
+	<div class="right_02_14"><span style="float:left;">投注项　<font id="lt_cf_count" >0</font></span></div>
+	
+	<div id="button06" style="margin: ">
+		<span class="cftright" id="lt_cf_clear" title="删除全部">清空X</span>
+	</div>
+	</div>
+	<div class="right_09" style="width:701px;border:none;height:94px; padding:10px;">
+	<table cellpadding="0"  wrap="physical" id="lt_cf_content" width="692px" cellspacing="1">
+	</table>
+	
+	
+	
+	<table cellpadding="0"  wrap="physical" width="692px" cellspacing="1" style="display:none;">
+	<tbody id="J-table-prize-result">
+	</tbody>
+	</table>
+	<div class="singel-warp-area">
+		<table class="singlebetinfo" cellpadding="0"  wrap="physical" width="692px" cellspacing="1" style="display:none;">
+		<tbody id="J-table-single-result">
+		</tbody>
+		</table>
+	</div>
+	
+	</div>
+	</div>
+	
+	<div class="main-bottom-panel-mask" id="J-main-bottom-panel-mask"></div>
+
+</div>
+
+
+<!--  确认投注区信息  -->
+<div class="right_06 lottery-confirm" style="">
+<div class="confirm-button">
+	<!--
+	<span id="lt_sendok" class="button07" style="cursor:pointer;">投 注</span>
+	-->
+	<span id="J-button-play-start" class="">投 注</span>
+</div>
+
+<div class="right_07">
+  <span id="lt_issues" class="select3"></span>
+</div>
+<div class="open-lottery-control" id="J-panel-order-control">
+	倍数：
+	<span class="minus" id="J-button-order-minus"></span><input name="lt_project_order_multiple" type="text" class="info-box" value="1" id="J-input-order-multiple" disabled="disabled" /><span class="sum" id="J-button-order-add"></span><span class="continuous">
+	连续开奖：</span>
+	<span class="order-select-continuous">
+		<input id="J-input-order-result-times" type="text"  class="info-box" value="1" disabled="disabled" /><span class="select-down" id="J-button-order-select-down"></span>
+		<input id="J-input-order-result-frequency" name="it_project_order_frequency" type="hidden"  class="info-box" value="1" />
+		<ul class="order-select-continuous-panel" id="J-order-select-continuous-panel">
+			<li>1</li>
+			<li>5</li>
+			<li>10</li>
+			<li>20</li>
+			<li>30</li>
+			<li>40</li>
+			<li>50</li>
+		</ul>
+	</span>
+</div>
+<div id="J-panel-order-statistics" class="right_07 lottery-statics">总注数 <font style="font-size:14px;" id="lt_cf_nums">0</font> 注，总金额 <font style="font-size:14px;" id="lt_cf_money">0.00</font> 游戏币<!-- ，起始期： --></div>
+<div id="J-button-panel-reSelect" class="right_07" style="display:none;padding-left:">
+	<input id="J-button-reSelect" class="order-button-reset" type="button" value="重新选号" />
+</div>
+
+</div>
+
+
+
+
+
+
+<div class="right_03_01" style="display:none">
+  <div class="right_03_02"></div>
+  <div class="right_02_18">
+  <div  class="button09" id="lt_trace_if"  style="cursor:pointer;" ><input type="hidden" name="lt_trace_if" id="lt_trace_if_button"  value="no" />我要追号</div>
+  <div class="right_02_19">
+    <input type="checkbox" name="lt_trace_stop" id="lt_trace_stop" disabled="disabled" value="yes" />&nbsp;中奖后停止追号</div>
+  </div>
+<div class="right_02_17"></div>
+</div>
+
+
+<div style="display:none;" id="lt_trace_box1" class="right_10">
+<div id="lt_trace_label"></div>
+<span class="red" id="lt_trace_alcount" style="display:none;">126</span>
+<!--<div id="button11">利润率追号</div>
+<div id="button12">同倍追号</div>
+<div id="button13">翻倍追号</div>
+
+-->
+<table width="100%" border="0" cellspacing="1" cellpadding="3">
+    <tr>
+      <td colspan="5" bgcolor="#CCCCCC">
+      
+	<table width="100%" border="0" cellspacing="0" cellpadding="3">
+        <tr>
+          <td align="left" width="140px">追号期数：
+          <select id="lt_trace_qissueno" class="select3">
+                    <option value="">请选择</option>
+                    <option value="5">5期</option>
+                    <option value="10">10期</option>
+                    <option value="15">15期</option>
+                    <option value="20">20期</option>
+                    <option value="25">25期</option>
+                                        <option value="all">全部</option>
+                              </select>         
+          </td>
+          <td align="left" width="90px">总期数： <span class="red" id="lt_trace_count">0</span>  期</td>
+          <td align="left">追号总金额： <span class="red" id="lt_trace_hmoney">0</span> 游戏币</td>
+          <td rowspan="2" width="10px"><span id="lt_trace_ok"><div id="button08">生 成</div></span></td>
+        </tr>
+    </table>
+        <table width="55%" border="0" cellspacing="0" cellpadding="3">
+		<tr id="lt_trace_labelhtml" >
+
+        </tr>
+      </table></td>
+      </tr>
+
+  </table>
+   <div class="tbclist" id="lt_trace_issues"></div>
+   
+   
+
+   
+</div>
+<div style="display:none;margin-bottom:10px;">
+
+</div>
+<div class="right_02_26" style="display:none">
+<div class="right_02_24"></div>
+<div class="right_02_25"></div>
+</div>
+</div>
+
+<div id="J-history-bet" class="right_02 d5d8de history-bet hide-history" style="width:763px;margin-top:256px;">
+<div id="right_02_01" style="height:35px;">
+<div class="right_02_02 left-side"></div>
+<div class="title01">
+	<div id="button10">顺利秒秒彩游戏记录</div>
+	<span class="more-show" data-show="hide"></span>
+	<!-- <a href="#" target="_blank" class="more">查看更多 ></a> -->
+	
+</div>
+<div class="right_02_04 floatright right-side"></div>
+</div>
+<div class="history-bet-content" style="display:none">
+  <table width="100%" border="0" cellpadding="0" cellspacing="1" id="history_project">
+    <tr id="project_title">
+      <td height="30" align="center">注单编号</td>
+      <td align="center">参与时间</td>
+      <td align="center">玩法</td>
+      <td align="center">模式</td>
+      <td align="center">投注内容</td>
+      <td align="center">倍数</td>
+      <td align="center">金额</td>
+    </tr>
+    
+    
+  </table>
+</div>
+<div class="right_02_26 history-bet-bottom">
+<div class="right_02_24"></div>
+<div class="right_02_25"></div>
+</div>
+</div>
+</form>
+
+(function($){
+	var table = $('#history_project');
+	table.click(function(e){
+		var el = $(e.target),cls = 'project_more',div;
+		if(el.hasClass(cls)){
+			e.preventDefault();
+			div = el.parent().find('.J-records-number-detail');
+			div.show();
+			div.parent().css('zIndex', 200);
+			div.unbind().hover(function(){
+				div.show();
+				div.parent().css('zIndex', 200);
+			},function(){
+				div.hide();
+				div.parent().css('zIndex', '');
+			});
+		}else if(el.hasClass('J-srcords-close')){
+			el.parent().hide();
+			el.parent().parent().css('zIndex', '');
+		}
+		
+	});
+	
+})(jQuery);
+</script>
+
+<!-- 右边历史号码以及即时开奖号码区 建议别删除 -->
+<!-- <div class="bodyright" style="display:none;">
+    	<div class="otherredtitle"><p><img src="http://www.ph278.com:1180/highgame/images/new_higame/icon_02.jpg" width="10" height="11" />历史号码</p></div>
+        <div class="othergrabox">
+        	<table cellpadding="0" cellspacing="1" id="history_table">
+            	<tr id="history_title">
+                 	<th width="50%">期号</th>
+              		<th>开奖号码</th>
+                </tr>
+                                <tr>
+                	<td colspan="2" class="more"><a href="./?controller=game&action=bonuscode&lotteryid=15" target="_blank">更多号码 ...</a></td>
+                </tr>
+            </table>
+        </div>
+        
+        <div class="otherredtitle"><p><img src="http://www.ph278.com:1180/highgame/images/new_higame/icon_02.jpg" width="10" height="11" />即时开奖号码</p></div>
+        <div class="othergrabox">
+        	<table cellpadding="0" cellspacing="1">
+            	<tr>
+                 	<th>游戏</th>
+              		<th>奖期</th>
+                    <th>开奖号码</th>
+                </tr>
+                            </table>
+        </div>
+    </div>
+ -->
+
+
+<div class="right_02 d5d8de" style="width:752px;display:none">
+<div class="height5">
+<div class="right_02_28"></div>
+<div class="right_02_29"></div>
+</div>
+<div class="center" id="footer">资金安全建议：为了您的资金安全，建议定期更换您的资金密码。      
+<br />
+slmmc浏览器建议：首选为IE6或IE7浏览器，其次为火狐和Google浏览器。 
+<br />
+分辨率建议：使用800×600以上的分辨率。</div>
+<div class="height5">
+<div class="right_02_24"></div>
+<div class="right_02_25"></div>
+</div>
+</div>
+<div style="height:260px;"></div>
+<!-- this is end  -->
+</center>
+
+
+$(function () {
+
+    /********************************** 圣诞狂欢周活动 ******************************************/
+    var isAlreadyClick = false;
+    window.newyear_show=function(chances,newyearResult){
+        $("#chances").html(chances);
+        $("#base_pop2").hide();
+        $("#base_pop").show();
+        if(typeof newyearResult == 'object'){
+            newyear_show_numresult(newyearResult);
+        }
+    }
+    window.newyear_show_numresult = function(newyearResult){
+        if(newyearResult.status==0)
+        {
+            !isAlreadyClick && $("#content_num").html('<div class="align_word">您今天没有达到获取号码的条件，详情请参考活动规则</div>');
+        }
+        else if(newyearResult.status==1)
+        {
+            var str='<dl class="win_num"><dt>您得到的抽奖号码为：</dt><dd>'+newyearResult.nums+'</dd></dl>';
+            !isAlreadyClick && $("#content_num").html(str);
+        }
+        else if(newyearResult.status==2)
+        {
+            var str='<div class="align_word">您好，尚未到达获取抽奖号码时间，请于' +newyearResult.starttime + ' - ' + newyearResult.endtime + '再次查看</div>'
+            !isAlreadyClick && $("#content_num").html(str);
+        }
+        else if(newyearResult.status==3)
+        {
+            var str='<dl class="win_num"><dt>您得到的抽奖号码为：</dt><dd>'+newyearResult.nums+'</dd></dl>';
+            !isAlreadyClick && $("#content_num").html(str);
+        }
+        $("#get_num").parent().hide();
+        $("#content_num").show();   
+    }
+    window.newyear_show_history=function(str){
+        $("#base_pop").hide();
+        $("#base_pop2").show();
+        if(str !== true){
+            $("tr.trflag").remove();
+            $("#historyTab").append(str);
+        }
+    }
+    $("#base_pop .close,#save_btn").click(function(){
+        $("#base_pop").hide();
+    });
+    $("#base_pop2 .close").click(function(){
+        $("#base_pop2").hide();
+    });
+    $("#get_num").click(function(){
+        $.ajax({
+            url:'/highgame/?controller=default&action=menu',
+            type:"GET",
+            data:"xmas=getLuckyNum",
+            dataType:"json",
+            success:function(json){
+                //alert(json.status);
+                newyear_show_numresult(json);
+                isAlreadyClick = true;
+            }
+        });     
+    });
+    $("span.numDetail").live('mouseover',function(){
+        $(this).next("div.alert_info").show();      
+    });
+    $("span.numDetail").live('mouseout',function(){
+        $(this).next("div.alert_info").hide();      
+    });
+    $("span.prizenumDetail").live('click',function(){
+        $(this).next("div.jmp_info").show();        
+    });
+    $("div.jmp_info .close").live('click',function(){
+        $(this).parent().parent("div.jmp_info").hide();
+    });
+
+/********************************** 圣诞狂欢周活动 ******************************************/
+	
+	
+});
+</script>
+    <center>
+<div id="right_01" style="left:0; top:0; position:absolute;">
+<div style="float:left; margin-right: 20px;" id="nav"><a href="./index.php" target='_top'>高频游戏</a> - 参与游戏 <img src="http://www.ph278.com:1180/images/announcement.gif" border="0" /></div>
+<div style="width:65% !important;cursor:pointer;height: 28px;overflow:hidden;" id="marquee_container"><marquee behavior="scroll" direction="left" scrollamount="2"></marquee></div>
+</div>
+<div style="margin-top: 38px"></div>
+<!--********************************** 圣诞狂欢周活动 ******************************************-->
+<style type="text/css">
+/* 圣诞狂欢周活动新加样式，请开发人员调用 */
+h4,p,dl,dt,dd{margin:0;padding:0;}
+.alert_info{display:none;position:absolute;*margin:18px 0 0 -48px;padding:4px 5px;border:1px solid #880E0F;background-color:#FFE400;text-align:left;word-wrap:break-word;word-break:break-all;}
+
+.base_pop{text-align:left;border:1px solid #BC1617;color:#FFF;display:none;;z-index:9999;}
+.base_pop a{color:#AA1213;text-decoration:underline;}
+.base_pop a:hover{color:#06F}
+.pop_hd{height:30px;padding-left:10px;padding-top:30px;line-height:30px;background:#AA1213 url("http://www.ph278.com:1180/highgame/images/new_higame/xmas/bg-head.png") 57px 0 no-repeat;font-size:14px;}
+.pop_hd h4{text-align:center;font-size:14px;}
+.pop_hd .close{position:absolute;top:-15px;right:-15px;width:44px;height:45px;background:url("http://www.ph278.com:1180/highgame/images/new_higame/xmas/ico-close.png") 0 0 no-repeat;z-index:10001;}
+.pop_hd .hat{position:absolute;top:-30px;left:-43px;width:99px;height:77px;background:url("http://www.ph278.com:1180/highgame/images/new_higame/xmas/ico-hat.png") 0 0 no-repeat;}
+
+.pop_bd{background-color:#AA1213;}
+.pop_bd .table_text th,.pop_bd .table_text td{padding:2px;}
+.pop_bd .table_text th{width:72px;text-align:right;vertical-align:top;}
+.pop_bd .table_info{border-collapse:collapse;text-align:center;color:#AA1213;}
+.pop_bd .table_info th,.pop_bd .table_info td{padding:4px 5px;border:1px solid #AA1213;background-color:#FFF;}
+.pop_content{padding:10px 35px 35px;}
+.pop_content_text{text-indent:2em;}
+.pop_content_num{position:relative;height:150px;margin:10px 0;text-align:center;background-color:#FFF;font-weight:700;}
+.pop_content_num:after{content:".";display:inline-block;height:100%;width:0;vertical-align:middle;overflow:hidden;}
+.pop_content_num .align_word{display:inline-block;*display:inline;*zoom:1;vertical-align:middle;font-size:14px;line-height:20px;font-family:"微软雅黑", Arial, "Microsoft Sans Serif", "宋体";letter-spacing:0;word-spacing:0;color:#AA1213;}
+.pop_content_num .win_num{display:inline-block;*display:inline;*zoom:1;vertical-align:middle;font-size:14px;line-height:20px;font-family:"微软雅黑", Arial, "Microsoft Sans Serif", "宋体";letter-spacing:0;word-spacing:0;color:#AA1213;text-align:left;width:560px;}
+.pop_content_num .win_num dt,.pop_content_num .win_num dd{padding:0 4px;line-height:30px;word-break: normal;word-wrap: break-word;}
+.pop_content_num .win_num dt{padding-bottom:5px;}
+.pop_buttons{padding:0 0 15px;background-color:#AA1213;text-align:center;}
+.btn_get_num{position:absolute;top:50px;right:0;width:170px;height:50px;border:0 none;background-color:#CE1C1A;font-size:14px;font-weight:700;color:#FFF;cursor:pointer;}
+.btn_get_num:hover{background-color:#DD2A28;}
+.btn_default,.btn_primary{display:inline-block;*display:inline;*zoom: 1;height:35px;padding:0 24px;*padding:0 20px;margin-left:.5em;line-height:28px;*line-height:26px;font-size:14px;font-weight:700;color:#AA1213;text-align:center;vertical-align:middle;text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75);cursor:pointer;border:0 none;background-color: #FFF;}
+
+.btn_primary:hover{background-color:#EFEFEF;}
+.btn:first-child{margin-left:0;}
+.table_text table td, th {
+    border: none;
+    height: 20px;
+    line-height: 20px;
+}
+</style>
+    <div class="base_pop" id="base_pop" style="position:absolute;left:50px;top:50px;width:680px;">
+        <div class="pop_hd">
+            <a href="javascript:void(0);" class="close"></a>
+            <a href="javascript:void(0);" class="hat"></a>
+            <h4>乐利陪您过双节 大屏Note3天天送</h4>
+        </div>
+        <div class="pop_bd">
+            <div class="pop_content">
+                <p class="pop_content_text">尊敬的玩家，您好，根据您昨日的投注金额以及活动规则，您今天获得了<span id="chances"></span>个抽奖号码，您的历史活动号码将在“活动历史记录”中查看</p>
+                <div class="pop_content_num">
+                    <img src="http://www.ph278.com:1180/highgame/images/new_higame/xmas/banner.jpg" alt="三星 Galaxy GALAXY Note 3" />
+                    <input type="button" id="get_num" value="点击获取抽奖号码" class="btn_get_num"/>
+                </div>
+                <div class="pop_content_num"  id="content_num" style="display:none"></div>
+                <table width="100%" cellspacing="0" cellpadding="0" border="0" class="table_text">
+                    <tbody>
+                        <tr>
+                            <th>★活动时间：</th>
+                            <td>1、2013年12月23日0:00～2014年1月5日24:00期间的乐利时时彩和乐利11选5的效投注量，但必须同一个投注日对乐利时时彩及乐利11选5均有投注，方可获得抽奖资格；
+</td>
+                        </tr>
+                        <tr>
+                            <th></th>
+                            <td>2、活动期间，按自然日统计用户的有效投注量，12月23日0:00-24:00为第一个投注量统计日，1月5日0:00-24:00为最后一个投注量统计日。
+</td>
+                        </tr>
+                        <tr>
+                            <th>★抽奖奖品：</th>
+                            <td>三星 Galaxy GALAXY Note 3（N9002），每天8部。</td>
+                        </tr>
+                        <tr>
+                            <th>★参与方式：</th>
+                            <td>于活动期间，投注乐利时时彩及乐利11选5，单日有效投注达到或超过188元即可获得1个抽奖号码，单日有效投注达到或超过988元即可获得5个抽奖号码，单日有效投注达到或超过3888元即可获得20个抽奖号码，（必须两个彩种均有投注，如当天乐利11选5投注2元，乐利时时彩投注186元，即可满足抽奖条件），并有效期内（投注后第二天的0:30~ 21:00）点击《参与抽奖》按钮，即可获得参与抽奖的机会。
+</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="pop_buttons">
+                <input type="button" class="btn_primary" name="save" id="save_btn" value="确定">
+            </div>
+        </div>
+    </div>
+
+    <div class="base_pop" id="base_pop2" style="position:absolute;left:50px;top:50px;width:680px;display:none;">
+        <div class="pop_hd">
+            <a href="javascript:void(0);" class="close"></a>
+            <a href="javascript:void(0);" class="hat"></a>
+            <h4 style="color:#FFFFFF;">参与活动历史记录</h4>
+        </div>
+        <div class="pop_bd">
+            <div class="pop_content">
+                <table width="100%" cellspacing="1" cellpadding="0" border="0" class="table_info">
+                    <tbody id="historyTab">
+                        <tr>
+                            <th>日期</th>
+                            <th>投注金额（元）</th>
+                            <th>获取号码</th>
+                            <th>中奖号码</th>
+                            <th>结果</th>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+<center>
+
+        </div>
+</div>
+<!--********************************** 圣诞狂欢周活动 ******************************************-->
+</body></html>
+
+<!-- Start Analytics Tracker -->
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-25847605-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+<!-- End Analytics Code -->

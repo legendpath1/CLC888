@@ -1,0 +1,8 @@
+@charset "utf-8";
+object:focus { outline:none; }
+#flashContent { display:block; vertical-align: bottom;overflow: hidden;}
+#rightContent { display:block; vertical-align: text-top;overflow: hidden;}
+#centerContent{ display:block; vertical-align: bottom;overflow: hidden;}
+#rightContentContainer {position:absolute; display:block;  z-index:999; width:1px; height:1px; right:0; bottom:0;} 
+#flashContentContainer { position:absolute; display:block;  z-index:999;  width:200px; height:54px; right:0; bottom:0;}
+#centerContentContainer {position:absolute; display:block;  z-index:999; width:1px; height:1px;right:0; bottom:0;}

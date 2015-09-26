@@ -1,0 +1,56 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<title>Mo宝支付 - 支付快 乐生活</title><link href="css/Site.css" rel="stylesheet" type="text/css" />
+	</head>
+	<body>    
+    <div class="page">
+	    <div class="header">
+	        <div class="title">
+	        	<H1>摩宝支付接口演示 </H1>
+	        </div>	        
+			</div>
+			<div class=main>
+				<H2>欢迎使用摩宝支付接口演示 </H2>
+				<form method="post" action="Mobaopay.php" targe="_blank">
+			      <P>
+					  	<td align="left">接口名字<input type="text" name="apiName" id="apiName" value="WEB_PAY_B2C" />&nbsp;<span style="color:#FF0000;font-weight:100;">*</span></td>
+			      </P>
+			      <P>
+					  	<td align="left">接口版本<input type="text" name="apiVersion" id="apiVersion" value="1.0.0.0" />&nbsp;<span style="color:#FF0000;font-weight:100;">*</span></td>
+			      </P>
+			      <P>
+					  	<td align="left">商户ID<input type="text" name="platformID" id="platformID" value="merchtest" />&nbsp;<span style="color:#FF0000;font-weight:100;">*</span></td>
+			      </P>
+			      <P>
+					  	<td align="left">商户账号<input type="text" name="merchNo" id="merchNo" value="222222222222222" />&nbsp;<span style="color:#FF0000;font-weight:100;">*</span></td>
+			      </P>
+			      <P>
+					  	<td align="left">商户订单号<input type="text" name="orderNo" id="orderNo" value="10007514" />&nbsp;<span style="color:#FF0000;font-weight:100;">*</span></td>
+			      </P>
+			      <P>
+					  	<td align="left">交易日期<input type="text" name="tradeDate" id="tradeDate" value="20120228" />&nbsp;<span style="color:#FF0000;font-weight:100;">*</span></td>
+			      </P>
+			      <P>
+					  	<td align="left">订单金额<input type="text" name="amt" id="amt" value="0.01" />&nbsp;<span style="color:#FF0000;font-weight:100;">*</span></td>
+			      </P>
+			       <P>
+					  	<td align="left">支付结果通知地址<input type="text" name="merchUrl" id="merchUrl" size=50 value="http://192.168.36.213/php/callback.php" />&nbsp;<span style="color:#FF0000;font-weight:100;">*</span></td>
+			      </P>
+			      <P>
+					  	<td align="left">商户参数<input type="text" name="merchParam" id="merchParam" value="" />&nbsp;<span style="color:#FF0000;font-weight:100;">*</span></td>
+			      </P>
+			      <P>
+					  	<td align="left">交易摘要<input type="text" name="tradeSummary" id="tradeSummary" value="支付测试" />&nbsp;<span style="color:#FF0000;font-weight:100;">*</span></td>
+			      </P>
+ 				<P>
+					  	<td align="left">银行代码<input type="text" name="bankCode" id="bankCode" value="ICBC" />&nbsp;</td>
+			      </P>
+					  <P>
+					  	<td align="left">&nbsp;&nbsp;<input type="submit" value="支付测试" /></td>
+			      </P>
+		    	</form>
+			</DIV>
+		</DIV>
+	</BODY>
+</HTML>

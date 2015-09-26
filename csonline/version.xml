@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+	<policy>
+		./crossdomain.xml
+	</policy>
+	<version>
+		<item name="right" url="./csonline/right.uni">4</item>
+		<item name="center" url="./csonline/center.uni">4</item>
+		<item name="bottom" url="./csonline/bottom.uni">4</item>
+		<item name="gate" url="./gate/gateusr.uni">3</item>
+	</version>
+</root>

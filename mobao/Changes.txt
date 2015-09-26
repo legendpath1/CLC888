@@ -1,0 +1,6 @@
+2012.03.02在成都高新区创业路8号: Version 1.0.0.1
+	增加直接使用cer格式证书。
+
+Version 1.0.0.0
+	First official release
+	new home at http://www.mobaopay.com
