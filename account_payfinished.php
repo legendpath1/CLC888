@@ -15,9 +15,9 @@ A {
 	TEXT-DECORATION: none
 }
 </STYLE>
+</META>
 
-
-<BODY bgColor=#ffffff leftMargin=0 topMargin=0>
+<body bgColor=#ffffff leftMargin=0 topMargin=0>
 <TABLE height="100%" cellSpacing=0 cellPadding=0 width="100%"
 	align=center border=0>
 	<TBODY>
@@ -30,9 +30,9 @@ A {
 				<TBODY>
 					<TR>
 						<TD vAlign=center width=700 height=340>
-						<P align=center><IMG src="Picture/atta.jpg" border=0></P>
+						<P align=center><IMG src="images/atta.jpg" border=0></P>
 						<P align=center><a href="/help_security.php"><IMG
-							src="Picture/home.jpg" width="299" height="79" border=0></a></P>
+							src="images/home.jpg" width="299" height="79" border=0></a></P>
 						<P align=center></P>
 						<P align=center></P>
 						</TD>
@@ -45,6 +45,6 @@ A {
 		</TR>
 	</TBODY>
 </TABLE>
-</BODY>
+</body>
 </HTML>
 

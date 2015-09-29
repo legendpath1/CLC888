@@ -4614,36 +4614,36 @@ while ($rowz = mysql_fetch_array($rsz)){
 		}
 		mysql_free_result($rsa);
 		//分红
-//		$sqlb="select regtop, SUM(IF(types = 1, smoney, 0)) as t1,SUM(IF(types = 2, zmoney, 0)) as t2,SUM(IF(types = 3, smoney, 0)) as t3,SUM(IF(types = 7, zmoney, 0)) as t7,SUM(IF(types = 11, smoney, 0)) as t11,SUM(IF(types = 12, smoney, 0)) as t12,SUM(IF(types = 13, smoney, 0)) as t13,SUM(IF(types = 15, zmoney, 0)) as t15,SUM(IF(types = 16, zmoney, 0)) as t16,SUM(IF(types = 32, smoney, 0)) as t32,SUM(IF(types = 40, smoney, 0)) as t40 from ssc_record where lotteryid='".$lid."' and issue='".$issue."' group by regtop";
-//		$rsb = mysql_query($sqlb);
-//		while ($rowb = mysql_fetch_array($rsb)){
-//			if($rowb['regtop']!=""){
-//				$sqls="select * from ssc_member where username ='".$rowb['regtop']."'";
-//				$rss=mysql_query($sqls) or  die("数据库修改出错1");
-//				$rows = mysql_fetch_array($rss);
-//				if($rows['zc']>0){
-//					$sqlc="select SUM(money) as smoney from ssc_bills where zt='1' and lotteryid='".$lid."' and issue='".$issue."' and regtop='".$rowb['regtop']."'";
-//					$rsc = mysql_query($sqlc);
-//					$rowc = mysql_fetch_array($rsc);
+		$sqlb="select regtop, SUM(IF(types = 1, smoney, 0)) as t1,SUM(IF(types = 2, zmoney, 0)) as t2,SUM(IF(types = 3, smoney, 0)) as t3,SUM(IF(types = 7, zmoney, 0)) as t7,SUM(IF(types = 11, smoney, 0)) as t11,SUM(IF(types = 12, smoney, 0)) as t12,SUM(IF(types = 13, smoney, 0)) as t13,SUM(IF(types = 15, zmoney, 0)) as t15,SUM(IF(types = 16, zmoney, 0)) as t16,SUM(IF(types = 32, smoney, 0)) as t32,SUM(IF(types = 40, smoney, 0)) as t40 from ssc_record where lotteryid='".$lid."' and issue='".$issue."' group by regtop";
+		$rsb = mysql_query($sqlb);
+		while ($rowb = mysql_fetch_array($rsb)){
+			if($rowb['regtop']!=""){
+				$sqls="select * from ssc_member where username ='".$rowb['regtop']."'";
+				$rss=mysql_query($sqls) or  die("数据库修改出错1");
+				$rows = mysql_fetch_array($rss);
+				if($rows['zc']>0){
+					$sqlc="select SUM(money) as smoney from ssc_bills where zt='1' and lotteryid='".$lid."' and issue='".$issue."' and regtop='".$rowb['regtop']."'";
+					$rsc = mysql_query($sqlc);
+					$rowc = mysql_fetch_array($rsc);
 					
-//					$zmoney = $rows['zc']*($rowb['t7']-$rowb['t11']-$rowb['t13']+$rowb['t15']-$rowc['smoney'])/100;
-//					if($zmoney>0){
-//						$lmoney = $rows['leftmoney']+$zmoney;
+					$zmoney = $rows['zc']*($rowb['t7']-$rowb['t11']-$rowb['t13']+$rowb['t15']-$rowc['smoney'])/100;
+					if($zmoney>0){
+						$lmoney = $rows['leftmoney']+$zmoney;
 					
-//						$sqla = "select * from ssc_record order by id desc limit 1";
-//						$rsa = mysql_query($sqla);
-//						$rowa = mysql_fetch_array($rsa);
-//						$dan1 = sprintf("%07s",strtoupper(base_convert($rowa['id']+1,10,36))).sprintf("%02s",strtoupper(base_convert(mt_rand(0,1295),10,36)));
+						$sqla = "select * from ssc_record order by id desc limit 1";
+						$rsa = mysql_query($sqla);
+						$rowa = mysql_fetch_array($rsa);
+						$dan1 = sprintf("%07s",strtoupper(base_convert($rowa['id']+1,10,36))).sprintf("%02s",strtoupper(base_convert(mt_rand(0,1295),10,36)));
 					
-//						$sqla="insert into ssc_record set lotteryid='".$lid."', lottery='".Get_lottery($lid)."', dan='".$dan1."', uid='".$rows['id']."', username='".$rowb['regtop']."', issue='".$issue."', types='40', smoney=".$zmoney.",leftmoney=".$lmoney.", adddate='".date("Y-m-d H:i:s")."'";
-//						$exe=mysql_query($sqla) or  die("数据库修改出错!!!");
+						$sqla="insert into ssc_record set lotteryid='".$lid."', lottery='".Get_lottery($lid)."', dan='".$dan1."', uid='".$rows['id']."', username='".$rowb['regtop']."', issue='".$issue."', types='40', smoney=".$zmoney.",leftmoney=".$lmoney.", adddate='".date("Y-m-d H:i:s")."'";
+						$exe=mysql_query($sqla) or  die("数据库修改出错!!!");
 						
-//						$sqla="update ssc_member set leftmoney=".$lmoney." where username='".$rowb['regtop']."'"; 
-//						$exe=mysql_query($sqla) or  die("数据库修改出错!!!");
-//					}
-//				}
-//			}
-//		}		
+						$sqla="update ssc_member set leftmoney=".$lmoney." where username='".$rowb['regtop']."'"; 
+						$exe=mysql_query($sqla) or  die("数据库修改出错!!!");
+					}
+				}
+			}
+		}		
 	}
 }
 function pnb($nbs){

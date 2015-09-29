@@ -50,6 +50,7 @@ $exe=mysql_query($sqla) or  die("数据库修改出错6!!!");
 </head>
 
 <body>
+<?php if ( $_POST['bankinfo'] == 21 ) {?>
 <table width="60%" border="0" align="center" cellpadding="0"
 	cellspacing="0" style="border: solid 1px #40506b;">
 	<tr>
@@ -106,108 +107,13 @@ $exe=mysql_query($sqla) or  die("数据库修改出错6!!!");
 				<td><input type="hidden" name="noticeUrl" id="noticeUrl"
 					value="http://www.zgbaicha.cn/extranotice.php" /></td>
 			</tr>
-			<input type="hidden" name="bankCardType" id="bankCardType" value="" />
+			<tr>
+				<td><input type="hidden" name="bankCardType" id="bankCardType" value="01" /></td>
+			</tr>
 			<tr>
 				<td style="vertical-align: sub;">支付方式</td>
 				<td>
-				<div id="tabbox">
-				<ul class="tabs" id="tabs">
-					<li><a href="#" tab="tab1">个人网银</a></li>
-					<li><a href="#" tab="tab2">企业网银</a></li>
-					<li><a href="#" tab="tab3">个人借记卡</a></li>
-				</ul>
-				<ul class="tab_conbox">
-					<li id="tab1" class="tab_con">
-					<div style="margin-bottom: 20px;">
-					<div class="ra-img"><input type="radio" name="bankCode"
-						id="bankCode" value="BOC " /> <img
-						src="ZLP_PHP/images/perBank/BOC.gif" /></div>
-					<div class="ra-img"><input type="radio" name="bankCode"
-						id="bankCode" value="ABC" /> <img
-						src="ZLP_PHP/images/perBank/ABC.gif" /></div>
-					<div class="ra-img"><input type="radio" name="bankCode"
-						id="bankCode" value="ICBC" /> <img
-						src="ZLP_PHP/images/perBank/ICBC.gif" /></div>
-					<div class="ra-img"><input type="radio" name="bankCode"
-						id="bankCode" value="CCB" /> <img
-						src="ZLP_PHP/images/perBank/CCB.gif" /></div>
-					</div>
-					<div style="margin-bottom: 20px;">
-					<div class="ra-img"><input type="radio" name="bankCode"
-						id="bankCode" value="BCM" /> <img
-						src="ZLP_PHP/images/perBank/BCM.gif" /></div>
-					<div class="ra-img"><input type="radio" name="bankCode"
-						id="bankCode" value="CMB" /> <img
-						src="ZLP_PHP/images/perBank/CMB.gif" /></div>
-					<div class="ra-img"><input type="radio" name="bankCode"
-						id="bankCode" value="CEB" /> <img
-						src="ZLP_PHP/images/perBank/CEB.gif" /></div>
-					<div class="ra-img"><input type="radio" name="bankCode"
-						id="bankCode" value="SPDB" /> <img
-						src="ZLP_PHP/images/perBank/SPDB.gif" /></div>
-					</div>
-					<div style="margin-bottom: 20px;">
-					<div class="ra-img"><input type="radio" name="bankCode"
-						id="bankCode" value="BCCB" /> <img
-						src="ZLP_PHP/images/perBank/BCCB.gif" style="padding-right: 19px;" />
-					</div>
-					<div class="ra-img"><input type="radio" name="bankCode"
-						id="bankCode" value="PSBC" /> <img
-						src="ZLP_PHP/images/perBank/PSBC.gif" /></div>
-					<div class="ra-img"><input type="radio" name="bankCode"
-						id="bankCode" value="BOS" /> <img
-						src="ZLP_PHP/images/perBank/BOS.gif" /></div>
-					<div class="ra-img"><input type="radio" name="bankCode"
-						id="bankCode" value="CIB" /> <img
-						src="ZLP_PHP/images/perBank/CIB.gif" /></div>
-					</div>
-					<div style="margin-bottom: 20px;">
-					<div class="ra-img"><input type="radio" name="bankCode"
-						id="bankCode" value="CITIC" /> <img
-						src="ZLP_PHP/images/perBank/CITIC.gif" /></div>
-					<div class="ra-img"><input type="radio" name="bankCode"
-						id="bankCode" value="CMBC" /> <img
-						src="ZLP_PHP/images/perBank/CMBC.gif" /></div>
-					<div class="ra-img"><input type="radio" name="bankCode"
-						id="bankCode" value="GDB" /> <img
-						src="ZLP_PHP/images/perBank/GDB.gif" /></div>
-					<div class="ra-img"><input type="radio" name="bankCode"
-						id="bankCode" value="HXB" /> <img
-						src="ZLP_PHP/images/perBank/HXB.gif" /></div>
-					</div>
-					<div style="margin-bottom: 10px;">
-					<div class="ra-img"><input type="radio" name="bankCode"
-						id="bankCode" value="PAB" /> <img
-						src="ZLP_PHP/images/perBank/PAB.gif" style="padding-right: 18px;" />
-					</div>
-					</div>
-					</li>
-
-					<li id="tab2" class="tab_con">
-					<div style="margin-bottom: 20px;">
-					<div class="ra-img"><input type="radio" name="bankCode"
-						id="bankCode" value="BOC" /> <img
-						src="ZLP_PHP/images/corBank/BOC.gif" /></div>
-					<div class="ra-img"><input type="radio" name="bankCode"
-						id="bankCode" value="ICBC" /> <img
-						src="ZLP_PHP/images/corBank/ICBC.gif" /></div>
-					<div class="ra-img"><input type="radio" name="bankCode"
-						id="bankCode" value="CCB" /> <img
-						src="ZLP_PHP/images/corBank/CCB.gif" /></div>
-					<div class="ra-img"><input type="radio" name="bankCode"
-						id="bankCode" value="CMB" /> <img
-						src="ZLP_PHP/images/corBank/CMB.gif" /></div>
-					</div>
-					<div style="margin-bottom: 10px;">
-					<div class="ra-img"><input type="radio" name="bankCode"
-						id="bankCode" value="CEB" /> <img
-						src="ZLP_PHP/images/corBank/CEB.gif" /></div>
-					<div class="ra-img"><input type="radio" name="bankCode"
-						id="bankCode" value="SPDB" /> <img
-						src="ZLP_PHP/images/corBank/SPDB.gif" /></div>
-					</div>
-					</li>
-					<li id="tab3" class="tab_con">
+				
 					<div style="margin-bottom: 20px;">
 					<div class="ra-img"><input type="radio" name="bankCode"
 						id="bankCode" value="BOC" /> <img
@@ -222,6 +128,8 @@ $exe=mysql_query($sqla) or  die("数据库修改出错6!!!");
 						id="bankCode" value="CCB" /> <img
 						src="ZLP_PHP/images/perBank/CCB.gif" /></div>
 					</div>
+				</td>
+				<td>
 					<div style="margin-bottom: 20px;">
 					<div class="ra-img"><input type="radio" name="bankCode"
 						id="bankCode" value="BCM" /> <img
@@ -235,17 +143,16 @@ $exe=mysql_query($sqla) or  die("数据库修改出错6!!!");
 					<div class="ra-img"><input type="radio" name="bankCode"
 						id="bankCode" value="SPDB" /> <img
 						src="ZLP_PHP/images/perBank/SPDB.gif" /></div>
-
 					</div>
+				</td>
+			</tr>
+			<tr>
+				<td style="vertical-align: sub;"></td>
+				<td>
 					<div style="margin-bottom: 20px;">
 					<div class="ra-img"><input type="radio" name="bankCode"
-						id="bankCode" value="BCCB" /> <img
-						src="ZLP_PHP/images/perBank/BCCB.gif" style="padding-right: 19px;" />
-					</div>
-					<div class="ra-img"><input type="radio" name="bankCode"
-						id="bankCode" value="BJRCB" /> <img
-						src="ZLP_PHP/images/perBank/BJRCB.gif"
-						style="padding-right: 19px;" /></div>
+						id="bankCode" value="PAB" /> <img
+						src="ZLP_PHP/images/perBank/PAB.gif" style="padding-right: 18px;" /></div>
 					<div class="ra-img"><input type="radio" name="bankCode"
 						id="bankCode" value="BOS" /> <img
 						src="ZLP_PHP/images/perBank/BOS.gif" /></div>
@@ -253,32 +160,19 @@ $exe=mysql_query($sqla) or  die("数据库修改出错6!!!");
 						id="bankCode" value="CIB" /> <img
 						src="ZLP_PHP/images/perBank/CIB.gif" /></div>
 					</div>
+				</td>
+				<td>
 					<div style="margin-bottom: 20px;">
 					<div class="ra-img"><input type="radio" name="bankCode"
-						id="bankCode" value="CITIC" /> <img
-						src="ZLP_PHP/images/perBank/CITIC.gif" /></div>
+						id="bankCode" value="PSBC" /> <img
+						src="ZLP_PHP/images/perBank/PSBC.gif" /></div>
 					<div class="ra-img"><input type="radio" name="bankCode"
 						id="bankCode" value="CMBC" /> <img
 						src="ZLP_PHP/images/perBank/CMBC.gif" /></div>
 					<div class="ra-img"><input type="radio" name="bankCode"
 						id="bankCode" value="GDB" /> <img
 						src="ZLP_PHP/images/perBank/GDB.gif" /></div>
-					<div class="ra-img"><input type="radio" name="bankCode"
-						id="bankCode" value="HXB" /> <img
-						src="ZLP_PHP/images/perBank/HXB.gif" /></div>
 					</div>
-					<div style="margin-bottom: 10px;">
-					<div class="ra-img"><input type="radio" name="bankCode"
-						id="bankCode" value="PAB" /> <img
-						src="ZLP_PHP/images/perBank/PAB.gif" style="padding-right: 18px;" />
-					</div>
-					<div class="ra-img"><input type="radio" name="bankCode"
-						id="bankCode" value="PSBC" /> <img
-						src="ZLP_PHP/images/perBank/PSBC.gif" /></div>
-					</div>
-					</li>
-				</ul>
-				</div>
 				</td>
 			</tr>
 			<tr>
@@ -290,27 +184,9 @@ $exe=mysql_query($sqla) or  die("数据库修改出错6!!!");
 		</td>
 	</tr>
 </table>
-
+<?php } ?>
 <script type="text/javascript">
 $(document).ready(function() {
-    jQuery.jqtab = function(tabtit,tabcon) {
-        $(tabcon).hide();
-        $(tabtit+" li:first").addClass("thistab").show();
-        $(tabcon+":first").show();
-        $("#bankCardType").val("00");
-        $(tabtit+" li").click(function() {
-            $(tabtit+" li").removeClass("thistab");
-            $(this).addClass("thistab");
-            $(tabcon).hide();
-            var activeTab = $(this).find("a").attr("tab");
-            $("#"+activeTab).fadeIn();
-            if(activeTab=="tab1") {$("#bankCardType").val("00");$("#pay").attr("disabled","disabled");$('.tab_conbox :radio').attr("checked",false);}//根据支付银行类型00个人综合03企业
-            if(activeTab=="tab2") {$("#bankCardType").val("03");$("#pay").attr("disabled","disabled");$('.tab_conbox :radio').attr("checked",false);}
-            if(activeTab=="tab3") {$("#bankCardType").val("01");$("#pay").attr("disabled","disabled");$('.tab_conbox :radio').attr("checked",false);}            
-return false;
-        });
-        
-    };
 //    /*调用方法如下：*/
     $.jqtab("#tabs",".tab_con");
     

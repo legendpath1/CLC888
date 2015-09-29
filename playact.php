@@ -138,14 +138,14 @@
 			$serr=$serr."{\"desc\":\"[".$strb->desc."\",\"errmsg\":\"超过最大投注注数\"}";
 		}
 
-//		if($rowa['maxbei'] < $strb->times && $eerr==""){
-//			$sfail=$sfail+1;
-//			$eerr=1;
-//			if($sfail>1){
-//				$serr=$serr.",";
-//			}
-//			$serr=$serr."{\"desc\":\"[".$strb->desc."\",\"errmsg\":\"超过最大投注倍数\"}";
-//		}
+		if($rowa['maxbei'] < $strb->times && $eerr==""){
+			$sfail=$sfail+1;
+			$eerr=1;
+			if($sfail>1){
+				$serr=$serr.",";
+			}
+			$serr=$serr."{\"desc\":\"[".$strb->desc."\",\"errmsg\":\"超过最大投注倍数\"}";
+		}
 
 		if($rowa['zt'] !="1" && $eerr==""){
 			$sfail=$sfail+1;

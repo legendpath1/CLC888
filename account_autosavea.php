@@ -18,6 +18,11 @@ $rsa = mysql_query($sqla);
 $rowa = mysql_fetch_array($rsa);
 $loadmin = $rowa["cmin"];
 $loadmax = $rowa["cmax"];
+
+$tcbank=Get_member(banks);
+if($tcbank==""){
+	$tcbank=0;
+}
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -38,7 +43,7 @@ $loadmax = $rowa["cmax"];
 	src="./js/jquery.js?modidate=20130415002"></script>
 <script language="javascript" type="text/javascript"
 	src="./js/common.js?modidate=20130415002"></script>
-<script language="javascript"f type="text/javascript"
+<script language="javascript" f type="text/javascript"
 	src="./js/lottery/min/message.js?modidate=20130415002"></script>
 <script language='JavaScript'>function ResumeError() {return true;} window.onerror = ResumeError; </script>
 </head>
@@ -57,8 +62,19 @@ $loadmax = $rowa["cmax"];
 <script type="text/javascript">
     function checkForm(obj)
     {
-        var loadmin = <?php echo $loadmin ?>;
-        var loadmax = <?php echo $loadmax ?>;
+        s = obj.bankinfo.length;
+        ischecked = false;
+        for( i=0; i<s; i++ ){
+            if( obj.bankinfo[i].checked == true ){
+                ischecked = true;
+            }
+        }
+        if( ischecked == false ){
+            alert("请选择充值银行");
+            return false;
+        }
+        var loadmin = $("#loadmin").html();
+        var loadmax = $("#loadmax").html();
         loadmin = Number(loadmin);
         loadmax = Number(loadmax);
         if(obj.real_money.value < loadmin)
@@ -81,6 +97,36 @@ $loadmax = $rowa["cmax"];
         document.saveform.real_money.value = document.saveform.real_money.value.replace(/\D+/g,'');
         jQuery("#chineseMoney").html( changeMoneyToChinese(document.saveform.real_money.value) );
     }
+    function changbank(obj){
+        var id = $(obj).attr("id");
+        var $banklist={
+<?php
+
+$sqla = "select * from ssc_banks WHERE zt='1' and tc='".$tcbank."' order by id asc";
+$rsa = mysql_query($sqla);
+$total = mysql_num_rows($rsa);
+$i=0;
+while ($rowa = mysql_fetch_array($rsa)){
+?>"bank_<?=$rowa['tid']?>":{"minload":"<?=$rowa['cmin']?>","maxload":"<?=$rowa['cmax']?>"}
+<?php 
+		if($i!=$total-1){echo ",";}
+		$i=$i+1;
+}?>};
+        $("#loadmin").html($banklist[id]['minload']);
+        $("#loadmax").html($banklist[id]['maxload']);
+        id = parseInt(id.replace("bank_",""),10);
+        if( id == 3 ){
+<?php 
+if($cardnums=="0"){
+?>
+		alert("请先绑定您的建行银行卡");
+		self.location = "account_banks.php";
+		return false;
+<?php }?>
+        }
+        $("tr[id^=msg_]").hide();
+        $("#msg_bank_"+id).show();
+    }
 </script>
 <div class="top_menu">
 <div class="tm_left"></div>
@@ -101,17 +147,33 @@ $loadmax = $rowa["cmax"];
 </h5>
 <div class="rc_con_to">
 <div class="rc_con_ti">
+
+<form method="post" action="./account_autopay.php" name="saveform"
+	id="saveform" onsubmit="return checkForm(this)">
 <table width="100%" class="ct" border="0" cellspacing="0"
 	cellpadding="0">
-	<form method="post" action="./account_autopay.php" name="saveform"
-		id="saveform" onsubmit="return checkForm(this)">
+	<tr>
+		<td class="nl">充值银行:</td>
+		<td style='height: 60px;'><?php
+		$dd=date("H:i:s");
+		$sqla = "select * from ssc_banks WHERE zt='1' and tc='".$tcbank."' and ((cztimemin<cztimemax and cztimemin<'".$dd."' and cztimemax>'".$dd."') or (cztimemin>cztimemax and (cztimemin<'".$dd."' or cztimemax>'".$dd."'))) order by id asc";
+		$rsa = mysql_query($sqla);
+		while ($rowa = mysql_fetch_array($rsa)){
+			?> <input type="radio" id='bank_<?=$rowa['tid']?>' name="bankinfo"
+			value="<?=$rowa['tid']?>" onclick="changbank(this)" />&nbsp;<label
+			for='bank_<?=$rowa['tid']?>'><img style='cursor: pointer;'
+			src="images/banks/<?=$rowa['tid']?>.jpg" /></label>&nbsp;&nbsp;&nbsp;
+			<?php }?> &nbsp;&nbsp;<span style="color: red; display: none"><input
+			type="radio" name="bankinfo" value="" /></span></td>
+	</tr>
 	<tr>
 		<td class="nl">充值金额:</td>
 		<td style='height: 66px;'><input type="text" name="real_money"
 			id="real_money" maxlength="10" onkeyup="showPaymentFee();" />
 		&nbsp;&nbsp;<span style="color: red;"></span> ( 单笔充值限额：最低：&nbsp;<font
-			style="color: #FF3300" id="loadmin" ><?php echo $loadmin?>&nbsp;</font>&nbsp;元，最高：&nbsp;<font
-			style="color: #FF3300" id="loadmax" ><?php echo $loadmax?>&nbsp;</font>&nbsp;元 )</td>
+			style="color: #FF3300" id="loadmin"><?php echo $loadmin?>&nbsp;</font>&nbsp;元，最高：&nbsp;<font
+			style="color: #FF3300" id="loadmax"><?php echo $loadmax?>&nbsp;</font>&nbsp;元
+		)</td>
 	</tr>
 	<tr>
 		<td class="nl">充值金额(大写):</td>
@@ -126,8 +188,8 @@ $loadmax = $rowa["cmax"];
 		<br />
 		</td>
 	</tr>
-	</form>
 </table>
+</form>
 <div class="clear"></div>
 </div>
 </div>
