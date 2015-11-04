@@ -14,6 +14,7 @@ if($_GET['act']=="edit"){
 	$rs = mysql_query($sql);
 	$row = mysql_fetch_array($rs);
 	$username=$row['username'];
+	$password=$row['password'];
 	$nickname=$row['nickname'];
 	$leftmoney=$row['leftmoney'];
 	$flevel=$row['flevel'];
@@ -204,7 +205,10 @@ function filterPercent(num){
     </tr>
     <tr>
       <td height="40" class="t_Edit_caption">登录帐号</td>
-      <td class="t_Edit_td"><?php if($_GET['act']=="edit"){echo $username;}else{?><input name="username" type="text" class="inp2" id="username" onFocus="this.className='inp2a'" onBlur="this.className='inp2';" value="<?=$username?>" size="25">( 由0-9,a-z,A-Z组成的6-16个字符 )<?php }?></td>
+      <td class="t_Edit_td"><?php if($_GET['act']=="edit"){echo $username;
+	  echo '<input name="username_hide" type="hidden" value="' . $username . '">';
+	  echo '<input name="password_hide" type="hidden" value="' . $password . '">';
+	  }else{?><input name="username" type="text" class="inp2" id="username" onFocus="this.className='inp2a'" onBlur="this.className='inp2';" value="<?=$username?>" size="25">( 由0-9,a-z,A-Z组成的6-16个字符 )<?php }?></td>
     </tr>
     <?php if($_GET['act']=="edit"){?>
     <tr>

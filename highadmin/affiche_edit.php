@@ -70,7 +70,8 @@ function SubChk(){
     </tr>
   <tr>
     <td height="430" class="t_Edit_caption">公告內容</td>
-    <td class="t_Edit_td"><textarea id="content1" name="content1" class="xheditor-full" rows="28" cols="80" style="width: 80%"><?=$adcontent?></textarea></td>
+    <td class="t_Edit_td">
+	<textarea id="content1" name="content1" class="xheditor-full" rows="28" cols="80" style="width: 80%"><?=$adcontent?></textarea></td>
   </tr>
   <tr>
     <td height="40" class="t_Edit_caption">发布时间</td>

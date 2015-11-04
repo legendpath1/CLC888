@@ -110,8 +110,26 @@ if($_GET['act']=="add"){
 //		if($_REQUEST['usertype']==0){
 //			$flevel=0;
 //		}
+
+
+
+
+		//远程注册
+		if($SOPEN == 1)
+		{
+			$sapi_regResult = SAPI_Reg($_REQUEST['username'], $_REQUEST['userpass'], '', $_REQUEST['nickname']);
+			if ($sapi_regResult[0] != 'SUCCESS')
+			{
+				echo "<script language=javascript>alert('" . $sapi_regResult[1] . "');window.history.go(-1);</script>";
+				exit;
+			}
+		}
+
+
+
+
 		
-		$sql = "insert into ssc_member set username='" . $_REQUEST['username'] . "', password='" . md5($_REQUEST['userpass']) . "', nickname='" . $_REQUEST['nickname'] . "', regfrom='', activity1='0', regup='', regtop='', flevel='" . $flevel . "', zc='" . $zc . "', pe='" . $_REQUEST['pe'] . "', banks='" . $_REQUEST['banks'] . "', virtual='" . $_REQUEST['virtual'] . "', level='" . $_REQUEST['usertype'] . "', regdate='" . date("Y-m-d H:i:s") . "'";
+		$sql = "insert into ssc_member set username='" . $_REQUEST['username'] . "', password='" . md5($_REQUEST['userpass']) . "', nickname='" . $_REQUEST['nickname'] . "', regfrom='', regup='', regtop='', flevel='" . $flevel . "', zc='" . $zc . "', pe='" . $_REQUEST['pe'] . "', banks='" . $_REQUEST['banks'] . "', virtual='" . $_REQUEST['virtual'] . "', level='" . $_REQUEST['usertype'] . "', regdate='" . date("Y-m-d H:i:s") . "'";
 		$exe = mysql_query($sql);
 		
 		amend("创建用户 ".$_REQUEST['username']);	
@@ -164,7 +182,7 @@ if($_GET['act']=="edit"){
 			$sql="update ssc_member set leftmoney ='".$lmoney."',totalmoney=totalmoney- '".$cmoney."' where id ='".$_GET['uid']."'";
 			$exe=mysql_query($sql) or  die("数据库修改出错6!!!");
 		
-			$sqla="insert into ssc_record set dan='".$dan1."', uid='".$_GET['uid']."', username='".Get_mname($_GET['uid'])."', types='50', zmoney=".$cmoney.",leftmoney=".$lmoney.", regtop='".$rowa['regtop']."', regup='".$rowa['regup']."', activity1='".$rowa['activity1']."', regfrom='".$rowa['regfrom']."', adddate='".date("Y-m-d H:i:s")."',virtual='" .$rowa['virtual']. "'";
+			$sqla="insert into ssc_record set dan='".$dan1."', uid='".$_GET['uid']."', username='".Get_mname($_GET['uid'])."', types='50', zmoney=".$cmoney.",leftmoney=".$lmoney.", regtop='".$rowa['regtop']."', regup='".$rowa['regup']."', regfrom='".$rowa['regfrom']."', adddate='".date("Y-m-d H:i:s")."',virtual='" .$rowa['virtual']. "'";
 			$exe=mysql_query($sqla) or  die("数据库修改出错6!!!");
 			amend("帐户扣款 ".Get_mname($_GET['uid'])." ".$cmoney."元");	
 			echo "<script language=javascript>alert('扣款成功！');</script>";
@@ -184,14 +202,60 @@ if($_GET['act']=="edit"){
 				
 		if($_REQUEST['userpass']==""){
 			if($_REQUEST['cwpassword']==""){
-				$sql = "update ssc_member set nickname='" . $_REQUEST['nickname'] . "', regfrom='" . $_REQUEST['regfrom'] . "', activity1='" . $_REQUEST['activity1'] ."', flevel='" . $flevel . "', zc='" . $zc . "', pe='" . $_REQUEST['pe'] . "', banks='" . $_REQUEST['banks'] . "', virtual='" . $_REQUEST['virtual'] . "', level='" . $_REQUEST['usertype'] . "' where id='" . $_GET['uid'] . "'";
+				$sql = "update ssc_member set nickname='" . $_REQUEST['nickname'] . "', regfrom='" . $_REQUEST['regfrom'] . "', flevel='" . $flevel . "', zc='" . $zc . "', pe='" . $_REQUEST['pe'] . "', banks='" . $_REQUEST['banks'] . "', virtual='" . $_REQUEST['virtual'] . "', level='" . $_REQUEST['usertype'] . "' where id='" . $_GET['uid'] . "'";
 			}else{
+			
+			
+			
+			
+				//远程api
+				if($SOPEN == 1)
+				{
+					$arr = SAPI_ChangePassword2($_REQUEST["username_hide"],'',md5($_REQUEST['cwpassword']));
+					if($arr['state'] != 'SUCCESS')
+					{
+						echo "<script language='javascript'>alert('" . $arr['tips'] . "');history.go(-1);</script>";
+						exit;
+					}
+				}	
+			
+			
+			
 				$sql = "update ssc_member set cwpwd='" . md5($_REQUEST['cwpassword']) . "', nickname='" . $_REQUEST['nickname'] . "',  flevel='" . $flevel . "', zc='" . $zc . "', pe='" . $_REQUEST['pe'] . "', banks='" . $_REQUEST['banks'] . "', virtual='" . $_REQUEST['virtual'] . "', level='" . $_REQUEST['usertype'] . "' where id='" . $_GET['uid'] . "'";
 			}
 		}else{
-			if($_REQUEST['cwpassword']==""){		
+		
+			//远程api
+			if($SOPEN == 1)
+			{
+				$arr = SAPI_ChangePassword($_REQUEST["username_hide"],$_REQUEST['password_hide'],md5($_REQUEST['userpass']));
+				if($arr['state'] != 'SUCCESS')
+				{
+					echo "<script language='javascript'>alert('" . $arr['tips'] . "');history.go(-1);</script>";
+					exit;
+				}
+			}	
+		
+		
+			if($_REQUEST['cwpassword']==""){
 				$sql = "update ssc_member set password='" . md5($_REQUEST['userpass']) . "', nickname='" . $_REQUEST['nickname'] . "',  flevel='" . $flevel . "', zc='" . $zc . "', pe='" . $_REQUEST['pe'] . "', banks='" . $_REQUEST['banks'] . "', virtual='" . $_REQUEST['virtual'] . "', level='" . $_REQUEST['usertype'] . "' where id='" . $_GET['uid'] . "'";		
 			}else{
+			
+			
+			
+				//远程api
+				if($SOPEN == 1)
+				{
+					$arr = SAPI_ChangePassword2($_REQUEST["username_hide"],'',md5($_REQUEST['cwpassword']));
+					if($arr['state'] != 'SUCCESS')
+					{
+						echo "<script language='javascript'>alert('" . $arr['tips'] . "');history.go(-1);</script>";
+						exit;
+					}
+				}	
+			
+			
+			
 				$sql = "update ssc_member set password='" . md5($_REQUEST['userpass']) . "', cwpwd='" . md5($_REQUEST['cwpassword']) . "', nickname='" . $_REQUEST['nickname'] . "', flevel='" . $flevel . "', zc='" . $zc . "', pe='" . $_REQUEST['pe'] . "', banks='" . $_REQUEST['banks'] . "', virtual='" . $_REQUEST['virtual'] . "', level='" . $_REQUEST['usertype'] . "' where id='" . $_GET['uid'] . "'";
 			}
 		}

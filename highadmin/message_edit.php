@@ -22,6 +22,9 @@ if($_GET['act']=="edit"){
 <html>
 <head>
 <title></title> 
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="editor/xheditor-1.2.1.min.js"></script>
+<script type="text/javascript" src="editor/xheditor_lang/zh-cn.js"></script>
 <script type="text/javascript" language="javascript">
 
 function SubChk(){
@@ -59,7 +62,7 @@ function SubChk(){
     </tr>
   <tr>
     <td height="430" class="t_Edit_caption">消息內容</td>
-    <td class="t_Edit_td"><input type="hidden" name="content1" value="<?=$content?>"><IFRAME ID="eWebEditor1" src="ewebeditor/ewebeditor.htm?id=content1&style=light" frameborder="0" scrolling="no" width="600" height="400"></IFRAME></td>
+    <td class="t_Edit_td"><textarea id="content1" name="content1" class="xheditor-simple" rows="28" cols="80" style="width: 80%"><?=$content?></textarea></td>
   </tr>
   <tr>
     <td height="40" class="t_Edit_caption">消息类型</td>
