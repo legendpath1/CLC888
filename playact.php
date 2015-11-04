@@ -192,7 +192,7 @@
 					$lmoney=$leftmoney - $strb->money;
 					$lmoney2=$lmoney + $strb->money * $spoint;
 					
-					$sqla="update ssc_member set leftmoney=".$lmoney2.", usedmoney=usedmoney+".$strb->money." where username='".$_SESSION["username"]."'"; 
+					$sqla="update ssc_member set leftmoney=".$lmoney2.", usedmoney=usedmoney+".$strb->money.", tempmoney=tempmoney+".$strb->money." where username='".$_SESSION["username"]."'"; 
 					$exe=mysql_query($sqla) or  die("数据库修改出错2!!!");
 					
 //					$sqla = "select * from ssc_savelist where username='" . $_SESSION["username"] . "' order by id desc limit 1";
@@ -247,7 +247,7 @@
 						$sqla="insert into ssc_record set lotteryid='".$lotteryid."', lottery='".$lottery."', dan='".$dan1."', dan2='".$dan."', uid='".$_SESSION["uid"]."', username='".$_SESSION["username"]."', issue='".$sissue."', types='9', mid='".$strb->methodid."',mname='".$mname."', mode='".$mode."', zmoney=".$zmoney.",leftmoney=".$lmoney.", cont='".$strb->desc."', regtop='".$row['regtop']."', regup='".$row['regup']."', regfrom='".$row['regfrom']."', adddate='".date("Y-m-d H:i:s")."',virtual='" .$row['virtual']. "'";
 						$exe=mysql_query($sqla) or  die("数据库修改出错6!!!");
 						
-						$sqla="update ssc_member set leftmoney=".$lmoney.", usedmoney=usedmoney+".$zmoney." where username='".$_SESSION["username"]."'"; 
+						$sqla="update ssc_member set leftmoney=".$lmoney.", usedmoney=usedmoney+".$zmoney.", tempmoney=tempmoney+".$zmoney." where username='".$_SESSION["username"]."'"; 
 						$exe=mysql_query($sqla) or  die("数据库修改出错7!!!");
 						
 						$sqla = "select * from ssc_savelist where username='" . $_SESSION["username"] . "' order by id desc limit 1";

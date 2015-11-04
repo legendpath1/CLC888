@@ -336,6 +336,7 @@ html {overflow: hidden;}
 							<li class="inline"><a href="lottery_set.php" target="mainframe" class="clink">彩种设置</a></li>
 							<li class="inline"><a href="lottery_bei.php" target="mainframe" class="clink">限倍管理</a></li>
 							<li class="inline"><a href="lottery_zhu.php" target="mainframe" class="clink">限注管理</a></li>
+							<li class="inline"><a href="letou_data.php" target="mainframe" class="clink">乐透开奖</a></li>
                         </ul>
                 </div>
                 <div class="sub-menu" id="tab-8" style=display:none>

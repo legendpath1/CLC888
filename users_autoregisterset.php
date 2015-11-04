@@ -104,7 +104,7 @@ if($flag=="insert"){
                             </div>
                             <div class="user_ts">
                                 <span class="user_ts_title">&nbsp;&nbsp;自动注册地址： </span>
-                                <a href="http://clc.xcssc.info/register.php?id=<?=$_SESSION["uid"]?>" target="_blank" style="text-decoration: underline;"><font color="blue">http://clc.xcssc.info/register.php?id=<?=$_SESSION["uid"]?></font></a>
+                                <a href="http://www.clc888.com/register.php?id=<?=$_SESSION["uid"]?>" target="_blank" style="text-decoration: underline;"><font color="blue">http://www.clc888.com/register.php?id=<?=$_SESSION["uid"]?></font></a>
                             </div>
                             <div class="user_ts">
                                 <input name='submit1' type="submit" value="确认生成" class="btn_next">

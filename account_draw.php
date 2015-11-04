@@ -261,6 +261,7 @@ if($flag=="confirm"){
         <a  class="act" href="/account_draw.php?check=914">平台提现</a>
         <a href="/account_savelist.php?check=914">充值记录</a>
         <a href="/account_autosavea.php?check=">在线充值</a>
+        <a href="/ws_money_in.php">网站间转账</a>
     </div>
 </div>
 <div class="rc_con pay">

@@ -1,5 +1,5 @@
 ﻿<?php
-set_magic_quotes_runtime(0);
+@set_magic_quotes_runtime(0);
 @header("content-Type: text/html; charset=utf-8");
 define('PHPYOU','v1.0');
 //此软件仅供学习测试使用，不得用于非法用途！
@@ -26,7 +26,10 @@ function Add_S(&$array){
 	}
 }
 
-$conn = mysql_pconnect( "localhost:3306", "root", "root" );
+//如果要修改数据库连接信息，请在web.config.php中修改
+require_once($_SERVER['DOCUMENT_ROOT'].'/web.config.php');
+require_once($_SERVER['DOCUMENT_ROOT'].'/SAPI/appfun.php');
+$conn = mysql_pconnect($con_db_host, $con_db_id, $con_db_pass);
 //$conn = mysql_pconnect( "180.150.226.18:3306", "root", "hellocy666" );
 //$conn = mysql_pconnect( "175.41.26.18:7395", "root", "k4v_sel" );
 if (!$conn)
@@ -34,7 +37,7 @@ if (!$conn)
   die('系统繁忙，请稍候再试！');// 
   }
 
-mysql_select_db( "cailecai" );
+mysql_select_db($con_db_name);
 mysql_query( "SET NAMES 'utf8'" );
 
 $sqlzz = "select zt from ssc_config";

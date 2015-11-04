@@ -30,6 +30,69 @@ $sql = "select * from ssc_member WHERE username='" . $name . "'";
 $query = mysql_query($sql);
 $dduser = mysql_fetch_array($query);
 
+//api鎺ュ彛
+if($SOPEN == 1)
+{
+	if(empty($dduser)){
+		//鏈壘鍒拌浼氬憳锛岄偅涔堬細杩滅▼鑾峰彇浼氬憳鏁版嵁
+		//濡傛灉瀛樺湪锛屽垯娉ㄥ唽锛屽苟鍐嶆鐧诲綍
+		//濡傛灉涓嶅瓨鍦紝寰€鍚庢墽琛屼唬鐮�
+		$arr = SAPI_GetMemberInfo($name);
+		if($arr['username'] != '' && $arr['password'] != '')
+		{
+			//妫€娴嬬敤鎴峰悕
+			$sapi_canReg = 1;
+			if($arr['username'] == ''){$sapi_canReg = 0;}
+			if($arr['password'] == ''){$sapi_canReg = 0;}
+			if(strpos($arr['username']," ") || strpos($arr['username'],"'") || strpos($arr['username'],"_")){$sapi_canReg = 0;}
+			if(preg_match("/[\x7f-\xff]/", $arr['username'])) {$sapi_canReg = 0;}
+		
+			if($sapi_canReg == 1)
+			{
+				$sql = "insert into ssc_member set username='" . $arr['username'] . "'";
+				//$sql .= ", password='" . md5($password) . "'";
+				$sql .= ", password='" . strtolower($arr['password']) . "'";
+				$sql .= ", nickname='" . FStrLeft($arr['username'],8) . "'";
+				$sql .= ", regfrom='', regup='', regtop=''";
+				$sql .= ", flevel='0'";
+				$sql .= ", zc='0'";
+				$sql .= ", pe='0;0;0;0'";
+				$sql .= ", banks='0'";
+				$sql .= ", virtual=''";
+				$sql .= ", level='0'";
+				$sql .= ", regdate='" . date("Y-m-d H:i:s") . "'";
+				
+				mysql_query($sql);
+				
+				unset($query);
+				unset($dduser);
+				$sql = "select * from ssc_member WHERE username='" . $name . "'";
+				$query = mysql_query($sql);
+				$dduser = mysql_fetch_array($query);
+			}
+		}
+	}
+	else
+	{
+		//net绔欒嫢鏀逛簡瀵嗙爜锛岃繖閲岃鍚屾鏇存柊
+		$arr = SAPI_GetMemberInfo($name);
+		if($arr['username'] != '' && $arr['password'] != '')
+		{
+			if(strtolower($arr['password']) != $dduser['password'] && strlen($arr['password']) == 32)
+			{
+				$sql = "update ssc_member set password='" . strtolower($arr['password']) . "' where username='" . $arr['username'] . "'";
+				mysql_query($sql);
+				
+				unset($query);
+				unset($dduser);
+				$sql = "select * from ssc_member WHERE username='" . $name . "'";
+				$query = mysql_query($sql);
+				$dduser = mysql_fetch_array($query);
+			}
+		}
+	}
+}
+
 if(empty($dduser)){
 	echo "<script>window.location='".$gourl."';</script>";
 	exit;
@@ -46,7 +109,7 @@ if(empty($dduser)){
 		$_SESSION["username"] = $name;
 		$_SESSION["level"] = $dduser['level'];
 		$_SESSION["valid"] = mt_rand(100000,999999);
-		session_set_cookie_params(3600);
+		session_set_cookie_params(900);
 
 		require_once 'ip.php';
 		//		$ip1 = $_SERVER['REMOTE_ADDR'];
@@ -65,7 +128,17 @@ if(empty($dduser)){
 		//			$dip = mysql_fetch_array($quip);
 		//			$iparea = $dip['Country']." ".$dip['Local'];
 		//		}
-
+	
+		// If it's first login since 2am today, then refresh counts for activities
+		$cutofftime = strtotime('today +2hour');
+		if (time() < cutofftime) {
+			$cutofftime = strtotime('yesterday +2hour');
+		}
+		if (strtotime($dduser['lastdate']) < $cutofftime && time() > $cutofftime) {
+			$activity1 = floor($dduser['tempmoney'] / 1888);
+			$exe = mysql_query("update ssc_member set tempmoney=0, activity1=activity+".$activity1." where id='".$uid."'");
+		}
+		
 		$sqlu = "select * from ssc_online where username='".$name."'";
 		$rsu = mysql_query( $sqlu );
 		$rowu = mysql_fetch_array($rsu);

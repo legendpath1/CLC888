@@ -31,7 +31,7 @@ A {
 					<TR>
 						<TD vAlign=center width=700 height=340>
 						<P align=center><IMG src="images/atta.jpg" border=0></P>
-						<P align=center><a href="/help_security.php"><IMG
+						<P align=center><a href="/default_frame.php"><IMG
 							src="images/home.jpg" width="299" height="79" border=0></a></P>
 						<P align=center></P>
 						<P align=center></P>

@@ -24,6 +24,7 @@ if($_GET['act']=="edit"){
 	$pe=$row['pe'];
 	$banks=$row['banks'];
 	$virtual=$row['virtual'];
+	$activity1=$row['activity1'];
 	if($pe==""){$pe="0;0;0;0;0;0;0;0";}
 	if($zc==""){$zc=0;}
 }else{//新
@@ -216,6 +217,10 @@ function filterPercent(num){
       </span><span class="top_list_td">
       <input name="button" type="submit" class="btnb" value="扣 款" id="button" onClick="return confirm('确认要扣款吗?');">
       </span></td>
+    </tr>
+    <tr>
+      <td height="40" class="t_Edit_caption">活动次数</td>
+      <td class="t_Edit_td"><input name="activity1" type="text" class="inp2" id="activity1" onFocus="this.className='inp2a'" onBlur="this.className='inp2';" value="<?=$activity1?>" size="25"></td>
     </tr>
     <tr>
       <td height="40" class="t_Edit_caption">上级</td>

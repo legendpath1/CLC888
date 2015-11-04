@@ -132,10 +132,12 @@ if($cardnums=="0"){
 <div class="tm_left"></div>
 <div class="tm_title"></div>
 <div class="tm_right"></div>
-<div class="tm_menu"><a href="/account_drawlist.php?check=914">提现记录</a>
+<div class="tm_menu">
+<a href="/account_drawlist.php?check=914">提现记录</a>
 <a href="/account_draw.php?check=914">平台提现</a> <a
 	href="/account_savelist.php?check=914">充值记录</a> <a class="act"
-	href="/account_autosavea.php?check=">在线充值</a></div>
+	href="/account_autosavea.php?check=">在线充值</a>
+	<a href="/ws_money_in.php">网站间转账</a></div>
 </div>
 <div class="rc_con pay">
 <div class="rc_con_lt"></div>
@@ -153,17 +155,29 @@ if($cardnums=="0"){
 <table width="100%" class="ct" border="0" cellspacing="0"
 	cellpadding="0">
 	<tr>
+		<td class="nl"><font color="#FF3300">自动充值使用需知:</font></td>
+		<td style='line-height: 23px; padding: 5px 0px'>每天的充值处理时间为：<font
+			style="font-size: 16px; color: #F30; font-weight: bold;">早上 8:30 至
+		次日凌晨1:55</font><br />
+		请在下方选择充值银行, 填写充值金额, 点击 <font color=#0000FF>[下一步]</font> 后，根据你的银行卡选择对应的网银进行充值<br />
+		充值后, <font color='#ff0000'>请手动刷新您的余额</font>及查看相关帐变信息,若超过1分钟未上分,请与客服联系
+		</td>
+	</tr>
+	<tr>
 		<td class="nl">充值银行:</td>
 		<td style='height: 60px;'><?php
 		$dd=date("H:i:s");
 		$sqla = "select * from ssc_banks WHERE zt='1' and tc='".$tcbank."' and ((cztimemin<cztimemax and cztimemin<'".$dd."' and cztimemax>'".$dd."') or (cztimemin>cztimemax and (cztimemin<'".$dd."' or cztimemax>'".$dd."'))) order by id asc";
 		$rsa = mysql_query($sqla);
-		while ($rowa = mysql_fetch_array($rsa)){
-			?> <input type="radio" id='bank_<?=$rowa['tid']?>' name="bankinfo"
-			value="<?=$rowa['tid']?>" onclick="changbank(this)" />&nbsp;<label
-			for='bank_<?=$rowa['tid']?>'><img style='cursor: pointer;'
-			src="images/banks/<?=$rowa['tid']?>.jpg" /></label>&nbsp;&nbsp;&nbsp;
-			<?php }?> &nbsp;&nbsp;<span style="color: red; display: none"><input
+		while ($rowa = mysql_fetch_array($rsa)){?> 
+			<input type="radio" id='bank_<?=$rowa['tid']?>' name="bankinfo"
+			value="<?=$rowa['tid']?>" onclick="changbank(this)" />&nbsp;
+			<label for='bank_<?=$rowa['tid']?>'>
+			     <img style='cursor: pointer;'
+			     src="images/banks/<?=$rowa['tid']?>.jpg" />
+			</label>&nbsp;&nbsp;&nbsp;
+		<?php }?> &nbsp;&nbsp;
+			<span style="color: red; display: none"><input
 			type="radio" name="bankinfo" value="" /></span></td>
 	</tr>
 	<tr>
