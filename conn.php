@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 @set_magic_quotes_runtime(0);
 @header("content-Type: text/html; charset=utf-8");
 define('PHPYOU','v1.0');

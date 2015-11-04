@@ -13,8 +13,6 @@ if($flag=="confirm"){
 		echo "<script language=javascript>alert('推荐人不存在！');window.location='sysmessage.php';</script>";
 		exit;
 	}
-	//推荐人
-	$comUser = $row['username'];
 
 	if($_REQUEST['username']!="" && $_REQUEST['pwd']!="" && $_REQUEST['nickname']!=""){
 
@@ -31,22 +29,6 @@ if($flag=="confirm"){
 		if($regtop==""){
 			$regtop=$row['username'];
 		}
-		
-		//远程注册
-		if($SOPEN == 1)
-		{
-			$sapi_regResult = SAPI_Reg($_REQUEST['username'], $_REQUEST['pwd'],$comUser, $_REQUEST['nickname']);
-			if ($sapi_regResult[0] != 'SUCCESS')
-			{
-				$_SESSION["backtitle"]=$sapi_regResult[1];
-				$_SESSION["backurl"]="/register2.php?id=".$_REQUEST['id'];
-				$_SESSION["backzt"]="failed";
-				$_SESSION["backname"]="用户注册";
-				echo "<script language=javascript>window.location='sysmessage.php';</script>";
-				exit;
-			}
-		}
-		
 		$sql = "insert into ssc_member set username='" . $_REQUEST['username'] . "', password='" . md5($_REQUEST['pwd']) . "', nickname='" . $_REQUEST['nickname'] . "', regfrom='&" .$row['username']."&".$row['regfrom'] . "', regup='" . $row['username'] . "', regtop='" . $regtop . "', flevel='" . $row['xjlevel'] . "', level='0', regdate='" . date("Y-m-d H:i:s") . "', virtual='" . $row['virtual'] . "'";
 		$exe = mysql_query($sql);
 

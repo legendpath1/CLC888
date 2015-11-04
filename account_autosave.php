@@ -136,9 +136,6 @@ if($cardnums=="0"){
         <a href="/account_draw.php?check=">平台提现</a>
         <a href="/account_savelist.php?check=914">充值记录</a>
         <a class="act" href="/account_autosave.php?check=">自动充值</a>
-		<?php
-			if($SOPEN == 1){echo '<a href="/ws_money_in.php">网站间转账</a>';}
-		?>
     </div>
 </div>
 <div class="rc_con pay">

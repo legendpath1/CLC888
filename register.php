@@ -3,40 +3,38 @@ session_start();
 error_reporting(0);
 require_once 'conn.php';
 
-$flag=$_REQUEST['flag'];
+$flag=$_POST['flag'];
 if($flag=="confirm"){
     if ($_POST['validate'] != $_SESSION['valicode']) {
 			$_SESSION["backtitle"]="验证码不正确，请重新输入";
-			$_SESSION["backurl"]="register.php?id=".$_REQUEST['id'];
+			$_SESSION["backurl"]="register.php?id=".$_POST['id'];
 			$_SESSION["backzt"]="failed";
 			$_SESSION["backname"]="用户注册";
 			echo "<script language=javascript>window.location='sysmessage.php';</script>";
 			exit;
     }
 
-	$sql = "select * from ssc_member WHERE id='" . $_REQUEST['id'] . "'";
+	$sql = "select * from ssc_member WHERE id='" . $_POST['id'] . "'";
 	$rs = mysql_query($sql);
 	$total = mysql_num_rows($rs);
 	$row = mysql_fetch_array($rs);
 	if($total==0){
 		$_SESSION["backtitle"]="推荐人不存在";
-		$_SESSION["backurl"]="register.php?id=".$_REQUEST['id'];
+		$_SESSION["backurl"]="register.php?id=".$_POST['id'];
 		$_SESSION["backzt"]="failed";
 		$_SESSION["backname"]="用户注册";
 		echo "<script language=javascript>window.location='sysmessage.php';</script>";
 		exit;
 	}
-	//推荐人
-	$comUser = $row['username'];
 
-	if($_REQUEST['username']!="" && $_REQUEST['pwd']!="" && $_REQUEST['nickname']!=""){
+	if($_POST['username']!="" && $_POST['pwd']!="" && $_POST['nickname']!=""){
 
-		$sqla = "SELECT * FROM ssc_member where username='".$_REQUEST['username']."'";
+		$sqla = "SELECT * FROM ssc_member where username='".$_POST['username']."'";
 		$rsa = mysql_query($sqla);
 		$nums=mysql_num_rows($rsa);
 		if($nums>0){
 			$_SESSION["backtitle"]="用户名已存在";
-			$_SESSION["backurl"]="register.php?id=".$_REQUEST['id'];
+			$_SESSION["backurl"]="register.php?id=".$_POST['id'];
 			$_SESSION["backzt"]="failed";
 			$_SESSION["backname"]="用户注册";
 			echo "<script language=javascript>window.location='sysmessage.php';</script>";
@@ -48,24 +46,7 @@ if($flag=="confirm"){
 		if($regtop==""){
 			$regtop=$row['username'];
 		}
-		
-		
-		//远程注册
-		if($SOPEN == 1)
-		{
-			$sapi_regResult = SAPI_Reg($_REQUEST['username'], $_REQUEST['pwd'], $comUser, $_REQUEST['nickname']);
-			if ($sapi_regResult[0] != 'SUCCESS')
-			{
-				$_SESSION["backtitle"]=$sapi_regResult[1];
-				$_SESSION["backurl"]="/register.php?id=".$_REQUEST['id'];
-				$_SESSION["backzt"]="failed";
-				$_SESSION["backname"]="用户注册";
-				echo "<script language=javascript>window.location='sysmessage.php';</script>";
-				exit;
-			}
-		}
-		
-		$sql = "insert into ssc_member set username='" . $_REQUEST['username'] . "', password='" . md5($_REQUEST['pwd']) . "', nickname='" . $_REQUEST['nickname'] . "', regfrom='&" .$row['username']."&".$row['regfrom'] . "', regup='" . $row['username'] . "', regtop='" . $regtop . "', flevel='" . $row['xjlevel'] . "', level='1', regdate='" . date("Y-m-d H:i:s") . "', virtual='" . $row['virtual'] . "'";
+		$sql = "insert into ssc_member set username='" . $_POST['username'] . "', password='" . md5($_POST['pwd']) . "', nickname='" . $_POST['nickname'] . "', regfrom='&" .$row['username']."&".$row['regfrom'] . "', regup='" . $row['username'] . "', regtop='" . $regtop . "', flevel='" . $row['xjlevel'] . "', level='1', regdate='" . date("Y-m-d H:i:s") . "', virtual='" . $row['virtual'] . "'";
 		$exe = mysql_query($sql);
 		
 		$_SESSION["backtitle"]="操作成功";
