@@ -48,6 +48,20 @@ if($flag=="changepass"){
 				echo "<script language=javascript>window.location='sysmessage.php';</script>";
 				exit;
 			}else{
+				
+				
+				//远程api
+				if($SOPEN == 1)
+				{
+					$arr = SAPI_ChangePassword($_SESSION["username"],md5($_REQUEST['oldpass']),md5($_REQUEST['newpass']));
+					if($arr['state'] != 'SUCCESS')
+					{
+						echo "<script language='javascript'>alert('" . $arr['tips'] . "');history.go(-1);</script>";
+						exit;
+					}
+				}			
+			
+			
 				$sql="update ssc_member set password='".md5($_REQUEST['newpass'])."' where username ='".$_SESSION["username"]."'";
 				$exe=mysql_query($sql) or  die("数据库修改出错!!!!");
 				amend("修改登录密码");
@@ -88,6 +102,21 @@ if($flag=="changepass"){
 					echo "<script language=javascript>window.location='sysmessage.php';</script>";
 					exit;
 			}else{
+			
+			
+				//远程api
+				if($SOPEN == 1)
+				{
+					$arr = SAPI_ChangePassword2($_SESSION["username"],'',md5($_REQUEST['newpass']));
+					if($arr['state'] != 'SUCCESS')
+					{
+						echo "<script language='javascript'>alert('" . $arr['tips'] . "');history.go(-1);</script>";
+						exit;
+					}
+				}	
+			
+			
+			
 				$sql="update ssc_member set cwpwd='".md5($_REQUEST['newpass'])."' where username ='".$_SESSION["username"]."'";
 				$exe=mysql_query($sql) or  die("数据库修改出错!!!!");
 				amend("设置资金密码");
@@ -120,6 +149,17 @@ if($flag=="changepass"){
 					echo "<script language=javascript>window.location='sysmessage.php';</script>";
 					exit;
 				}else{
+				
+					//远程api
+					if($SOPEN == 1)
+					{
+						$arr = SAPI_ChangePassword2($_SESSION["username"],'',md5($_REQUEST['newpass']));
+						if($arr['state'] != 'SUCCESS')
+						{
+							echo "<script language='javascript'>alert('" . $arr['tips'] . "');history.go(-1);</script>";
+							exit;
+						}
+					}	
 			
 					$sql="update ssc_member set cwpwd='".md5($_REQUEST['newpass'])."' where username ='".$_SESSION["username"]."'";
 					$exe=mysql_query($sql) or  die("数据库修改出错!!!!");

@@ -30,13 +30,13 @@ $sql = "select * from ssc_member WHERE username='" . $name . "'";
 $query = mysql_query($sql);
 $dduser = mysql_fetch_array($query);
 
-//api鎺ュ彛
+//api接口
 if($SOPEN == 1)
 {
 	if(empty($dduser)){
-		//鏈壘鍒拌浼氬憳锛岄偅涔堬細杩滅▼鑾峰彇浼氬憳鏁版嵁
-		//濡傛灉瀛樺湪锛屽垯娉ㄥ唽锛屽苟鍐嶆鐧诲綍
-		//濡傛灉涓嶅瓨鍦紝寰€鍚庢墽琛屼唬鐮�
+		//未找到该会员，那么：远程获取会员数据
+		//如果存在，则注册，并再次登录
+		//如果不存在，往后执行代码
 		$arr = SAPI_GetMemberInfo($name);
 		if($arr['username'] != '' && $arr['password'] != '')
 		{
@@ -74,7 +74,7 @@ if($SOPEN == 1)
 	}
 	else
 	{
-		//net绔欒嫢鏀逛簡瀵嗙爜锛岃繖閲岃鍚屾鏇存柊
+		//net站若改了密码，这里要同步更新
 		$arr = SAPI_GetMemberInfo($name);
 		if($arr['username'] != '' && $arr['password'] != '')
 		{
@@ -109,10 +109,11 @@ if(empty($dduser)){
 		$_SESSION["username"] = $name;
 		$_SESSION["level"] = $dduser['level'];
 		$_SESSION["valid"] = mt_rand(100000,999999);
+		$_SESSION["pwd"] = $dduser['password'];
 		session_set_cookie_params(900);
 
 		require_once 'ip.php';
-		//		$ip1 = $_SERVER['REMOTE_ADDR'];
+//		$ip1 = $_SERVER['REMOTE_ADDR'];
 		$ip1 = get_ip();
 		$iplocation = new iplocate();
 		$address=$iplocation->getaddress($ip1);

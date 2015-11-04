@@ -35,7 +35,7 @@ if ($cmoney>=$rowa['climit']){
 	$rmoney=$cmoney;
 }
 
-$sqla="insert into ssc_savelist set uid='".$_SESSION["uid"]."', username='".$_SESSION["username"]."', bank='".$rowa['name']."', bankid='".$rowa['tid']."',  cardno='', money=".$cmoney.", sxmoney=".$sxmoney.", rmoney=".$rmoney.", adddate='".date("Y-m-d H:i:s")."',zt='0',types='1'";
+$sqla="insert into ssc_savepending set uid='".$_SESSION["uid"]."', username='".$_SESSION["username"]."', bank='".$rowa['name']."', bankid='".$rowa['tid']."',  cardno='', money=".$cmoney.", sxmoney=".$sxmoney.", rmoney=".$rmoney.", adddate='".date("Y-m-d H:i:s")."',zt='0',types='1'";
 $exe=mysql_query($sqla) or  die("数据库修改出错6!!!");
 
 if($bid==3){
@@ -45,11 +45,10 @@ if($bid==3){
     
 	$sqla="insert into ssc_savelist set uid='".$_SESSION["uid"]."', username='".$_SESSION["username"]."', bank='中国建设银行', bankid='3', cardno='".$rowc['cardno']."', money=".$cmoney.", sxmoney=".$sxmoney.", rmoney=".$rmoney.", adddate='".date("Y-m-d H:i:s")."',zt='0',types='1'";
 	$exe=mysql_query($sqla) or  die("数据库修改出错6!!!");
+}elseif($bid==2){
+	$sqla="insert into ssc_savelist set uid='".$_SESSION["uid"]."', username='".$_SESSION["username"]."', bank='".$rowa['name']."', bankid='".$rowa['tid']."', cardno='', money=".$cmoney.", sxmoney=".$sxmoney.", rmoney=".$rmoney.", adddate='".date("Y-m-d H:i:s")."',zt='0',types='1'";
+	$exe=mysql_query($sqla) or  die("数据库修改出错6!!!");
 }
-//elseif($bid==2){
-//	$sqla="insert into ssc_savelist set uid='".$_SESSION["uid"]."', username='".$_SESSION["username"]."', bank='".$rowa['name']."', bankid='".$rowa['tid']."', cardno='', money=".$cmoney.", sxmoney=".$sxmoney.", rmoney=".$rmoney.", adddate='".date("Y-m-d H:i:s")."',zt='0',types='1'";
-//	$exe=mysql_query($sqla) or  die("数据库修改出错6!!!");
-//}
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:esun>

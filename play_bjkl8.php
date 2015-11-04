@@ -134,7 +134,7 @@ if($flag=="gettime"){
         <script language="javascript" type="text/javascript" src="./js/lottery/min/gamecommon.js?modidate=20130415002"></script>
         <script language="javascript" type="text/javascript" src="./js/lottery/min/jquery.dialogUI.js?modidate=20130415002"></script>
         <script language="javascript" type="text/javascript" src="./js/lottery/min/lang_zh.js?modidate=20130415002"></script>
-        <script language="javascript" type="text/javascript" src="./js/lottery/min/face.99.js?modidate=20130415002"></script>
+        <script language="javascript" type="text/javascript" src="./js/lottery/min/face.3.js?modidate=20130415002"></script>
         <script language="javascript" type="text/javascript" src="./js/lottery/min/methods.3.js?modidate=20130415002"></script>
         <script language="javascript" type="text/javascript" src="./js/lottery/min/jquery.game.3.js?modidate=20130415002"></script>
         <script language="javascript" type="text/javascript" src="./js/lottery/min/jquery.messager-min.js?modidate=20130415002"></script>
