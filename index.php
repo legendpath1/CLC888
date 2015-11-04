@@ -27,6 +27,7 @@ if($_SESSION["uid"]!="" && $_SESSION["username"]!="" && $_SESSION["valid"]!=""){
             $(document).ready(function(){
                 $("#username").value = '';
                 $("#validcode_source")[0].value = '';
+//                $("#validate").attr('src',"ValiCode_new.php?useValid="+Math.random());
                 $("#username").focus();
             }); 
             function refreshimg(){

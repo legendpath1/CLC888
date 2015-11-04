@@ -31,7 +31,7 @@ function get_client_ip(){
 //$datfile 的值为纯真IP数据库的名子,可自行修改.
 //*
 function iplocate(){
-  $datfile = "ip.dat";
+  $datfile = $_SERVER['DOCUMENT_ROOT'] . "/ip.dat";
   $this->fp=fopen($datfile,'rb');   //二制方式打开
   $this->firstip = $this->get4b(); //第一条ip索引的绝对偏移地址
   $this->lastip = $this->get4b();  //最后一条ip索引的绝对偏移地址
@@ -62,6 +62,7 @@ function getoffset(){
 //读取ip的详细地址信息
 //*
 function getstr(){
+	$str = '';
   $split=fread($this->fp,1);
   while (ord($split)!=0) {
     $str .=$split;

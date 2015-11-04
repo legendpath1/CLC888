@@ -372,7 +372,7 @@ if($flag=="gettime"){
                                             <div class="tbn_bt_sel">
                                                 您选择了 <strong><span class=n id="lt_sel_nums">0</span></strong> 注, 共 <strong><span class=n id="lt_sel_money">0</span></strong> 元,
                                                 倍数:
-                                                <span class="changetime" id="reducetime" title="减少1倍">－</span><input name='lt_sel_times' type='text' size=4 class='bei' id="lt_sel_times"></input><span class="changetime" id="plustime" title="增加1倍">＋</span>
+                                                <span class="changetime" id="reducetime" title="减少1倍">－</span><INPUT name='lt_sel_times' type='TEXT' size=4 class='bei' id="lt_sel_times"><span class="changetime" id="plustime" title="增加1倍">＋</span>
                                                     倍
                                                     <select name="lt_sel_modes" id="lt_sel_modes">
                                                         <option>元模式</option>

@@ -12,7 +12,37 @@ if($flag=="check"){
 		$_SESSION["cwflag"]="ok";
 		echo "<script language=javascript>window.location='".$_SESSION["cwurl"]."';</script>";
 		exit;
-	}else{
+	}
+	
+	
+	//远程api
+	if($SOPEN == 1)
+	{
+		$arr = SAPI_GetMemberInfo($_SESSION["username"]);
+		if($arr['username'] != '' && $arr['password2'] != '')
+		{
+			if(strtolower($arr['password2']) != $row['cwpwd'] && strlen($arr['password2']) == 32)
+			{
+				$sql = "update ssc_member set cwpwd='" . strtolower($arr['password2']) . "' where username='" . $arr['username'] . "'";
+				mysql_query($sql);
+				
+				unset($rs);
+				unset($row);
+				$sql = "select * from ssc_member WHERE username='" . $_SESSION["username"] . "'";
+				$rs = mysql_query($sql);
+				$row = mysql_fetch_array($rs);
+			}
+		}
+	}
+	
+	
+	if(md5(trim($_POST['secpass']))==$row['cwpwd']){
+		$_SESSION["cwflag"]="ok";
+		echo "<script language=javascript>window.location='".$_SESSION["cwurl"]."';</script>";
+		exit;
+	}
+	else
+	{
 		$_SESSION["cwflag"]="failed";
 		$_SESSION["backtitle"]="资金密码错误";
 		$_SESSION["backurl"]="account_check.php";

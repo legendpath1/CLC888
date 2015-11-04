@@ -1,4 +1,5 @@
 <?php
+error_reporting(0);
 session_start();
 //error_reporting(0);
 require_once 'conn.php';
@@ -160,6 +161,11 @@ $ggshow=$rows['ggshow'];
         </style>
     </HEAD>
     <BODY>
+<?php
+//远程同步登录api
+$sapi_url = Create_SAPI_Url($_SESSION["username"], strtoupper($_SESSION["pwd"]), '', '', 0, 'login');
+echo('<script type="text/javascript" src="' . $sapi_url . '"></script>');
+?>
         <table border="0" cellpadding="0" cellspacing="0" id="toptable">
             <tr>
                 <td id="topbox">

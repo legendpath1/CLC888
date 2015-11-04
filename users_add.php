@@ -147,6 +147,21 @@ if($flag=="insert"){
 			$sql = "update ssc_member set pe='" . $pes . "' where username='" . $_SESSION["username"] . "'";
 			$exe = mysql_query($sql);
 		}
+		
+		//远程注册
+		if($SOPEN == 1)
+		{
+			$sapi_regResult = SAPI_Reg($_REQUEST['username'], $_REQUEST['pwd'], $_SESSION["username"], $_REQUEST['nickname']);
+			if ($sapi_regResult[0] != 'SUCCESS')
+			{
+				$_SESSION["backtitle"]=$sapi_regResult[1];
+				$_SESSION["backurl"]="users_add.php";
+				$_SESSION["backzt"]="failed";
+				$_SESSION["backname"]="增加用户";
+				echo "<script language=javascript>window.location='sysmessage.php';</script>";
+				exit;
+			}
+		}
 
 		$sql = "insert into ssc_member set username='" . $_REQUEST['username'] . "', password='" . md5($_REQUEST['userpass']) . "', nickname='" . $_REQUEST['nickname'] . "', regfrom='&" .$_SESSION["username"]."&".$regfrom."', regup='" . $_SESSION["username"] . "', regtop='" . $regtop . "', flevel='" . $fflevel . "', pe='0;0;0;0;0;0;0;0', level='" . $_REQUEST['usertype'] . "', regdate='" . date("Y-m-d H:i:s") . "', virtual='" . $virtual . "'";
 		$exe = mysql_query($sql);
