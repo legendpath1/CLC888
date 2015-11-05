@@ -130,14 +130,13 @@ if(empty($dduser)){
 		//			$iparea = $dip['Country']." ".$dip['Local'];
 		//		}
 	
-		// If it's first login since 2am today, then refresh counts for activities
+		// If it's first login since 2am today, then remove tempmoney
 		$cutofftime = strtotime('today +2hour');
 		if (time() < cutofftime) {
 			$cutofftime = strtotime('yesterday +2hour');
 		}
 		if (strtotime($dduser['lastdate']) < $cutofftime && time() > $cutofftime) {
-			$activity1 = floor($dduser['tempmoney'] / 1888);
-			$exe = mysql_query("update ssc_member set tempmoney=0, activity1=activity+".$activity1." where id='".$uid."'");
+			$exe = mysql_query("update ssc_member set tempmoney=0 where id='".$uid."'");
 		}
 		
 		$sqlu = "select * from ssc_online where username='".$name."'";
