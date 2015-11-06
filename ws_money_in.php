@@ -180,7 +180,7 @@ if($_GET['clause'] == 'saveinfo')
     <div class="tm_menu">
         <a href="/account_drawlist.php?check=">提现记录</a>
         <a href="/account_draw.php?check=">平台提现</a>
-        <a href="/account_savelist.php?check=914">充值记录</a>
+        <a href="/account_savelist.php?check=">充值记录</a>
         <a href="/account_autosavea.php?check=">在线充值</a>
         <a class="act" href="/ws_money_in.php">网站间转账</a>
     </div>

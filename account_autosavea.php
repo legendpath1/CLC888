@@ -3,6 +3,19 @@ session_start();
 error_reporting(0);
 require_once 'conn.php';
 require_once 'check.php';
+$_SESSION["mainframe"] = '"./account_autosavea.php"';
+
+$sqla = "select * from ssc_bankcard WHERE  username='" . $_SESSION["username"] . "'";
+$rsa = mysql_query($sqla);
+$cardnums=mysql_num_rows($rsa);
+if($cardnums==0){
+	$_SESSION["backtitle"]="非常抱歉，你需要在平台绑定银行卡之后才能充值，如有任何疑问请联系在线客服。";
+	$_SESSION["backurl"]="account_banks.php?check=114";
+	$_SESSION["backzt"]="failed";
+	$_SESSION["backname"]="我的银行卡";
+	echo "<script language=javascript>window.location='sysmessage.php';</script>";
+	exit;
+}
 
 if(Get_member(virtual)==1){
 	$_SESSION["backtitle"]="虚拟用户，禁止充值。";
@@ -12,6 +25,27 @@ if(Get_member(virtual)==1){
 	echo "<script language=javascript>window.location='sysmessage.php';</script>";
 	exit;
 }
+
+$sqla = "select * from ssc_member WHERE username='" . $_SESSION["username"] . "'";
+$rsa = mysql_query($sqla);
+$rowa = mysql_fetch_array($rsa);
+$leftmoney=$rowa['leftmoney'];
+
+if($rowa['cwpwd']==""){
+	$_SESSION["cwurl"]="account_savea.php";
+	echo "<script language=javascript>window.location='account_setpwd.php';</script>";
+	exit;
+}
+
+if($_GET['check']!="914"){
+	if($_SESSION["cwflag"]!="ok"){
+		$_SESSION["cwurl"]="account_savea.php";
+		echo "<script language=javascript>window.location='account_check.php';</script>";
+		exit;
+	}
+}
+
+$_SESSION["cwflag"]="";
 
 $sqla = "select * from ssc_banks WHERE tid=7";
 $rsa = mysql_query($sqla);
@@ -136,7 +170,7 @@ if($cardnums=="0"){
 <a href="/account_drawlist.php?check=914">提现记录</a>
 <a href="/account_draw.php?check=914">平台提现</a> <a
 	href="/account_savelist.php?check=914">充值记录</a> <a class="act"
-	href="/account_autosavea.php?check=">在线充值</a>
+	href="/account_autosavea.php?check=914">在线充值</a>
 	<a href="/ws_money_in.php">网站间转账</a></div>
 </div>
 <div class="rc_con pay">
