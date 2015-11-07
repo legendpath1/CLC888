@@ -10,12 +10,14 @@ exit;}
 $act=$_GET['act'];
 if($act=="edit"){
 	if($_POST['button']=="修改"){
+		$sql = "update clg_letou set prize='".$_POST['prize']."', prize_nums='".$_POST['nums']."', status='".$_POST['zt']."' where id='".$_GET['id']."'";
 		if (!mysql_query($sql)){
 			die('数据库修改出错!!!!' );
 		}
 		echo "<script language=javascript>alert('修改成功！');window.location='';</script>";
 		exit;
 	}else if($_POST['button']=="开奖"){
+		$sql = "update clg_letou set prize_nums='".$_POST['nums']."', status='2' where id='".$_GET['id']."'";
 		if (!mysql_query($sql)){
 			die('数据库修改出错!!!!' );
 		}
@@ -23,9 +25,19 @@ if($act=="edit"){
 		exit;	
 	}
 }
+elseif ($act=="add") {
+	if($_POST['button']=="添加"){
+		$sql = "insert clg_letou set sales='0', prize='".$_POST['prize']."', starttime='".date("Y-m-d H:i:s")."', status='1'";
+		if (!mysql_query($sql)){
+			die('数据库修改出错!!!!' );
+		}
+		echo "<script language=javascript>alert('添加成功！');window.location='';</script>";
+		exit;	
+	}
+}
 
 //$sql="select * from ssc_data where cid='1' and DATE_FORMAT(opentime, '%Y-%m-%d')='".$tday."' order by id asc";
-$sql="select * from clc_letourecords where status='2' order by id desc limit 10";
+$sql="select * from clg_letou order by id desc limit 10";
 $rsnewslist = mysql_query($sql) or  die("数据库修改出错!!!!");
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -57,43 +69,48 @@ $rsnewslist = mysql_query($sql) or  die("数据库修改出错!!!!");
 				<td width="80" class="t_list_caption">状态</td>
 				<td width="120" class="t_list_caption">操作</td>
 	</tr>
-            <form action="?act=edit&id=<?=$cid?>" method="post" name="form1" id="form1">
+            <form action="?act=add" method="post" name="form1" id="form1">
 			<tr class="t_list_tr_1" onMouseOver="this.style.backgroundColor='#E8F1FF'" onMouseOut="this.style.backgroundColor=''">
-				<td height="25"  align="center"></td>
-				<td align="center"><?=Get_lottery($cid)?></td>
-				<td align="center"><input type="text" name="sid" maxlength="15" size="20" value="" onkeypress="alphaOnly(event);" onblur="this.className='inp1';" class="inp1" onfocus="this.className='inp1a'" ></td>
-				<td align="center"><input type="text" name="code" maxlength="60" size="20" value="" onkeypress="alphaOnly(event);" onblur="this.className='inp1';" class="inp1" onfocus="this.className='inp1a'" /></td>
+				<td height="25"  align="center"><?php echo $id?></td>
+				<td align="center"></td>
+				<td align="center">0</td>
+				<td align="center"><input type="text" name="code" maxlength="60" size="20" value="50000" onkeypress="alphaOnly(event);" onblur="this.className='inp1';" class="inp1" onfocus="this.className='inp1a'" /></td>
 				<td align="center"></td>
 				<td align="center"></td>
-				<td align="center"><input type="submit" class="but1" value="修改" name="button" onClick="return confirm('确认要修改吗?');"/>&nbsp;&nbsp;<input type="submit" class="but1" value="开奖" name="button" onClick="return confirm('确认要开奖吗?');"/></td>
+				<td align="center"></td>
+				<td align="center"></td>
+				<td align="center"><input type="submit" class="but1" value="添加" name="button" onClick="return confirm('确认要添加吗?');"/></td>
 		  </tr>
 		  </form>
 
 			<?php 
 			$i=0;
 			while ($row = mysql_fetch_array($rsnewslist)){
-				if($row['status'] == 0){
-					$zt="未开始";
-				}else if($row['status'] == 1){
-					$zt="销售中";
-				}else if($row['status'] == 2){
-					$zt="已开奖";
-				}	
-				
+				$zt = $row['status'];
+				$id = $row['id'];
 			?>
-            <form action="?act=edit&id=<?=$cid?>" method="post" name="form1" id="form1">
-			<tr class="t_list_tr_<?=$i%2?>" onMouseOver="this.style.backgroundColor='#E8F1FF'" onMouseOut="this.style.backgroundColor=''">
-				<td height="25"  align="center"><input type="hidden" name="sid" value="<?=$issue?>"><?=$row['nums']?></td>
-				<td align="center"><?=$row['name']?></td>
+            <form action="?act=edit&id=<?=$id?>" method="post" name="form1" id="form1">
+			<tr class="t_list_tr_1" onMouseOver="this.style.backgroundColor='#E8F1FF'" onMouseOut="this.style.backgroundColor=''">
+				<td height="25" align="center"><?=$id?></td>
+				<td align="center"></td>
 				<td align="center"><?=$row['sales']?></td>
-				<td align="center"><?=$row['prize']?></td>
-				<td align="center"><input type="text" name="code" maxlength="60" size="20" value="<?=$row['nums']?>" onkeypress="alphaOnly(event);" onblur="this.className='inp1';" class="inp1" onfocus="this.className='inp1a'" /></td>
+				<td align="center"><input type="text" name="prize" maxlength="60" size="20" value="<?=$row['prize']?>" onkeypress="alphaOnly(event);" onblur="this.className='inp1';" class="inp1" onfocus="this.className='inp1a'" /></td>
+				<td align="center"><input type="text" name="nums" maxlength="60" size="20" value="<?=$row['prize_nums']?>" onkeypress="alphaOnly(event);" onblur="this.className='inp1';" class="inp1" onfocus="this.className='inp1a'" /></td>
 				<td align="center"><?=$row['starttime']?></td>
 				<td align="center"><?=$row['endtime']?></td>
-				<td align="center"><?=$zt?></td>
-				<?php if ($zt != 2) {?>
-				<td align="center"><input type="submit" class="but1" value="修改" name="button" onClick="return confirm('确认要修改吗?');"/>&nbsp;&nbsp;<input type="submit" class="but1" value="开奖" name="button" onClick="return confirm('确认要开奖吗?');"/></td>
-				<?php } ?>
+				<td align="center">
+					<select name="zt" id="zt">
+                    	<option value="0" <?php if ($zt==0) { echo 'selected="selected"'; }?>>未开始</option>
+                    	<option value="1" <?php if ($zt==1) { echo 'selected="selected"'; }?>>销售中</option>
+                    	<option value="2" <?php if ($zt==2) { echo 'selected="selected"'; }?>>已开奖</option>
+                    </select>
+				</td>
+				<td align="center">
+					<input type="submit" class="but1" value="修改" name="button" onClick="return confirm('确认要修改吗?');"/>
+					<?php if ($zt != 2) {?>
+					&nbsp;&nbsp;<input type="submit" class="but1" value="开奖" name="button" onClick="return confirm('确认要开奖吗?');"/>
+					<?php } ?>
+				</td>
 		  </tr>
 		  </form>
 			<?php 

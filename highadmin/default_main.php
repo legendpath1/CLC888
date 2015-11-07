@@ -304,6 +304,7 @@ html {overflow: hidden;}
 							<li class="inline"><a href="account_prize.php" target="mainframe" class="clink">中奖记录</a></li>
 							<li class="inline"><a href="account_rebate.php" target="mainframe" class="clink">返点记录</a></li>
 							<li class="inline"><a href="account_fh.php" target="mainframe" class="clink">分红记录</a></li>
+							<li class="inline"><a href="account_letou.php" target="mainframe" class="clink">乐透记录</a></li>
 							<li class="inline"><a href="account_record.php" target="mainframe" class="clink">账变明细</a></li>
 							<li class="inline"><a href="error.php" target="mainframe" class="clink">可疑数据</a></li>
 							<li class="inline"><a href="account_check.php" target="mainframe" class="clink">开奖检测</a></li>

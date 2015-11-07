@@ -32,14 +32,14 @@ $rowa = mysql_fetch_array($rsa);
 $leftmoney=$rowa['leftmoney'];
 
 if($rowa['cwpwd']==""){
-	$_SESSION["cwurl"]="account_savea.php";
+	$_SESSION["cwurl"]="account_autosavea.php";
 	echo "<script language=javascript>window.location='account_setpwd.php';</script>";
 	exit;
 }
 
 if($_GET['check']!="914"){
 	if($_SESSION["cwflag"]!="ok"){
-		$_SESSION["cwurl"]="account_savea.php";
+		$_SESSION["cwurl"]="account_autosavea.php";
 		echo "<script language=javascript>window.location='account_check.php';</script>";
 		exit;
 	}
