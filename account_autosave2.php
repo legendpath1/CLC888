@@ -38,17 +38,6 @@ if ($cmoney>=$rowa['climit']){
 $sqla="insert into ssc_savepending set uid='".$_SESSION["uid"]."', username='".$_SESSION["username"]."', bank='".$rowa['name']."', bankid='".$rowa['tid']."',  cardno='', money=".$cmoney.", sxmoney=".$sxmoney.", rmoney=".$rmoney.", adddate='".date("Y-m-d H:i:s")."',zt='0',types='1'";
 $exe=mysql_query($sqla) or  die("数据库修改出错6!!!");
 
-if($bid==3){
-	$sqlc = "select * from ssc_bankcard WHERE id='" . $_POST["mybank"] . "'";
-	$rsc = mysql_query($sqlc);
-	$rowc = mysql_fetch_array($rsc);
-    
-	$sqla="insert into ssc_savelist set uid='".$_SESSION["uid"]."', username='".$_SESSION["username"]."', bank='中国建设银行', bankid='3', cardno='".$rowc['cardno']."', money=".$cmoney.", sxmoney=".$sxmoney.", rmoney=".$rmoney.", adddate='".date("Y-m-d H:i:s")."',zt='0',types='1'";
-	$exe=mysql_query($sqla) or  die("数据库修改出错6!!!");
-}elseif($bid==2){
-	$sqla="insert into ssc_savelist set uid='".$_SESSION["uid"]."', username='".$_SESSION["username"]."', bank='".$rowa['name']."', bankid='".$rowa['tid']."', cardno='', money=".$cmoney.", sxmoney=".$sxmoney.", rmoney=".$rmoney.", adddate='".date("Y-m-d H:i:s")."',zt='0',types='1'";
-	$exe=mysql_query($sqla) or  die("数据库修改出错6!!!");
-}
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:esun>
@@ -78,9 +67,11 @@ if($bid==3){
     <div class="tm_title"></div>
     <div class="tm_right"></div>
     <div class="tm_menu">
-        <a href="/account_drawlist.php?check=">提现记录</a>
-        <a href="/account_draw.php?check=">平台提现</a>
-                <a class="act" href="/account_autosave.php?check=">自动充值</a>
+<a href="/account_drawlist.php?check=914">提现记录</a>
+<a href="/account_draw.php?check=914">平台提现</a> <a
+	href="/account_savelist.php?check=914">充值记录</a> <a class="act"
+	href="/account_autosavea.php?check=914">在线充值</a>
+	<a href="/ws_money_in.php">网站间转账</a></div>
     </div>
 </div>
 <div class="rc_con pay">
@@ -88,7 +79,7 @@ if($bid==3){
     <div class="rc_con_rt"></div>
     <div class="rc_con_lb"></div>
     <div class="rc_con_rb"></div>
-    <h5><div class="rc_con_title">自动充值</div></h5>
+    <h5><div class="rc_con_title">在线充值</div></h5>
     <div class="rc_con_to">
         <div class="rc_con_ti">
             <div id="demobox"><img src="./images/help/zdcz<?=$rowa['tid']?>.png" style="border:2px solid #333333;" /></div>

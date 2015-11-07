@@ -41,7 +41,7 @@ $exe=mysql_query($sqla) or  die("数据库修改出错6!!!");
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>中联支付</title>
+<title>在线充值</title>
 <meta name="keywords" content="" />
 <link href="css/yeepaytest.css" type="text/css" rel="stylesheet" />
 <script src="http://lib.sinaapp.com/js/jquery/1.4.2/jquery.min.js"

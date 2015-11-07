@@ -101,6 +101,9 @@ if($tcbank==""){
         for( i=0; i<s; i++ ){
             if( obj.bankinfo[i].checked == true ){
                 ischecked = true;
+                if (i != 21 && i != 22) {
+                    $('#saveform').attr('action', './account_autosave2.php');
+                }
             }
         }
         if( ischecked == false ){
