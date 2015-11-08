@@ -101,9 +101,6 @@ if($tcbank==""){
         for( i=0; i<s; i++ ){
             if( obj.bankinfo[i].checked == true ){
                 ischecked = true;
-                if (i != 21 && i != 22) {
-                    $('#saveform').attr('action', './account_autosave2.php');
-                }
             }
         }
         if( ischecked == false ){
@@ -152,6 +149,7 @@ while ($rowa = mysql_fetch_array($rsa)){
         $("#loadmin").html($banklist[id]['minload']);
         $("#loadmax").html($banklist[id]['maxload']);
         id = parseInt(id.replace("bank_",""),10);
+        
         if( id == 3 ){
 <?php 
 if($cardnums=="0"){

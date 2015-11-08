@@ -56,7 +56,7 @@ if($flag=="confirm"){
 			$sapi_regResult = SAPI_Reg($_REQUEST['username'], $_REQUEST['pwd'], $comUser, $_REQUEST['nickname']);
 			if ($sapi_regResult[0] != 'SUCCESS')
 			{
-				$_SESSION["backtitle"]="彩弈轩注册失败：".$sapi_regResult[1];
+				$_SESSION["backtitle"]=$sapi_regResult[1];
 				$_SESSION["backurl"]="/register.php?id=".$_REQUEST['id'];
 				$_SESSION["backzt"]="failed";
 				$_SESSION["backname"]="用户注册";
@@ -82,7 +82,7 @@ if($flag=="confirm"){
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>彩乐宫自动注册</title>
+<title>如意彩自动注册</title>
 <SCRIPT type="text/javascript" src="js/jquery.js"></SCRIPT>
 <SCRIPT type="text/javascript" src="js/jquery.md5.js"></SCRIPT>
 <script language="javascript" type="text/javascript" src="js/common.js"></script>
@@ -91,7 +91,7 @@ if($flag=="confirm"){
             body {
                 margin: 0;
                 background-color: #B34C11;
-                background-image: url(images/register/bg.jpg);
+                background-image: url(images/register/bg.png);
             }
             .aa1 {
                 color: #ffffff;
@@ -167,9 +167,9 @@ function LoginNow()
   <table width="100%" border="0" cellpadding="0" cellspacing="0" background="images/register/topbg.png">
     <tr>
       <td height="135" valign="top"><div align="center">
-        <table width="1920" border="0" cellpadding="0" cellspacing="0" background="images/register/top.png">
+        <table width="1150" border="0" cellpadding="0" cellspacing="0" background="images/register/top.png">
           <tr>
-            <td height="185">&nbsp;</td>
+            <td height="113">&nbsp;</td>
           </tr>
         </table>
       </div></td>
@@ -178,7 +178,8 @@ function LoginNow()
   <table width="1100" border="0" cellpadding="0" cellspacing="0" background="images/register/mainbg3.png">
     <tr>
       <td width="712" height="523" valign="top" align="center"><br />
-        <br /></td>
+        <br />
+      <img src="images/register/222.png" width="631" height="406" /></td>
       <td width="388" valign="top" align="left"><table width="300" border="0" align="left" cellpadding="0" cellspacing="0">
         <tr>
           <td height="90" width=100></td>

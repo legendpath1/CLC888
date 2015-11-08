@@ -40,10 +40,10 @@ if($_POST['flag']=="getgift"){
 						$sqld="select * from ssc_savelist where username= '".$_SESSION["username"]."' and zt='1'  order by id asc limit 1";
 						$queryd = mysql_query($sqld);
 						$rsd = mysql_fetch_array($queryd);
-						if(empty($rsd)){
-							echo "<script language=javascript>alert('对不起，您不符合领取红包条件，请充值！');window.location.href='?id=".$id."';</script>";
-							exit;
-						}
+//						if(empty($rsd)){
+//							echo "<script language=javascript>alert('对不起，您不符合领取红包条件，请充值！');window.location.href='?id=".$id."';</script>";
+//							exit;
+//						}
 					
 						$lmoney=$rowc['leftmoney']+$smoney;
 						$sqlb="insert into ssc_record set dan='".$dan1."', uid='".$rowc['id']."', username='".$rowc['username']."', types='32', smoney=".$smoney.",leftmoney=".$lmoney.", regtop='" .$rowc['regtop']. "', regup='" .$rowc['regup']. "', regfrom='".$rowc['regfrom']."', adddate='".date("Y-m-d H:i:s")."',tag='开户有礼',virtual='" .$rowc['virtual']. "'";
@@ -68,7 +68,7 @@ if($_POST['flag']=="getgift"){
 						exit;		
 					}
 				}else{
-						$_SESSION["backtitle"]="请先绑定工行银行卡！";
+						$_SESSION["backtitle"]="请先绑定您的银行卡！";
 						$_SESSION["backurl"]="promotion_center.php?id=".$_REQUEST['id'];
 						$_SESSION["backzt"]="failed";
 						$_SESSION["backname"]="开户有礼";
