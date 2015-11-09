@@ -30,7 +30,7 @@ if($_POST['flag']=="getgift"){
 						exit;
 				}
 
-				$sqlb = "select * from ssc_bankcard WHERE  username='" . $_SESSION["username"] . "' and bankid='1'";
+				$sqlb = "select * from ssc_bankcard WHERE  username='" . $_SESSION["username"] . "'";
 				$rsb = mysql_query($sqlb);
 				$rowb = mysql_fetch_array($rsb);
 				$cardnum=mysql_num_rows($rsb);

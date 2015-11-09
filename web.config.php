@@ -13,3 +13,4 @@ $SOPEN = 1;
 //棋牌站的网址。当棋牌站网址变更时，需要修改该网址
 //注意：不要以“/”结尾
 $WEBURL_QP = 'http://www.caiyixuan.net';
+?>
