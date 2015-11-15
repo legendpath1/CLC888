@@ -34,8 +34,26 @@ if($flag=="confirm"){
 		$sqla = "SELECT * FROM ssc_member where username='".$_REQUEST['username']."'";
 		$rsa = mysql_query($sqla);
 		$nums=mysql_num_rows($rsa);
-		if($nums>0){
+		if ($nums>0){
 			$_SESSION["backtitle"]="用户名已存在";
+			$_SESSION["backurl"]="register.php?id=".$_REQUEST['id'];
+			$_SESSION["backzt"]="failed";
+			$_SESSION["backname"]="用户注册";
+			echo "<script language=javascript>window.location='sysmessage.php';</script>";
+			exit;
+		}
+		
+		require_once 'ip.php';
+		$ip1 = get_ip();
+		$iplocation = new iplocate();
+		$address=$iplocation->getaddress($ip1);
+		$iparea = $address['area1'].$address['area2'];
+		
+		$sqla = "select * from ssc_ipban where ip='".$ip1."'";
+		$rsa = mysql_query($sqla);
+		$nums=mysql_num_rows($rsa);
+		if ($nums>0){
+			$_SESSION["backtitle"]="无法注册";
 			$_SESSION["backurl"]="register.php?id=".$_REQUEST['id'];
 			$_SESSION["backzt"]="failed";
 			$_SESSION["backname"]="用户注册";

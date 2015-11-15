@@ -93,7 +93,7 @@ if($_SESSION["uid"]!="" && $_SESSION["username"]!="" && $_SESSION["valid"]!=""){
 		 			</div>
 		 			<div id="J-panel-vcode" class="user-info ver-area clearfix">
 		 				<!--<div class="var-img-area"></div>-->
-                        <img class="var-img-area" id="validate" src="ValiCode_New.php" style="cursor:pointer; border: 1px solid #999" onClick="refreshimg()" alt="点击图片刷新验证码" title="点击图片刷新验证码" />
+                        <img class="var-img-area" id="validate" src="ValiCode_new.php" style="cursor:pointer; border: 1px solid #999" onClick="refreshimg()" alt="点击图片刷新验证码" title="点击图片刷新验证码" />
 		 				<input type="text" id="validcode_source" name="validcode_source" class="user-ver" placeholder="验证码" >
 		 			</div>
 		 			<div id="J-msg-show" data-display="hide" class="msg-show"></div>

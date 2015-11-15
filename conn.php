@@ -30,15 +30,14 @@ function Add_S(&$array){
 require_once($_SERVER['DOCUMENT_ROOT'].'/web.config.php');
 require_once($_SERVER['DOCUMENT_ROOT'].'/SAPI/appfun.php');
 $conn = mysql_pconnect($con_db_host, $con_db_id, $con_db_pass);
-//$conn = mysql_pconnect( "180.150.226.18:3306", "root", "hellocy666" );
-//$conn = mysql_pconnect( "175.41.26.18:7395", "root", "k4v_sel" );
+
 if (!$conn)
   {
   die('系统繁忙，请稍候再试！');// 
   }
 
 mysql_select_db($con_db_name);
-mysql_query( "SET NAMES 'utf8'" );
+mysql_set_charset('utf8',$conn);
 
 $sqlzz = "select zt from ssc_config";
 $rszz = mysql_query($sqlzz);
