@@ -66,13 +66,7 @@ if($_SESSION["uid"]!="" && $_SESSION["username"]!="" && $_SESSION["valid"]!=""){
 				<span class="help-icon">有问题咨询在线客服？</span><a target="_blank" href="http://api.pop800.com/chat/167901">点击此处</a>
 			</div>
 			 <ul class="nav">
-			 	<!--<li class="">
-			 		<a href="#">旧平台登陆</a>
-			 	</li>
-			 	<li class="second current">
-			 		<a href="#">新平台登陆</a><a id="J-question-button" href="#" class="question"></a>
-			 	</li>
--->
+
 <li class="current">
 			 		<a href="#">平台登陆</a>
 			 	</li>			
