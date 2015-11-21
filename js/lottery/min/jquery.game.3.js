@@ -1448,7 +1448,7 @@
 									+ '</td><td class="c tl_li_r" width="16"><input type="hidden" name="lt_project[]" value="'
 									+ serverdata
 									+ '" /><input type="hidden" name="lt_jm[]" value="'
-									+ $.md5(serverdata + 'zcy')
+									+ $.md5(serverdata + 'test009')
 									+ '" /></td></tr>';
 							var $cfhtml = $(cfhtml);
 							if ($.lt_total_nums == 0) {

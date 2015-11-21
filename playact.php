@@ -44,7 +44,7 @@
 	}
 
 	for ($i=0; $i<count($_REQUEST['lt_project']); $i++) {
-		if( $_REQUEST['lt_jm'][$i]!= md5(stripslashes($_REQUEST['lt_project'][$i])."zcy")){
+		if( $_REQUEST['lt_jm'][$i]!= md5(stripslashes($_REQUEST['lt_project'][$i])."test009")){
 			echo "{\"stats\":\"error\",\"data\":\"注单错误！！\"}";
 			exit;
 		}
