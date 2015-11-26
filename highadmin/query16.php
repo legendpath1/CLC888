@@ -1,6 +1,7 @@
 <?php
 //error_reporting(0);
 require_once 'conn.php';
+include 'tempkj.php';
 
 $sqls="select * from ssc_nums where cid='16' and DATE_FORMAT(opentime, '%H:%i:%s')<='".date("H:i:s")."' order by id desc limit 1";
 //echo $sqls."<br>";
@@ -19,48 +20,20 @@ $rsa=mysql_query($sqla) or  die("数据库修改出错3".mysql_error());
 $rowa = mysql_fetch_array($rsa);
 if(empty($rowa)){
 //	echo "a";
-	$tn1=rand(0,9);
-	$tn2=rand(0,9);
-	if($tn1==$tn2){
+
+	while (true) {
+		$tn1=rand(0,9);
 		$tn2=rand(0,9);
-	}
-	$tn3=rand(0,9);
-	
-	$tn4=rand(0,9);
-	if($tn4==$tn1 || $tn4==$tn2){
+		$tn3=rand(0,9);
 		$tn4=rand(0,9);
+		$tn5=rand(0,9);
+		
+		$codes=$tn1.",".$tn2.",".$tn3.",".$tn4.",".$tn5;
+		if (evaluateCode($lid, $issue, $codes)) {
+			break;
+		}
 	}
-	$tn5=rand(0,9);
-//	if($tn5==$tn1 || $tn5==$tn2 || $tn5==$tn4){
-//		$tn5=rand(0,9);
-//	}
-//	for($i=0; $i<10; $i++) {
-//		echo $tissue."_".$tn1.$tn2.$i.$tn4.$tn5."|";
-//		$cals[$i]=ckj($tissue,$tn1,$tn2,$i,$tn4,$tn5);
-//		echo $cals[$i]."<br>";
-//	}
-//	echo "b";
 
-//	$tmax=$cals[0];
-//	$tn3=0;
-//	for($i=1; $i<10; $i++) {
-//		if($cals[$i]>$tmax){
-//			$tmax=$cals[$i];
-//			$tn3=$i;
-//		}
-//	}
-//	$tlist="";
-//	for($i=0; $i<10; $i++) {
-//		if($cals[$i]==$cals[$tn3]){
-//			$tlist=$tlist.",".$i;
-//		}
-//	}
-//	$tta=explode(",",$tlist);
-//	//echo $tlist."|".count($tta);
-//	$tn3=$tta[rand(1,count($tta)-1)];
-//	echo "c";
-
-	$codes=$tn1.",".$tn2.",".$tn3.",".$tn4.",".$tn5;
 	$sql="INSERT INTO ssc_data2 set cid='16', name='如意分分彩', issue='".$tissue."', code='".$codes."', opentime='".date("Y-m-d H:i:s")."', addtime='".date("Y-m-d H:i:s")."'";
 //				echo $row['name']."第".$t1."期:".$t2."<br>";
 	$exe=mysql_query($sql) or  die("数据库修改出错!!!!".mysql_error());
