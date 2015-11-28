@@ -239,7 +239,7 @@ else if ( $_POST['bankinfo'] == 22 ) {?>
 			</tr>
 			<tr>
 				<td><input type="hidden" name="noticeUrl" id="noticeUrl"
-					value="http://pay.lolk.cn/index.php" /></td>
+					value="http://pay.lolk.cn/extranotice2.php" /></td>
 			</tr>
 			<tr>
 				<td><input type="hidden" name="bankCardType" id="bankCardType" value="00" /></td>
