@@ -13,7 +13,7 @@ $regtop=$row['regtop'];
 $regfrom=$row['regfrom'];
 $virtual=$row['virtual'];
 
-if($flevel>7.0){
+if($flevel>6.0){
 	$pe=explode(";",$row['pe']);
 	$pe0=$pe[0];
 	$pe1=$pe[1];
@@ -23,6 +23,16 @@ if($flevel>7.0){
 	$pe5=$pe[5];
 	$pe6=$pe[6];
 	$pe7=$pe[7];
+	$pe8=$pe[8];
+	$pe9=$pe[9];
+	$pe10=$pe[10];
+	$pe11=$pe[11];
+	$pe12=$pe[12];
+	$pe13=$pe[13];
+	$pe14=$pe[14];
+	$pe15=$pe[15];
+	$pe16=$pe[16];
+	$pe17=$pe[17];
 }else{
 	$pe0=0;
 	$pe1=0;
@@ -32,6 +42,16 @@ if($flevel>7.0){
 	$pe5=0;
 	$pe6=0;
 	$pe7=0;
+	$pe8=0;
+	$pe9=0;
+	$pe10=0;
+	$pe11=0;
+	$pe12=0;
+	$pe13=0;
+	$pe14=0;
+	$pe15=0;
+	$pe16=0;
+	$pe17=0;
 }
 //if($level==2){
 //	$flevel2=$flevel;
@@ -85,48 +105,108 @@ if($flag=="insert"){
 		// 6.6-7 0 6.1-6.5  1 7.5  7.4  7.3  7.2   7.1 
 
 		if($fflevel>=7.7){
+			if($pe[17]>0){
+				$pe[17]=$pe[17]-1;
+			}else{
+				$prerr=1;
+			}
+		}elseif($fflevel==7.6){
+			if($pe[16]>0){
+				$pe[16]=$pe[16]-1;
+			}else{
+				$prerr=1;
+			}
+		}elseif($fflevel==7.5){
+			if($pe[15]>0){
+				$pe[15]=$pe[15]-1;
+			}else{
+				$prerr=1;
+			}
+		}elseif($fflevel==7.4){
+			if($pe[14]>0){
+				$pe[14]=$pe[14]-1;
+			}else{
+				$prerr=1;
+			}
+		}elseif($fflevel==7.3){
+			if($pe[13]>0){
+				$pe[13]=$pe[13]-1;
+			}else{
+				$prerr=1;
+			}
+		}elseif($fflevel==7.2){
+			if($pe[12]>0){
+				$pe[12]=$pe[12]-1;
+			}else{
+				$prerr=1;
+			}
+		}elseif($fflevel==7.1){
+			if($pe[11]>0){
+				$pe[11]=$pe[11]-1;
+			}else{
+				$prerr=1;
+			}
+		}elseif($fflevel==7.0){
+			if($pe[10]>0){
+				$pe[10]=$pe[10]-1;
+			}else{
+				$prerr=1;
+			}
+		}elseif($fflevel>=6.9){
+			if($pe[9]>0){
+				$pe[9]=$pe[9]-1;
+			}else{
+				$prerr=1;
+			}
+		}elseif($fflevel>=6.8){
+			if($pe[8]>0){
+				$pe[8]=$pe[8]-1;
+			}else{
+				$prerr=1;
+			}
+		}elseif($fflevel>=6.7){
 			if($pe[7]>0){
 				$pe[7]=$pe[7]-1;
 			}else{
 				$prerr=1;
 			}
-		}elseif($fflevel==7.6){
+		}elseif($fflevel==6.6){
 			if($pe[6]>0){
 				$pe[6]=$pe[6]-1;
 			}else{
 				$prerr=1;
 			}
-		}elseif($fflevel==7.5){
+		}elseif($fflevel==6.5){
 			if($pe[5]>0){
 				$pe[5]=$pe[5]-1;
 			}else{
 				$prerr=1;
 			}
-		}elseif($fflevel==7.4){
+		}elseif($fflevel==6.4){
 			if($pe[4]>0){
 				$pe[4]=$pe[4]-1;
 			}else{
 				$prerr=1;
 			}
-		}elseif($fflevel==7.3){
+		}elseif($fflevel==6.3){
 			if($pe[3]>0){
 				$pe[3]=$pe[3]-1;
 			}else{
 				$prerr=1;
 			}
-		}elseif($fflevel==7.2){
+		}elseif($fflevel==6.2){
 			if($pe[2]>0){
 				$pe[2]=$pe[2]-1;
 			}else{
 				$prerr=1;
 			}
-		}elseif($fflevel==7.1){
+		}elseif($fflevel==6.1){
 			if($pe[1]>0){
 				$pe[1]=$pe[1]-1;
 			}else{
 				$prerr=1;
 			}
-		}elseif($fflevel==7.0){
+		}elseif($fflevel==6.0){
 			if($pe[0]>0){
 				$pe[0]=$pe[0]-1;
 			}else{
@@ -142,7 +222,7 @@ if($flag=="insert"){
 			echo "<script language=javascript>window.location='sysmessage.php';</script>";
 			exit;
 		}
-		if($fflevel>7){
+		if($fflevel>=6.0){
 			$pes=implode(";",$pe);
 			$sql = "update ssc_member set pe='" . $pes . "' where username='" . $_SESSION["username"] . "'";
 			$exe = mysql_query($sql);
@@ -314,31 +394,61 @@ if($flag=="insert"){
                                     <span class="user_ts_title">剩余开户额：<br></span>
                                     <span class="c_bl">
                                     	<?php if($flevel>=7.8){?>
-                                        [7.7]:<font color="#F00"> <?=$pe7?> </font>个&nbsp;&nbsp;&nbsp;
+                                        [7.7]:<font color="#F00"> <?=$pe17?> </font>个&nbsp;&nbsp;&nbsp;
                                         <?php }?>
                                     	<?php if($flevel>=7.7){?>
-                                        [7.6]:<font color="#F00"> <?=$pe6?> </font>个&nbsp;&nbsp;&nbsp;
+                                        [7.6]:<font color="#F00"> <?=$pe16?> </font>个&nbsp;&nbsp;&nbsp;
                                         <?php }?>
                                     	<?php if($flevel>=7.6){?>
-                                        [7.5]:<font color="#F00"> <?=$pe5?> </font>个&nbsp;&nbsp;&nbsp;
+                                        [7.5]:<font color="#F00"> <?=$pe15?> </font>个&nbsp;&nbsp;&nbsp;
                                         <?php }?>
                                     	<?php if($flevel>=7.5){?>
-                                        [7.4]:<font color="#F00"> <?=$pe4?> </font>个&nbsp;&nbsp;&nbsp;
+                                        [7.4]:<font color="#F00"> <?=$pe14?> </font>个&nbsp;&nbsp;&nbsp;
                                         <?php }?>
                                     	<?php if($flevel>=7.4){?>
-                                        [7.3]:<font color="#F00"> <?=$pe3?> </font>个&nbsp;&nbsp;&nbsp;
+                                        [7.3]:<font color="#F00"> <?=$pe13?> </font>个&nbsp;&nbsp;&nbsp;
                                         <?php }?>
                                     	<?php if($flevel>=7.3){?>
-                                        [7.2]:<font color="#F00"> <?=$pe2?> </font>个&nbsp;&nbsp;&nbsp;
+                                        [7.2]:<font color="#F00"> <?=$pe12?> </font>个&nbsp;&nbsp;&nbsp;
                                         <?php }?>
                                     	<?php if($flevel>=7.2){?>
-                                        [7.1]:<font color="#F00"> <?=$pe1?> </font>个&nbsp;&nbsp;&nbsp;
+                                        [7.1]:<font color="#F00"> <?=$pe11?> </font>个&nbsp;&nbsp;&nbsp;
                                         <?php }?>
                                     	<?php if($flevel>=7.1){?>
-                                        [7.0]:<font color="#F00"> <?=$pe0?> </font>个&nbsp;&nbsp;&nbsp;
+                                        [7.0]:<font color="#F00"> <?=$pe10?> </font>个&nbsp;&nbsp;&nbsp;
+                                        <?php }?>
+                                    	<?php if($flevel>=7.0){?>
+                                        [6.9]:<font color="#F00"> <?=$pe9?> </font>个&nbsp;&nbsp;&nbsp;
+                                        <?php }?>
+                                    	<?php if($flevel>=6.9){?>
+                                        [6.8]:<font color="#F00"> <?=$pe8?> </font>个&nbsp;&nbsp;&nbsp;
+                                        <?php }?>
+                                    	<?php if($flevel>=6.8){?>
+                                        [6.7]:<font color="#F00"> <?=$pe7?> </font>个&nbsp;&nbsp;&nbsp;
+                                        <?php }?>
+                                    	<?php if($flevel>=6.7){?>
+                                        [6.6]:<font color="#F00"> <?=$pe6?> </font>个&nbsp;&nbsp;&nbsp;
+                                        <?php }?>
+                                    	<?php if($flevel>=6.6){?>
+                                        [6.5]:<font color="#F00"> <?=$pe5?> </font>个&nbsp;&nbsp;&nbsp;
+                                        <?php }?>
+                                    	<?php if($flevel>=6.5){?>
+                                        [6.4]:<font color="#F00"> <?=$pe4?> </font>个&nbsp;&nbsp;&nbsp;
+                                        <?php }?>
+                                    	<?php if($flevel>=6.4){?>
+                                        [6.3]:<font color="#F00"> <?=$pe3?> </font>个&nbsp;&nbsp;&nbsp;
+                                        <?php }?>
+                                    	<?php if($flevel>=6.3){?>
+                                        [6.2]:<font color="#F00"> <?=$pe2?> </font>个&nbsp;&nbsp;&nbsp;
+                                        <?php }?>
+                                    	<?php if($flevel>=6.2){?>
+                                        [6.1]:<font color="#F00"> <?=$pe1?> </font>个&nbsp;&nbsp;&nbsp;
+                                        <?php }?>
+                                    	<?php if($flevel>=6.1){?>
+                                        [6.0]:<font color="#F00"> <?=$pe0?> </font>个&nbsp;&nbsp;&nbsp;
                                         <?php }?>
                                     </span>
-                                    <b>备注:</b><font color="red">开通返点级别为<b>【7.0】</b>以下的用户不需要开户配额。</font><br>
+                                    <b>备注:</b><font color="red">开通返点级别为<b>【6.0】</b>以下的用户不需要开户配额。</font><br>
                                     <b>说明:</b><font color="red">用户成功添加后，可再次编辑返点。</font>                                </div>
                                 <div class="user_ts">
                                     <span class="user_ts_title">您的返点级别：</span>
