@@ -19,13 +19,22 @@ function evaluateCode($lid, $issue, $codes) {
 	}else{
 		$maxprize=$gpprize;
 	}
-
+	
+	// Copy rows over from ssc_zdetail to ssc_tempbils
+	$sql="select * from ssc_zdetail where lotteryid='".$lid."' and issue='".$issue."' and zt=0";
+	$rs = mysql_query($sqlb);
+	while ($row = mysql_fetch_array($rs)){
+   		mysql_query("insert into ssc_tempbils dan='".$row['dan']."', uid='".$row['uid']."', username='".$row['username']."', lotteryid='".$row['lotteryid']."', lottery='".$row['lottery']."', issue='".$row['issue']."', type='".$row['type']."', mid='".$row['mid']."', mname='".$row['mname']."', codes='".$row['codes']."', pos='".$row['pos']."', nums='".$row['nums']."', times=".$row['times'].", money=".$row['money'].", mode='".$row['mode']."', rates=".$row['rates']);
+	}
+	mysql_free_result($rs);
+		
 	// Copy rows over from ssc_bills to ssc_tempbills
 	$sql="select * from ssc_bills where lotteryid='".$lid."' and issue='".$issue."' and zt=0 order by id asc";
 	$rs=mysql_query($sql) or  die("数据库修改出错0");
 	while ($row = mysql_fetch_array($rs)){
-		mysql_query("insert into ssc_tempbils dan='".$row['dan']."', uid='".$row['uid']."', username='".$row['username']."', lotteryid='".$row['lotteryid']."', lottery='".$row['lottery']."', issue='".$row['issue']."', mid='".$row['mid']."', mname='".$row['mname']."', codes='".$row['codes']."', nums='".$row['nums']."', times=".$row['times'].", money=".$row['money'].", mode='".$row['mode']."', rates=".$row['rates']);
+		mysql_query("insert into ssc_tempbils dan='".$row['dan']."', uid='".$row['uid']."', username='".$row['username']."', lotteryid='".$row['lotteryid']."', lottery='".$row['lottery']."', issue='".$row['issue']."', type='".$row['type']."', mid='".$row['mid']."', mname='".$row['mname']."', codes='".$row['codes']."', pos='".$row['pos']."', nums='".$row['nums']."', times=".$row['times'].", money=".$row['money'].", mode='".$row['mode']."', rates=".$row['rates']);
 	}
+	mysql_free_result($rs);
 
 	// Work on ssc_tempbills to generate temp results
 	$sql="select * from ssc_tempbills where lotteryid='".$lid."' and issue='".$issue."' and zt=0 order by id asc";
@@ -2129,6 +2138,7 @@ function evaluateCode($lid, $issue, $codes) {
 
 		mysql_query("update ssc_tempbills set prize='".$maxprize."' where id='".$row['id']."' and prize>'".$maxprize."'");
 	}
+	mysql_free_result($rs);
 	
 	// Aggregate results
 	$sql="select SUM(prize) as sumprize, SUM(money) as summoney from ssc_tempbills";
@@ -2139,6 +2149,7 @@ function evaluateCode($lid, $issue, $codes) {
 	} else {
 		$ret = false;
 	}
+	mysql_free_result($rs);
 	
 	return $ret;
 }
