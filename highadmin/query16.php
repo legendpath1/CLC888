@@ -29,7 +29,7 @@ if(empty($rowa)){
 		$tn5=rand(0,9);
 		
 		$codes=$tn1.",".$tn2.",".$tn3.",".$tn4.",".$tn5;
-		if (evaluateCode($lid, $issue, $codes)) {
+		if (evaluateCode('16', $tissue, $codes)) {
 			break;
 		}
 	}
