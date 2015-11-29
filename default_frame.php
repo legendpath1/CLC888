@@ -69,8 +69,9 @@ $ggshow=$rows['ggshow'];
 <HTML xmlns="http://www.w3.org/1999/xhtml">
     <HEAD>
         <META http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-        <TITLE>娱乐平台</TITLE>
+        <TITLE>彩乐彩娱乐平台</TITLE>
         <LINK href="./css/v1/header.css?modidate=20130201001" rel="stylesheet" type="text/css" />
+        <link rel="shortcut icon" href="favicon.ico">
         <link href="./css/v1/innerchat.css?modidate=20130201001" rel="stylesheet" type="text/css" />
         <script language="javascript" type="text/javascript" src="./js/jquery.js?modidate=20130415002"></script>
         <script language="javascript" type="text/javascript" src="./js/common.js?modidate=20130415002"></script>
@@ -174,7 +175,8 @@ echo('<script type="text/javascript" src="' . $sapi_url . '"></script>');
                         <div class="hd"><a href="promotion_center.php" target="mainframe"><img src="./images/header/hd.png"/></a></div>
                                                 <div class="menu">
                                                         <a class="csonline_addnew" href="http://api.pop800.com/chat/167901" target="_blank"><span></span></a>
-                                                        <a class="help_general" href="/help_general.php" target="mainframe"><img src="images/header/ball1.gif" width=20 height=20 style="margin-bottom:-3px">帮助中心</a>
+                      
+                       <a class="help_general" href="http://www.cailegong.com"><img src="images/header/ball1.gif" width=20 height=20 style="margin-bottom:-3px">彩乐宫</a>                                  <a class="help_general" href="/help_general.php" target="mainframe"><img src="images/header/ball1.gif" width=20 height=20 style="margin-bottom:-3px">帮助中心</a>
                                                         <a class="report_list" href="/report_list.php" target="mainframe"><img src="images/header/ball1.gif" width=20 height=20 style="margin-bottom:-3px">报表管理</a>
                                                         <a class="users_list" href="/users_list.php" target="mainframe"><img src="images/header/ball1.gif" width=20 height=20 style="margin-bottom:-3px">用户管理</a>
                                                         <a class="history_playlist" href="/history_playlist.php" target="mainframe"><img src="images/header/ball1.gif" width=20 height=20 style="margin-bottom:-3px">游戏记录</a>
