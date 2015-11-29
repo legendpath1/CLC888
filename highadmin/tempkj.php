@@ -16,12 +16,6 @@ function evaluateCode($lid, $issue, $codes) {
 
 	$na=explode(",",$codes);
 
-	if($lid==11 || $lid==12){
-		$maxprize=$dpprize;
-	}else{
-		$maxprize=$gpprize;
-	}
-	
 	// Copy rows over from ssc_zdetail to ssc_tempbils
 	$sql="select * from ssc_zdetail where lotteryid='".$lid."' and issue='".$issue."' and zt=0";
 	$rs = mysql_query($sqlb);

@@ -10,7 +10,7 @@ $codes = '1,2,3,4,5';
 	$signb=2;
 
 	// Clear the temp table
-	mysql_query("delete * from ssc_tempbills");
+	mysql_query("delete * from ssc_tempbills") or die("数据库修改出错-1");
 
 	$sqly = "select * from ssc_config";
 	$rsy = mysql_query($sqly);
