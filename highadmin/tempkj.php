@@ -1,4 +1,6 @@
 <?php
+require_once 'conn.php';
+
 function evaluateCode($lid, $issue, $codes) {
 	$signa=1;
 	$signb=2;
