@@ -22,7 +22,7 @@ $codes = '1,2,3,4,5';
 
 	// Copy rows over from ssc_zdetail to ssc_tempbils
 	$sql="select * from ssc_zdetail where lotteryid='".$lid."' and issue='".$issue."' and zt=0";
-	$rs = mysql_query($sqlb);
+	$rs = mysql_query($sql);
 	while ($row = mysql_fetch_array($rs)){
    		mysql_query("insert into ssc_tempbils dan='".$row['dan']."', uid='".$row['uid']."', username='".$row['username']."', lotteryid='".$row['lotteryid']."', lottery='".$row['lottery']."', issue='".$row['issue']."', type='".$row['type']."', mid='".$row['mid']."', mname='".$row['mname']."', codes='".$row['codes']."', pos='".$row['pos']."', nums='".$row['nums']."', times=".$row['times'].", money=".$row['money'].", mode='".$row['mode']."', rates=".$row['rates']);
 	}
