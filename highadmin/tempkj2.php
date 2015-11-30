@@ -2138,8 +2138,6 @@ $codes = '1,2,3,4,5';
 
 
 		}
-
-		mysql_query("update ssc_tempbills set prize='".$maxprize."' where id='".$row['id']."' and prize>'".$maxprize."'");
 	}
 	mysql_free_result($rs);
 	
