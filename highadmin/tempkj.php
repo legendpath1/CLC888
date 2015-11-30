@@ -2137,7 +2137,7 @@ function evaluateCode($lid, $issue, $codes) {
 	// Aggregate results
 	$sql="select SUM(prize) as sumprize, SUM(money) as summoney from ssc_tempbills";
 	$rs=mysql_query($sql) or  die("数据库修改出错1");
-	$row=mysql_fetch_row($rs);
+	$row=mysql_fetch_array($rs);
 	if ($row['sumprize'] <= $row['summoney'] * 0.95) {
 		$ret = true;
 	} else {
