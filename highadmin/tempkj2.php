@@ -36,6 +36,8 @@ $codes = '1,2,3,4,5';
 	}
 	mysql_free_result($rs);
 
+	echo "we have done copying records to tempbils!</br>";
+	
 	// Work on ssc_tempbills to generate temp results
 	$sql="select * from ssc_tempbills where lotteryid='".$lid."' and issue='".$issue."' and zt=0 order by id asc";
 	$rs=mysql_query($sql) or  die("数据库修改出错1");
@@ -2140,6 +2142,8 @@ $codes = '1,2,3,4,5';
 	}
 	mysql_free_result($rs);
 	
+	echo "we have done calculation in tempbils!</br>";
+	
 	// Aggregate results
 	$sql="select SUM(prize) as sumprize, SUM(money) as summoney from ssc_tempbills";
 	$rs=mysql_query($sql) or  die("数据库修改出错1");
@@ -2151,6 +2155,7 @@ $codes = '1,2,3,4,5';
 	}
 	mysql_free_result($rs);
 	
+	echo "we are done with judgement!</br> ret = ".$ret;
 //	return $ret;
 //}
 ?>
