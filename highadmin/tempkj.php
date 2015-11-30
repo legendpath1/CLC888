@@ -20,7 +20,7 @@ function evaluateCode($lid, $issue, $codes) {
 	$sql="select * from ssc_zdetail where lotteryid='".$lid."' and issue='".$issue."' and zt=0 order by id asc";
 	$rs = mysql_query($sql);
 	while ($row = mysql_fetch_array($rs)){
-   		mysql_query("insert into ssc_tempbils dan='".$row['dan']."', uid='".$row['uid']."', username='".$row['username']."', lotteryid='".$row['lotteryid']."', lottery='".$row['lottery']."', issue='".$row['issue']."', type='".$row['type']."', mid='".$row['mid']."', mname='".$row['mname']."', codes='".$row['codes']."', pos='".$row['pos']."', nums='".$row['nums']."', times=".$row['times'].", money=".$row['money'].", mode='".$row['mode']."', rates=".$row['rates']);
+   		mysql_query("insert into ssc_tempbils set dan='".$row['dan']."', uid='".$row['uid']."', username='".$row['username']."', lotteryid='".$row['lotteryid']."', lottery='".$row['lottery']."', issue='".$row['issue']."', type='".$row['type']."', mid='".$row['mid']."', mname='".$row['mname']."', codes='".$row['codes']."', pos='".$row['pos']."', nums='".$row['nums']."', times=".$row['times'].", money=".$row['money'].", mode='".$row['mode']."', rates=".$row['rates']);
 	}
 	mysql_free_result($rs);
 		
@@ -28,7 +28,7 @@ function evaluateCode($lid, $issue, $codes) {
 	$sql="select * from ssc_bills where lotteryid='".$lid."' and issue='".$issue."' and zt=0 order by id asc";
 	$rs=mysql_query($sql) or  die("数据库修改出错0");
 	while ($row = mysql_fetch_array($rs)){
-		mysql_query("insert into ssc_tempbils dan='".$row['dan']."', uid='".$row['uid']."', username='".$row['username']."', lotteryid='".$row['lotteryid']."', lottery='".$row['lottery']."', issue='".$row['issue']."', type='".$row['type']."', mid='".$row['mid']."', mname='".$row['mname']."', codes='".$row['codes']."', pos='".$row['pos']."', nums='".$row['nums']."', times=".$row['times'].", money=".$row['money'].", mode='".$row['mode']."', rates=".$row['rates']);
+		mysql_query("insert into ssc_tempbils set dan='".$row['dan']."', uid='".$row['uid']."', username='".$row['username']."', lotteryid='".$row['lotteryid']."', lottery='".$row['lottery']."', issue='".$row['issue']."', type='".$row['type']."', mid='".$row['mid']."', mname='".$row['mname']."', codes='".$row['codes']."', pos='".$row['pos']."', nums='".$row['nums']."', times=".$row['times'].", money=".$row['money'].", mode='".$row['mode']."', rates=".$row['rates']);
 	}
 	mysql_free_result($rs);
 
