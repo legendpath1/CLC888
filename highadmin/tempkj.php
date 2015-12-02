@@ -2147,4 +2147,19 @@ function evaluateCode($lid, $issue, $codes) {
 	
 	return $ret;
 }
+
+
+function pnb($nbs){
+	$nb=explode(",",$nbs);
+	for($i=0; $i<count($nb); $i++) {
+		for($j=count($nb)-1;$j>$i;$j--) {
+			if ($nb[$j]<$nb[$j-1]) {
+				$temp0=$nb[$j];
+				$nb[$j]=$nb[$j-1];
+				$nb[$j-1] =$temp0;
+			}
+		}
+	}
+	return $nb;
+}
 ?>
