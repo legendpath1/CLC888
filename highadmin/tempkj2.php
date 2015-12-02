@@ -2,7 +2,7 @@
 require_once 'conn.php';
 
 $lid = '16';
-$issue = '151129262';
+$issue = '151201234';
 $codes = '1,2,3,4,5';
 
 //function evaluateCode($lid, $issue, $codes) {
