@@ -130,7 +130,7 @@ $codes = '1,2,3,4,5';
 			$numa=0;
 			$numb=0;
 			$strb=explode("&",$stra[0]);
-			$nb=pnb($code);
+			$nb=pnb($codes);
 			for ($i=0; $i<count($strb); $i++) {
 				if(($strb[$i]==$nb[0] && $strb[$i]==$nb[1]) || ($strb[$i]==$nb[1] && $strb[$i]==$nb[2]) || ($strb[$i]==$nb[2] && $strb[$i]==$nb[3]) || ($strb[$i]==$nb[3] && $strb[$i]==$nb[4])){$nt[$numa]=$strb[$i];$numa=$numa+1;}
 			}
@@ -178,7 +178,7 @@ $codes = '1,2,3,4,5';
 			$numa=0;
 			$numb=0;
 			$strb=explode("&",$stra[0]);
-			$nb=pnb($code);
+			$nb=pnb($codes);
 			for ($i=0; $i<count($strb); $i++) {
 				if(($strb[$i]==$nb[0] && $strb[$i]==$nb[1] && $strb[$i]==$nb[2]) || ($strb[$i]==$nb[1] && $strb[$i]==$nb[2] && $strb[$i]==$nb[3]) || ($strb[$i]==$nb[2] && $strb[$i]==$nb[3] && $strb[$i]==$nb[4])){$nt[$numa]=$strb[$i];$numa=$numa+1;}
 			}
@@ -202,7 +202,7 @@ $codes = '1,2,3,4,5';
 			$numa=0;
 			$numb=0;
 			$strb=explode("&",$stra[0]);
-			$nb=pnb($code);
+			$nb=pnb($codes);
 			for ($i=0; $i<count($strb); $i++) {
 				if(($strb[$i]==$nb[0] && $strb[$i]==$nb[1] && $strb[$i]==$nb[2]) || ($strb[$i]==$nb[1] && $strb[$i]==$nb[2] && $strb[$i]==$nb[3]) || ($strb[$i]==$nb[2] && $strb[$i]==$nb[3] && $strb[$i]==$nb[4])){$nt[$numa]=$strb[$i];$numa=$numa+1;}
 			}
@@ -226,7 +226,7 @@ $codes = '1,2,3,4,5';
 			$numa=0;
 			$numb=0;
 			$strb=explode("&",$stra[0]);
-			$nb=pnb($code);
+			$nb=pnb($codes);
 			for ($i=0; $i<count($strb); $i++) {
 				if(($strb[$i]==$nb[0] && $strb[$i]==$nb[1] && $strb[$i]==$nb[2] && $strb[$i]==$nb[3]) || ($strb[$i]==$nb[1] && $strb[$i]==$nb[2] && $strb[$i]==$nb[3] && $strb[$i]==$nb[4])){$nt[$numa]=$strb[$i];$numa=$numa+1;}
 			}
@@ -1612,7 +1612,7 @@ $codes = '1,2,3,4,5';
 		}else if($mid=="65" || $mid=="145" || $mid=="225" || $mid=="305" || $mid=="385" || $mid=="735"){//好事成双
 			$stra=explode("&",$row['codes']);
 			$numa=0;
-			$nb=pnb($code);
+			$nb=pnb($codes);
 			for ($i=0; $i<count($stra); $i++) {
 				if(($stra[$i]==$nb[0] && $stra[$i]==$nb[1]) || ($stra[$i]==$nb[1] && $stra[$i]==$nb[2]) || ($stra[$i]==$nb[2] && $stra[$i]==$nb[3]) || ($stra[$i]==$nb[3] && $stra[$i]==$nb[4])){$numa=$numa+1;}
 			}
@@ -1624,7 +1624,7 @@ $codes = '1,2,3,4,5';
 		}else if($mid=="66" || $mid=="146" || $mid=="226" || $mid=="306" || $mid=="386" || $mid=="736"){//三星报喜
 			$stra=explode("&",$row['codes']);
 			$numa=0;
-			$nb=pnb($code);
+			$nb=pnb($codes);
 			for ($i=0; $i<count($stra); $i++) {
 				if(($stra[$i]==$nb[0] && $stra[$i]==$nb[1] && $stra[$i]==$nb[2]) || ($stra[$i]==$nb[1] && $stra[$i]==$nb[2] && $stra[$i]==$nb[3]) || ($stra[$i]==$nb[2] && $stra[$i]==$nb[3] && $stra[$i]==$nb[4])){$numa=$numa+1;}
 			}
@@ -1636,7 +1636,7 @@ $codes = '1,2,3,4,5';
 		}else if($mid=="67" || $mid=="147" || $mid=="227" || $mid=="307" || $mid=="387" || $mid=="737"){//四季发财
 			$stra=explode("&",$row['codes']);
 			$numa=0;
-			$nb=pnb($code);
+			$nb=pnb($codes);
 			for ($i=0; $i<count($stra); $i++) {
 				if(($stra[$i]==$nb[0] && $stra[$i]==$nb[1] && $stra[$i]==$nb[2] && $stra[$i]==$nb[3]) || ($stra[$i]==$nb[1] && $stra[$i]==$nb[2] && $stra[$i]==$nb[3] && $stra[$i]==$nb[4])){$numa=$numa+1;}
 			}
@@ -1648,7 +1648,7 @@ $codes = '1,2,3,4,5';
 		}else if($mid=="69" || $mid=="149" || $mid=="229" || $mid=="309" || $mid=="389" || $mid=="739"){//五星胆码
 			$numa=0;
 			$numb=0;
-			$nb=pnb($code);
+			$nb=pnb($codes);
 			$stra=explode("|",$row['codes']);
 			$nums=$na[0]+$na[1]+$na[2]+$na[3]+$na[4];
 
