@@ -138,8 +138,12 @@ if($lotteryid!="" && $lotteryid!="0"){
 }else{
 	$lotteryid=0;
 }
-if($methodid!="" && $methodid!="0"){
-	$s1=$s1." and mid='".$methodid."'";
+if($methodid!="" && $methodid[0]!="0"){
+	$s1=$s1." and (mid='".$methodid[0]."'";
+	for ($i = 1; $i < count($methodid); $i++) {
+		$s1=$s1." or mid='".$methodid[$i]."'";
+	}
+	$s1=$s1.")";
 }else{
 	$methodid=0;
 }
@@ -552,7 +556,7 @@ function stopOnClick() {
             <option value="17" <?php if($lotteryid==17){echo "SELECTED";}?>>如意五分彩</option>
           </select>
 &nbsp;游戏玩法:
-          <select name='methodid' id='methodid' style='width:100px;'>
+          <select name='methodid[]' id='methodid' style='width:100px;'>
           <option value='0' selected="selected">所有玩法</option>
         </select>
           &nbsp;注单编号:
