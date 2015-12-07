@@ -31,7 +31,7 @@ if(empty($rowa)){
 		$tn5=rand(0,9);
 		
 		$codes=$tn1.",".$tn2.",".$tn3.",".$tn4.",".$tn5;
-		if ($count <= 20) {
+		if ($count++ <= 20) {
 			$limit = $limit + 0.001;
 		} else {
 			$limit = $limit + 0.05;
@@ -46,7 +46,7 @@ if(empty($rowa)){
 	$exe=mysql_query($sql) or  die("数据库修改出错!!!!".mysql_error());
 
 //	echo "vvv".$cals[$tn3];
-	echo "如意分分彩 第".$tissue."期 开奖号码：".$codes;
+	echo "如意分分彩 第".$tissue."期 开奖号码：".$codes.", after ".$count." calculations";
 }else{
 echo "kkk".$tissue;
 }
