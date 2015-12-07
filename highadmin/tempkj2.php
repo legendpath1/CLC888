@@ -4,6 +4,7 @@ require_once 'conn.php';
 $lid = '16';
 $issue = '151201234';
 $codes = '1,2,3,4,5';
+$limit = 0.95;
 
 //function evaluateCode($lid, $issue, $codes) {
 	$signa=1;
@@ -2148,7 +2149,7 @@ $codes = '1,2,3,4,5';
 	$rs=mysql_query($sql) or  die("数据库修改出错1");
 	$row=mysql_fetch_array($rs);
 	echo "prize = ".$row['sumprize']."; money = ".$row['summoney'].";</br>";
-	if ($row['sumprize'] <= $row['summoney'] * 0.95) {
+	if ($row['sumprize'] <= $row['summoney'] * $limit) {
 		$ret = true;
 		echo "We are good, return true!</br>";
 	} else {
