@@ -19,7 +19,7 @@ $sqla="select * from ssc_data2 where cid='16' and issue='".$tissue."'";
 $rsa=mysql_query($sqla) or  die("数据库修改出错3".mysql_error());
 $rowa = mysql_fetch_array($rsa);
 $count = 0;
-$limit = 0.95
+$limit = 0.95;
 if(empty($rowa)){
 //	echo "a";
 
