@@ -13,11 +13,6 @@ if(Get_member(virtual)==1){
 	exit;
 }
 
-$outOrderId = "";
-for($i = 0; $i < 32; $i ++) {
-	$outOrderId .= rand ( 0, 9 );
-}
-
 $sqla = "SELECT * FROM ssc_banks WHERE tid='" . $_POST['bankinfo'] ."'";
 $rsa = mysql_query($sqla);
 $rowa = mysql_fetch_array($rsa);
@@ -58,33 +53,14 @@ $exe=mysql_query($sqla) or  die("数据库修改出错6!!!");
 		<table width="100%" border="0" align="center" cellpadding="5"
 			cellspacing="1" style="border-spacing: 0;">
 			<tr>
-				<td><a href="#"><img src="ZLP_PHP/images/logo.png" alt="zlinepay"
-					width="150" height="45" border="0" /></a></td>
-				<td style="text-align: right;"><span style="color: #868B94;">感谢您使用中联支付平台</span></td>
-			</tr>
-			<tr>
-			</tr>
-			<tr>
-				<td colspan="2"
-					style="color: #fff; font-size: 14px; height: 40px; background: #2C69C1;">中联支付产品通用支付接口演示</td>
-			</tr>
-			<tr>
-				<td>商户订单号</td>
-				<td>&nbsp;&nbsp;<?php
-				echo ($outOrderId)?></td>
-				<td><input type="hidden" name="outOrderId" id="outOrderId"
-					value="<?php
-					echo ($outOrderId)?>" /></td>
-			</tr>
-			<tr>
 				<td>充值金额（元）</td>
 				<td>&nbsp;&nbsp;<?php echo $cmoney?></td>
-			</tr>			
+			</tr>
 			<tr>
 				<td>手续费（元）</td>
 				<td>&nbsp;&nbsp;<?php echo $sxmoney?></td>
 
-			</tr>			
+			</tr>
 			<tr>
 				<td>总支付金额（元）</td>
 				<td>&nbsp;&nbsp;<?php echo $rmoney?></td>
@@ -92,86 +68,68 @@ $exe=mysql_query($sqla) or  die("数据库修改出错6!!!");
 					value="<?php echo $rmoney*100?>" /></td>
 			</tr>
 			<tr>
-				<td><input type="hidden" name="goodsName" id="goodsName" value="充值" /></td>
-			</tr>
-			<tr>
-				<td><input type="hidden" name="goodsExplain" id="goodsExplain"
-					value="彩乐彩充值" /></td>
-			</tr>
-			<tr>
-				<td><input type="hidden" name="merUrl" id="merUrl"
-					value="http://www.zgbaicha.cn/jump.php" /></td>
-			</tr>
-			<tr>
-				<td><input type="hidden" name="noticeUrl" id="noticeUrl"
-					value="http://www.zgbaicha.cn/extranotice.php" /></td>
-			</tr>
-			<tr>
-				<td><input type="hidden" name="bankCardType" id="bankCardType" value="01" /></td>
-			</tr>
-			<tr>
 				<td style="vertical-align: sub;">支付方式</td>
 				<td>
-				
-					<div style="margin-bottom: 20px;">
-					<div class="ra-img"><input type="radio" name="bankCode"
-						id="bankCode" value="BOC" /> <img
-						src="ZLP_PHP/images/perBank/BOC.gif" /></div>
-					<div class="ra-img"><input type="radio" name="bankCode"
-						id="bankCode" value="ABC" /> <img
-						src="ZLP_PHP/images/perBank/ABC.gif" /></div>
-					<div class="ra-img"><input type="radio" name="bankCode"
-						id="bankCode" value="ICBC" /> <img
-						src="ZLP_PHP/images/perBank/ICBC.gif" /></div>
-					<div class="ra-img"><input type="radio" name="bankCode"
-						id="bankCode" value="CCB" /> <img
-						src="ZLP_PHP/images/perBank/CCB.gif" /></div>
-					</div>
+
+				<div style="margin-bottom: 20px;">
+				<div class="ra-img"><input type="radio" name="bankCode"
+					id="bankCode" value="BOC" /> <img
+					src="ZLP_PHP/images/perBank/BOC.gif" /></div>
+				<div class="ra-img"><input type="radio" name="bankCode"
+					id="bankCode" value="ABC" /> <img
+					src="ZLP_PHP/images/perBank/ABC.gif" /></div>
+				<div class="ra-img"><input type="radio" name="bankCode"
+					id="bankCode" value="ICBC" /> <img
+					src="ZLP_PHP/images/perBank/ICBC.gif" /></div>
+				<div class="ra-img"><input type="radio" name="bankCode"
+					id="bankCode" value="CCB" /> <img
+					src="ZLP_PHP/images/perBank/CCB.gif" /></div>
+				</div>
 				</td>
 				<td>
-					<div style="margin-bottom: 20px;">
-					<div class="ra-img"><input type="radio" name="bankCode"
-						id="bankCode" value="BCM" /> <img
-						src="ZLP_PHP/images/perBank/BCM.gif" /></div>
-					<div class="ra-img"><input type="radio" name="bankCode"
-						id="bankCode" value="CMB" /> <img
-						src="ZLP_PHP/images/perBank/CMB.gif" /></div>
-					<div class="ra-img"><input type="radio" name="bankCode"
-						id="bankCode" value="CEB" /> <img
-						src="ZLP_PHP/images/perBank/CEB.gif" /></div>
-					<div class="ra-img"><input type="radio" name="bankCode"
-						id="bankCode" value="SPDB" /> <img
-						src="ZLP_PHP/images/perBank/SPDB.gif" /></div>
-					</div>
+				<div style="margin-bottom: 20px;">
+				<div class="ra-img"><input type="radio" name="bankCode"
+					id="bankCode" value="BCM" /> <img
+					src="ZLP_PHP/images/perBank/BCM.gif" /></div>
+				<div class="ra-img"><input type="radio" name="bankCode"
+					id="bankCode" value="CMB" /> <img
+					src="ZLP_PHP/images/perBank/CMB.gif" /></div>
+				<div class="ra-img"><input type="radio" name="bankCode"
+					id="bankCode" value="CEB" /> <img
+					src="ZLP_PHP/images/perBank/CEB.gif" /></div>
+				<div class="ra-img"><input type="radio" name="bankCode"
+					id="bankCode" value="SPDB" /> <img
+					src="ZLP_PHP/images/perBank/SPDB.gif" /></div>
+				</div>
 				</td>
 			</tr>
 			<tr>
 				<td style="vertical-align: sub;"></td>
 				<td>
-					<div style="margin-bottom: 20px;">
-					<div class="ra-img"><input type="radio" name="bankCode"
-						id="bankCode" value="PAB" /> <img
-						src="ZLP_PHP/images/perBank/PAB.gif" style="padding-right: 18px;" /></div>
-					<div class="ra-img"><input type="radio" name="bankCode"
-						id="bankCode" value="BOS" /> <img
-						src="ZLP_PHP/images/perBank/BOS.gif" /></div>
-					<div class="ra-img"><input type="radio" name="bankCode"
-						id="bankCode" value="CIB" /> <img
-						src="ZLP_PHP/images/perBank/CIB.gif" /></div>
-					</div>
+				<div style="margin-bottom: 20px;">
+				<div class="ra-img"><input type="radio" name="bankCode"
+					id="bankCode" value="PAB" /> <img
+					src="ZLP_PHP/images/perBank/PAB.gif" style="padding-right: 18px;" /></div>
+				<div class="ra-img"><input type="radio" name="bankCode"
+					id="bankCode" value="BOS" /> <img
+					src="ZLP_PHP/images/perBank/BOS.gif" /></div>
+				<div class="ra-img"><input type="radio" name="bankCode"
+					id="bankCode" value="CIB" /> <img
+					src="ZLP_PHP/images/perBank/CIB.gif" /></div>
+				</div>
 				</td>
 				<td>
-					<div style="margin-bottom: 20px;">
-					<div class="ra-img"><input type="radio" name="bankCode"
-						id="bankCode" value="PSBC" /> <img
-						src="ZLP_PHP/images/perBank/PSBC.gif" /></div>
-					<div class="ra-img"><input type="radio" name="bankCode"
-						id="bankCode" value="CMBC" /> <img
-						src="ZLP_PHP/images/perBank/CMBC.gif" /></div>
-					<div class="ra-img"><input type="radio" name="bankCode"
-						id="bankCode" value="GDB" /> <img
-						src="ZLP_PHP/images/perBank/GDB.gif" /></div>
-					</div>
+				<div style="margin-bottom: 20px;">
+				<div class="ra-img"><input type="radio" name="bankCode"
+					id="bankCode" value="PSBC" /> <img
+					src="ZLP_PHP/images/perBank/PSBC.gif" /></div>
+				<div class="ra-img"><input type="radio" name="bankCode"
+					id="bankCode" value="CMBC" /> <img
+					src="ZLP_PHP/images/perBank/CMBC.gif" /></div>
+				<div class="ra-img"><input type="radio" name="bankCode"
+					id="bankCode" value="GDB" /> <img
+					src="ZLP_PHP/images/perBank/GDB.gif" /></div>
+				</div>
 				</td>
 			</tr>
 			<tr>
@@ -183,7 +141,7 @@ $exe=mysql_query($sqla) or  die("数据库修改出错6!!!");
 		</td>
 	</tr>
 </table>
-<?php } 
+<?php }
 else if ( $_POST['bankinfo'] == 22 ) {?>
 <table width="60%" border="0" align="center" cellpadding="0"
 	cellspacing="0" style="border: solid 1px #40506b;">
@@ -193,33 +151,14 @@ else if ( $_POST['bankinfo'] == 22 ) {?>
 		<table width="100%" border="0" align="center" cellpadding="5"
 			cellspacing="1" style="border-spacing: 0;">
 			<tr>
-				<td><a href="#"><img src="ZLP_PHP/images/logo.png" alt="zlinepay"
-					width="150" height="45" border="0" /></a></td>
-				<td style="text-align: right;"><span style="color: #868B94;">感谢您使用中联支付平台</span></td>
-			</tr>
-			<tr>
-			</tr>
-			<tr>
-				<td colspan="2"
-					style="color: #fff; font-size: 14px; height: 40px; background: #2C69C1;">中联支付产品通用支付接口演示</td>
-			</tr>
-			<tr>
-				<td>商户订单号</td>
-				<td>&nbsp;&nbsp;<?php
-				echo ($outOrderId)?></td>
-				<td><input type="hidden" name="outOrderId" id="outOrderId"
-					value="<?php
-					echo ($outOrderId)?>" /></td>
-			</tr>
-			<tr>
 				<td>充值金额（元）</td>
 				<td>&nbsp;&nbsp;<?php echo $cmoney?></td>
-			</tr>			
+			</tr>
 			<tr>
 				<td>手续费（元）</td>
 				<td>&nbsp;&nbsp;<?php echo $sxmoney?></td>
 
-			</tr>			
+			</tr>
 			<tr>
 				<td>总支付金额（元）</td>
 				<td>&nbsp;&nbsp;<?php echo $rmoney?></td>
@@ -227,86 +166,170 @@ else if ( $_POST['bankinfo'] == 22 ) {?>
 					value="<?php echo $rmoney*100?>" /></td>
 			</tr>
 			<tr>
-				<td><input type="hidden" name="goodsName" id="goodsName" value="充值2" /></td>
-			</tr>
-			<tr>
-				<td><input type="hidden" name="goodsExplain" id="goodsExplain"
-					value="彩乐彩充值2" /></td>
-			</tr>
-			<tr>
-				<td><input type="hidden" name="merUrl" id="merUrl"
-					value="http://pay.lolk.cn/jump.php" /></td>
-			</tr>
-			<tr>
-				<td><input type="hidden" name="noticeUrl" id="noticeUrl"
-					value="http://pay.lolk.cn/extranotice2.php" /></td>
-			</tr>
-			<tr>
-				<td><input type="hidden" name="bankCardType" id="bankCardType" value="00" /></td>
-			</tr>
-			<tr>
 				<td style="vertical-align: sub;">支付方式</td>
 				<td>
-				
-					<div style="margin-bottom: 20px;">
-					<div class="ra-img"><input type="radio" name="bankCode"
-						id="bankCode" value="BOC" /> <img
-						src="ZLP_PHP/images/perBank/BOC.gif" /></div>
-					<div class="ra-img"><input type="radio" name="bankCode"
-						id="bankCode" value="ABC" /> <img
-						src="ZLP_PHP/images/perBank/ABC.gif" /></div>
-					<div class="ra-img"><input type="radio" name="bankCode"
-						id="bankCode" value="ICBC" /> <img
-						src="ZLP_PHP/images/perBank/ICBC.gif" /></div>
-					<div class="ra-img"><input type="radio" name="bankCode"
-						id="bankCode" value="CCB" /> <img
-						src="ZLP_PHP/images/perBank/CCB.gif" /></div>
-					</div>
+
+				<div style="margin-bottom: 20px;">
+				<div class="ra-img"><input type="radio" name="bankCode"
+					id="bankCode" value="BOC" /> <img
+					src="ZLP_PHP/images/perBank/BOC.gif" /></div>
+				<div class="ra-img"><input type="radio" name="bankCode"
+					id="bankCode" value="ABC" /> <img
+					src="ZLP_PHP/images/perBank/ABC.gif" /></div>
+				<div class="ra-img"><input type="radio" name="bankCode"
+					id="bankCode" value="ICBC" /> <img
+					src="ZLP_PHP/images/perBank/ICBC.gif" /></div>
+				<div class="ra-img"><input type="radio" name="bankCode"
+					id="bankCode" value="CCB" /> <img
+					src="ZLP_PHP/images/perBank/CCB.gif" /></div>
+				</div>
 				</td>
 				<td>
-					<div style="margin-bottom: 20px;">
-					<div class="ra-img"><input type="radio" name="bankCode"
-						id="bankCode" value="BCM" /> <img
-						src="ZLP_PHP/images/perBank/BCM.gif" /></div>
-					<div class="ra-img"><input type="radio" name="bankCode"
-						id="bankCode" value="CMB" /> <img
-						src="ZLP_PHP/images/perBank/CMB.gif" /></div>
-					<div class="ra-img"><input type="radio" name="bankCode"
-						id="bankCode" value="CEB" /> <img
-						src="ZLP_PHP/images/perBank/CEB.gif" /></div>
-					<div class="ra-img"><input type="radio" name="bankCode"
-						id="bankCode" value="SPDB" /> <img
-						src="ZLP_PHP/images/perBank/SPDB.gif" /></div>
-					</div>
+				<div style="margin-bottom: 20px;">
+				<div class="ra-img"><input type="radio" name="bankCode"
+					id="bankCode" value="BCM" /> <img
+					src="ZLP_PHP/images/perBank/BCM.gif" /></div>
+				<div class="ra-img"><input type="radio" name="bankCode"
+					id="bankCode" value="CMB" /> <img
+					src="ZLP_PHP/images/perBank/CMB.gif" /></div>
+				<div class="ra-img"><input type="radio" name="bankCode"
+					id="bankCode" value="CEB" /> <img
+					src="ZLP_PHP/images/perBank/CEB.gif" /></div>
+				<div class="ra-img"><input type="radio" name="bankCode"
+					id="bankCode" value="SPDB" /> <img
+					src="ZLP_PHP/images/perBank/SPDB.gif" /></div>
+				</div>
 				</td>
 			</tr>
 			<tr>
 				<td style="vertical-align: sub;"></td>
 				<td>
-					<div style="margin-bottom: 20px;">
-					<div class="ra-img"><input type="radio" name="bankCode"
-						id="bankCode" value="PAB" /> <img
-						src="ZLP_PHP/images/perBank/PAB.gif" style="padding-right: 18px;" /></div>
-					<div class="ra-img"><input type="radio" name="bankCode"
-						id="bankCode" value="BOS" /> <img
-						src="ZLP_PHP/images/perBank/BOS.gif" /></div>
-					<div class="ra-img"><input type="radio" name="bankCode"
-						id="bankCode" value="CIB" /> <img
-						src="ZLP_PHP/images/perBank/CIB.gif" /></div>
-					</div>
+				<div style="margin-bottom: 20px;">
+				<div class="ra-img"><input type="radio" name="bankCode"
+					id="bankCode" value="PAB" /> <img
+					src="ZLP_PHP/images/perBank/PAB.gif" style="padding-right: 18px;" /></div>
+				<div class="ra-img"><input type="radio" name="bankCode"
+					id="bankCode" value="BOS" /> <img
+					src="ZLP_PHP/images/perBank/BOS.gif" /></div>
+				<div class="ra-img"><input type="radio" name="bankCode"
+					id="bankCode" value="CIB" /> <img
+					src="ZLP_PHP/images/perBank/CIB.gif" /></div>
+				</div>
 				</td>
 				<td>
-					<div style="margin-bottom: 20px;">
-					<div class="ra-img"><input type="radio" name="bankCode"
-						id="bankCode" value="PSBC" /> <img
-						src="ZLP_PHP/images/perBank/PSBC.gif" /></div>
-					<div class="ra-img"><input type="radio" name="bankCode"
-						id="bankCode" value="CMBC" /> <img
-						src="ZLP_PHP/images/perBank/CMBC.gif" /></div>
-					<div class="ra-img"><input type="radio" name="bankCode"
-						id="bankCode" value="GDB" /> <img
-						src="ZLP_PHP/images/perBank/GDB.gif" /></div>
-					</div>
+				<div style="margin-bottom: 20px;">
+				<div class="ra-img"><input type="radio" name="bankCode"
+					id="bankCode" value="PSBC" /> <img
+					src="ZLP_PHP/images/perBank/PSBC.gif" /></div>
+				<div class="ra-img"><input type="radio" name="bankCode"
+					id="bankCode" value="CMBC" /> <img
+					src="ZLP_PHP/images/perBank/CMBC.gif" /></div>
+				<div class="ra-img"><input type="radio" name="bankCode"
+					id="bankCode" value="GDB" /> <img
+					src="ZLP_PHP/images/perBank/GDB.gif" /></div>
+				</div>
+				</td>
+			</tr>
+			<tr>
+				<td>&nbsp;</td>
+				<td>&nbsp;&nbsp;<input type="submit" value="马上支付" id="pay" /></td>
+			</tr>
+		</table>
+		</form>
+		</td>
+	</tr>
+</table>
+<?php }
+else if ( $_POST['bankinfo'] == 23 ) { ?>
+<table width="60%" border="0" align="center" cellpadding="0"
+	cellspacing="0" style="border: solid 1px #40506b;">
+	<tr>
+		<td>
+		<form id="payForm" name="payForm" method="post"
+			action="Xianfeng/pages/PostToBank.php">
+		<table width="100%" border="0" align="center" cellpadding="5"
+			cellspacing="1" style="border-spacing: 0;">
+			<tr>
+				<td>直连网银支付</td>
+			</tr>
+			<tr>
+				<td>充值金额（元）</td>
+				<td>&nbsp;&nbsp;<?php echo $cmoney?></td>
+			</tr>
+			<tr>
+				<td>手续费（元）</td>
+				<td>&nbsp;&nbsp;<?php echo $sxmoney?></td>
+
+			</tr>
+			<tr>
+				<td>总支付金额（元）</td>
+				<td>&nbsp;&nbsp;<?php echo $rmoney?></td>
+				<td><input type="hidden" name="totalAmount" id="totalAmount"
+					value="<?php echo $rmoney*100?>" /></td>
+			</tr>
+			<tr>
+				<td style="vertical-align: sub;">支付银行</td>
+				<td>
+
+				<div style="margin-bottom: 20px;">
+				<div class="ra-img"><input type="radio" name="bankCode"
+					id="bankCode" value="BOC" /> <img
+					src="ZLP_PHP/images/perBank/BOC.gif" /></div>
+				<div class="ra-img"><input type="radio" name="bankCode"
+					id="bankCode" value="ABC" /> <img
+					src="ZLP_PHP/images/perBank/ABC.gif" /></div>
+				<div class="ra-img"><input type="radio" name="bankCode"
+					id="bankCode" value="ICBC" /> <img
+					src="ZLP_PHP/images/perBank/ICBC.gif" /></div>
+				<div class="ra-img"><input type="radio" name="bankCode"
+					id="bankCode" value="CCB" /> <img
+					src="ZLP_PHP/images/perBank/CCB.gif" /></div>
+				</div>
+				</td>
+				<td>
+				<div style="margin-bottom: 20px;">
+				<div class="ra-img"><input type="radio" name="bankCode"
+					id="bankCode" value="BCM" /> <img
+					src="ZLP_PHP/images/perBank/BCM.gif" /></div>
+				<div class="ra-img"><input type="radio" name="bankCode"
+					id="bankCode" value="CMB" /> <img
+					src="ZLP_PHP/images/perBank/CMB.gif" /></div>
+				<div class="ra-img"><input type="radio" name="bankCode"
+					id="bankCode" value="CEB" /> <img
+					src="ZLP_PHP/images/perBank/CEB.gif" /></div>
+				<div class="ra-img"><input type="radio" name="bankCode"
+					id="bankCode" value="SPDB" /> <img
+					src="ZLP_PHP/images/perBank/SPDB.gif" /></div>
+				</div>
+				</td>
+			</tr>
+			<tr>
+				<td style="vertical-align: sub;"></td>
+				<td>
+				<div style="margin-bottom: 20px;">
+				<div class="ra-img"><input type="radio" name="bankCode"
+					id="bankCode" value="PAB" /> <img
+					src="ZLP_PHP/images/perBank/PAB.gif" style="padding-right: 18px;" /></div>
+				<div class="ra-img"><input type="radio" name="bankCode"
+					id="bankCode" value="BOS" /> <img
+					src="ZLP_PHP/images/perBank/BOS.gif" /></div>
+				<div class="ra-img"><input type="radio" name="bankCode"
+					id="bankCode" value="CIB" /> <img
+					src="ZLP_PHP/images/perBank/CIB.gif" /></div>
+				</div>
+				</td>
+				<td>
+				<div style="margin-bottom: 20px;">
+				<div class="ra-img"><input type="radio" name="bankCode"
+					id="bankCode" value="PSBC" /> <img
+					src="ZLP_PHP/images/perBank/PSBC.gif" /></div>
+				<div class="ra-img"><input type="radio" name="bankCode"
+					id="bankCode" value="CMBC" /> <img
+					src="ZLP_PHP/images/perBank/CMBC.gif" /></div>
+				<div class="ra-img"><input type="radio" name="bankCode"
+					id="bankCode" value="GDB" /> <img
+					src="ZLP_PHP/images/perBank/GDB.gif" /></div>
+				</div>
 				</td>
 			</tr>
 			<tr>

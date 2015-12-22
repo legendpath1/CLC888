@@ -6,41 +6,55 @@
 <meta name="keywords" content="" />
 <link href="css/yeepaytest.css" type="text/css" rel="stylesheet" />
 </head>
-<?php 
-	include 'Config.php';
-	include 'Sign.php';
-	
-	$outOrderId = $_POST['outOrderId'];
-	$totalAmount = $_POST['totalAmount'];
-	// 蛋蛋的忧伤 转成东八区时间 
-	$orderCreateTime = date("YmdHis", time() + 3600 * 8);
-	// 设置定的最晚支付时间为当前时间后延一天
-	$lastPayTime = date("YmdHis", strtotime("+1 days")+3600 * 8 );
+<?php
+include 'Config.php';
+include 'Sign.php';
+
+$totalAmount = $_POST['totalAmount'];
+// 蛋蛋的忧伤 转成东八区时间
+$orderCreateTime = date("YmdHis", time() + 3600 * 8);
+// 设置定的最晚支付时间为当前时间后延一天
+$lastPayTime = date("YmdHis", strtotime("+1 days")+3600 * 8 );
+
+$outOrderId = "";
+for($i = 0; $i < 32; $i ++) {
+	$outOrderId .= rand ( 0, 9 );
+}
 ?>
 <body onload="document.zlinepay.submit();" class="center">
-	<form  type="hidden" name='zlinepay' action='<?php echo($payUrl) ?>' method='post' />
-		<input type='hidden' name='merchantCode' value='<?php echo($merchantCode) ?>' />
-		<input type='hidden' name='outOrderId' value='<?php echo($outOrderId) ?>' />
-		<input type='hidden' name='totalAmount' value='<?php echo($totalAmount) ?>' />
-		<input type='hidden' name='goodsName'	value='<?php echo($_POST['goodsName']) ?>' />
-		<input type='hidden' name='goodsExplain' value='<?php echo($_POST['goodsExplain']) ?>' />
-		<input type='hidden' name='orderCreateTime' value='<?php echo($orderCreateTime) ?>' />
-		<input type='hidden' name='lastPayTime' value='<?php echo($lastPayTime) ?>' />
-	
-		<input type='hidden' name='merUrl' value='<?php echo($_POST['merUrl']) ?>' />
-		<input type='hidden' name='noticeUrl' value='<?php echo($_POST['noticeUrl']) ?>' />
-		<input type='hidden' name='bankCode' value='<?php echo($_POST['bankCode']) ?>' />
-		<input type='hidden' name='bankCardType' value='<?php echo($_POST['bankCardType']) ?>' />
-		<?php 
-			$s = new Sign();
-			// 参与签名字段
-			$sign_fields = Array("merchantCode", "outOrderId", "totalAmount", "orderCreateTime", "lastPayTime");
-			$map = Array("merchantCode"=>$merchantCode, "outOrderId"=>$outOrderId, "totalAmount"=>$totalAmount, "orderCreateTime"=>$orderCreateTime, "lastPayTime"=>$lastPayTime);
-			$sign = $s->sign_mac($sign_fields, $map, $md5Key);
-			// 将小写字母转成大写字母
-			$sign = strtoupper($sign);
-		?>
-		<input type='hidden' name='sign' value='<?php echo($sign) ?>' />
-	</form>
+<form type="hidden" name='zlinepay' action='<?php echo($payUrl) ?>'
+	method='post' />
+<input type='hidden' name='merchantCode'
+	value='<?php echo($merchantCode) ?>' />
+<input type='hidden' name='outOrderId'
+	value='<?php echo($outOrderId) ?>' />
+<input type='hidden' name='totalAmount'
+	value='<?php echo($totalAmount) ?>' />
+<input type='hidden' name='goodsName' value='充值 ' />
+<input type='hidden' name='goodsExplain' value='彩乐彩充值' />
+<input type='hidden' name='orderCreateTime'
+	value='<?php echo($orderCreateTime) ?>' />
+<input type='hidden' name='lastPayTime'
+	value='<?php echo($lastPayTime) ?>' />
+
+<input type='hidden' name='merUrl'
+	value='http://pay.lolk.cn/jump.php' />
+<input type='hidden' name='noticeUrl'
+	value='http://pay.lolk.cn/extranotice2.php' />
+<input type='hidden' name='bankCode'
+	value='<?php echo($_POST['bankCode']) ?>' />
+<input type='hidden' name='bankCardType'
+	value='00' />
+<?php
+$s = new Sign();
+// 参与签名字段
+$sign_fields = Array("merchantCode", "outOrderId", "totalAmount", "orderCreateTime", "lastPayTime");
+$map = Array("merchantCode"=>$merchantCode, "outOrderId"=>$outOrderId, "totalAmount"=>$totalAmount, "orderCreateTime"=>$orderCreateTime, "lastPayTime"=>$lastPayTime);
+$sign = $s->sign_mac($sign_fields, $map, $md5Key);
+// 将小写字母转成大写字母
+$sign = strtoupper($sign);
+?>
+<input type='hidden' name='sign' value='<?php echo($sign) ?>' />
+</form>
 </body>
 </html>
