@@ -70,9 +70,12 @@
 		}elseif($strb->mode==1){
 			$modes=1;
 			$mode="元";
-		}else{
+		}elseif($strb->mode==3){
 			$modes=0.01;
 			$mode="分";
+		}else{
+			$modes=0.001;
+			$mode="厘";
 		}
 		
 
