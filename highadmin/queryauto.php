@@ -11,8 +11,9 @@
 <iframe name=frmUserLongin src=autokj.php frameborder=0  height=10 width=800 scrolling=no></iframe>
 <iframe name=frmUserLongin src=autokj2.php frameborder=0  height=10 width=800 scrolling=no></iframe>
 
-<!-- <iframe name=frmUserLongin src=query16.php frameborder=0  height=60 width=800 scrolling=no></iframe>-->
+<iframe name=frmUserLongin src=query16.php frameborder=0  height=60 width=800 scrolling=no></iframe>
 <iframe name=frmUserLongin src=query17.php frameborder=0  height=60 width=800 scrolling=no></iframe>
+<iframe name=frmUserLongin src=query18.php frameborder=0  height=60 width=800 scrolling=no></iframe>
 <iframe name=frmUserLongin src=query1c.php frameborder=0  height=60 width=800 scrolling=no></iframe>
 <iframe name=frmUserLongin src=query2c.php frameborder=0  height=60 width=800 scrolling=no></iframe>
 <!--<iframe name=frmUserLongin src=query3c.php frameborder=0  height=60 width=800 scrolling=no></iframe>-->
