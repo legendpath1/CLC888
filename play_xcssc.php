@@ -44,8 +44,8 @@ if($nums==0){
 $rows = mysql_fetch_array($rss);
 //$salenums=intval($rows['nums'])-1;
 //$leftnums=120-$salenums;
-$salenums=216;
-$leftnums=216;
+$salenums=120;
+$leftnums=120;
 $issue=$dymd.$rows['nums'];
 $opentime=$dymd2." ".$rows['opentime'];
 $endtime=$dymd2." ".$rows['endtime'];
@@ -143,7 +143,7 @@ if($flag=="gettime"){
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <title>娱乐平台  - 开始游戏[快乐五分彩]</title>
+        <title>娱乐平台  - 开始游戏[星城时时彩]</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <meta http-equiv="Pragma" content="no-cache" />
         <link href="./css/v1/play.css?modidate=20130201001" rel="stylesheet" type="text/css" />
@@ -281,7 +281,7 @@ if($flag=="gettime"){
                     <div class="gm_con">
                         <div class="gm_con_tonew">
                             <div class="gct_l">
-                                <h3>快乐五分彩</h3>
+                                <h3>星城时时彩</h3>
                                 <p class="gct_now">正在销售 <strong>第 <span id="current_issue"><?=$issue?></span> 期</strong> 总共: <strong><span id="current_sale">216</span></strong> 期</span></p>
                                 <div class="clear"></div>
                                 <div class="gct_time">
@@ -295,7 +295,7 @@ if($flag=="gettime"){
                                 </div>
                             </div>
                             <div class="gct_r1" id="gctr">
-                                <h3>快乐五分彩  第 <b><span class=nn id="lt_gethistorycode"><?=$rowc['issue']?></span></b> 期 <span id="lt_opentimebox" style="display:none;">&nbsp;&nbsp;<span id="waitopendesc">等待开奖</span>&nbsp;<span style="color:#F9CE46;" id="lt_opentimeleft" ></span></span><span id="lt_opentimebox2" style="display:none; color:#F9CE46;"><strong>&nbsp;&nbsp;正在开奖</strong></span></h3>
+                                <h3>星城时时彩  第 <b><span class=nn id="lt_gethistorycode"><?=$rowc['issue']?></span></b> 期 <span id="lt_opentimebox" style="display:none;">&nbsp;&nbsp;<span id="waitopendesc">等待开奖</span>&nbsp;<span style="color:#F9CE46;" id="lt_opentimeleft" ></span></span><span id="lt_opentimebox2" style="display:none; color:#F9CE46;"><strong>&nbsp;&nbsp;正在开奖</strong></span></h3>
                                 <div style="display:none;" class="tad" id="showadvbox"><a href="#"><img src='./images/company.gif' border="0" /></a></div>
                                 <div class="gct_r_nub" id="showcodebox">
                                     <div class="gr_s gr_s<?php if($lstatus==2){echo $na[0];}else{echo "k";}?>" flag="normal"></div>
