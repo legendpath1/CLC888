@@ -11,10 +11,10 @@ $lottery="星城时时彩";
 
 $stoptime = " 02:00:00";
 $starttime = " 08:00:00";
-if(time()>strtotime(date(date("Y-m-d").$stoptime)) && time()<strtotime(date(date("Y-m-d").$starttime))) {
-	echo "<script language=javascript>alert('该彩种于".$stoptime." 至".$starttime." 期间暂停销售');window.location='./help_security.php';</script>";
-	exit;
-}
+//if(time()>strtotime(date(date("Y-m-d").$stoptime)) && time()<strtotime(date(date("Y-m-d").$starttime))) {
+//	echo "<script language=javascript>alert('该彩种于".$stoptime." 至".$starttime." 期间暂停销售');window.location='./help_security.php';</script>";
+//	exit;
+//}
 
 $hstr="<table cellpadding=0 cellspacing=0 class=drawinfos><tr class=drawinfo><td width=180 class=drawinfo>期号</td><td width=202 class=drawinfo>开奖号码</td><td width=60><a href='./history_coded.php?id=18&frequencytype=0' target=_blank>更多号码</a></td></tr>";
 
